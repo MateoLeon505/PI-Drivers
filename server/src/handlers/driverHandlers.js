@@ -1,0 +1,60 @@
+// Handlers: Este módulo tiene la responsabilidad de manejar las solicitudes y rutas
+//-------------------------------------
+// Importación de controllers
+const { getAllDrivers } = require('../controllers/getAllDrivers');
+const { getDriverByName } = require('../controllers/getDriverByName');
+const { getDriverById } = require('../controllers/getDriverById');
+const { getTeams } = require('../controllers/getTeams');
+//-------------------------------------
+// GET | Traer: TODOS o por name
+const getDriversHandler = async (req, res) =>
+{
+    const { name } = req.query;
+    try 
+    {
+        const driver = name ? await getDriverByName(name) : await getAllDrivers(); 
+        res.status(201).json(driver); 
+    } 
+    catch (error) 
+    {
+        res.status(404).send(`Error al buscar driver: ${error.message}`);    
+    }
+}
+//-------------------------------------
+// GET | Traer: driver por ID 
+const getDriverByIdHandler = async (req, res) =>
+{
+    const { id } = req.params;
+    const source = isNaN(id) ? "bd" : "api";
+    try 
+    {
+        const driver = await getDriverById(id, source);
+        res.status(201).json(driver);    
+    } 
+    catch (error) 
+    {
+        res.status(404).send(`Error al buscar driver por ID: ${error.message}`);  
+    }
+}
+//-------------------------------------
+// GET | Traer: teams
+const getTeamsHandler = async (req, res) =>
+{
+    try 
+    {
+        const teams = await getTeams(); 
+        res.status(201).json(teams); 
+    } 
+    catch (error) 
+    {
+        res.status(404).send(`Error al buscar Teams: ${error.message}`);    
+    }
+}
+//-------------------------------------
+// Exportación de módulos
+module.exports =
+{
+    getDriversHandler,
+    getDriverByIdHandler,
+    getTeamsHandler
+}
