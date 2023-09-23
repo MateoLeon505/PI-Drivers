@@ -42,7 +42,7 @@ module.exports = (sequelize) =>
     },
     dob:
     {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: false,
     }
   },{timestamps:false});

@@ -2,7 +2,6 @@
 //-------------------------------------
 // Importación de módulos
 const { Driver, Team } = require('../db'); // Trae los modelos
-const { getTeams } = require('./getTeams');
 //-------------------------------------
 const createDriver = async ( id, forename, surname, description, image, nationality, dob, teams ) =>
 {   
@@ -18,9 +17,10 @@ const createDriver = async ( id, forename, surname, description, image, national
             }
         }
     );
+    const idTeam = bringTeams[0].id;
     //---------------------------- 
     // Asociar los Teams al Driver recien creado
-    await newDriver.setTeams(bringTeams);
+    await newDriver.setTeams(idTeam);
     //---------------------------- 
     return newDriver;   
 }

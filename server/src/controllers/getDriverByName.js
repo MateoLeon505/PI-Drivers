@@ -56,7 +56,7 @@ const getDriverByName = async (name) =>
         }
         else
         {
-            return {message: 'No se encontró ningún driver con ese nombre'};
+            return {message: 'No existe ningún driver con ese nombre'};
         }
     }  
 }
