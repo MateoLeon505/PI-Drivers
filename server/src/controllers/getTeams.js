@@ -6,38 +6,48 @@ const axios = require("axios"); // Para solicitudes HTTP
 //-------------------------------------
 const getTeams = async () =>
 {
+    const cleanTeams = new Set(); // Para que los teams no se repitan
     // Trae Teams de la bd
     const dataBaseTeams = await Team.findAll();
     //-------------------------------
-    // Trae Drivers de la Api
-    const apiDrivers = [];
-    const apiData = (await axios.get('http://localhost:5000/drivers')).data;
-    //---------
-    apiDrivers.push(...apiData); 
-    //-------------------------------
-    // Trae los 'Teams' de los Drivers
-    const cleanDrivers = await Promise.all(
-        apiDrivers.map(async (driver) =>
+    if (dataBaseTeams.length === 0) // Si la bd está vacía
     {
+        const apiDrivers = [];
+        const apiData = (await axios.get('http://localhost:5000/drivers')).data; // Trae Drivers de la Api
+        //---------
+        apiDrivers.push(...apiData); // Guarda los Drivers de la Api
+        //-------------------------------
+        // Trae los 'Teams' de los Drivers
+        const everyTeams = await Promise.all(
+        apiDrivers.map(async (driver) =>
+        {
             return {
                 teams: driver.teams,
             }
-    })); // --> Acá tengo: [{teams:","}, {teams:", ,"}...}]       {teams:"reanult,ferrari"} --> [reanult],[ferrari]
-    //-------------------------------
-    const cleanTeams = new Set(); // Para almacenar equipos únicos
-    cleanDrivers.forEach((obj) => 
-    {
-        if (obj.teams)
+        })); // --> Acá tengo: [{teams:","}, {teams:", ,"}...}]       
+        //-------------------------------
+        everyTeams.forEach((driver) => 
         {
-            const teamsArray = obj.teams.split(',').map((team) => team.trim()); // Divide y elimina espacios
-            teamsArray.forEach((team) =>
+            if (driver.teams)
             {
-                cleanTeams.add(team); // Agrega cada team al conjunto
-            })
-        }
-    });
+                // {teams:"reanult,ferrari"} --> [reanult],[ferrari]...
+                const teamsArray = driver.teams.split(',').map((team) => team.trim()); // Divide y elimina espacios
+                teamsArray.forEach((teamName) =>
+                {
+                    cleanTeams.add(teamName); // Agrega el team y no permite que se repita
+                })
+            }
+        });
+    }
     //-------------------------------
-    return  [...cleanTeams]; // Retorna TODOS los Teams
+    // Se convierte en array y se crea un objeto por cada team
+    const uniqueTeams = Array.from(cleanTeams).map((teamName, i) => (   
+    {
+        id: i + 1,
+        name: teamName
+    }));
+    //-------------------------------
+    return  [...uniqueTeams]; // Retorna TODOS los Teams
 }
 //-------------------------------------
 // Exporta la función

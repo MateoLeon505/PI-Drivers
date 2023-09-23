@@ -5,6 +5,7 @@ const { getAllDrivers } = require('../controllers/getAllDrivers');
 const { getDriverByName } = require('../controllers/getDriverByName');
 const { getDriverById } = require('../controllers/getDriverById');
 const { getTeams } = require('../controllers/getTeams');
+const { createDriver } = require('../controllers/createDriver');
 //-------------------------------------
 // GET | Traer: TODOS o por name
 const getDriversHandler = async (req, res) =>
@@ -51,10 +52,26 @@ const getTeamsHandler = async (req, res) =>
     }
 }
 //-------------------------------------
+// POST | Crear: Driver
+const postDriversHandler = async (req, res) =>
+{
+    const { id, forename, surname, description, image, nationality, dob } = req.body;
+    try 
+    {
+        const newDriver = await createDriver( id, forename, surname, description, image, nationality, dob ); 
+        res.status(201).json(newDriver); 
+    } 
+    catch (error) 
+    {
+        res.status(404).send(`Error al Crear Driver: ${error.message}`);    
+    }
+}
+//-------------------------------------
 // Exportación de módulos
 module.exports =
 {
     getDriversHandler,
     getDriverByIdHandler,
-    getTeamsHandler
+    getTeamsHandler,
+    postDriversHandler,
 }
