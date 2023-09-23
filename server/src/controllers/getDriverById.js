@@ -17,7 +17,8 @@ const getDriverById = async (id, source) =>
             description: apiDriverById.description,
             image: apiDriverById.image.url,
             nationality: apiDriverById.nationality,
-            dob: apiDriverById.dob
+            dob: apiDriverById.dob,
+            teams: apiDriverById.teams
         }
         return driver;
     }

@@ -6,7 +6,7 @@ const { conn } = require('./src/db.js');
 const PORT = 3001;
 //--------------------------------------
 // Sincronizando todos las modelos a la vez
-conn.sync({ force: true }).then(() => 
+conn.sync({ alter: true }).then(() => 
 {
 server.listen(PORT, () => 
 {

@@ -2,12 +2,27 @@
 //-------------------------------------
 // Importación de módulos
 const { Driver, Team } = require('../db'); // Trae los modelos
-const axios = require("axios"); // Para solicitudes HTTP
+const { getTeams } = require('./getTeams');
 //-------------------------------------
-const createDriver = async ( id, forename, surname, description, image, nationality, dob ) =>
+const createDriver = async ( id, forename, surname, description, image, nationality, dob, teams ) =>
 {   
-    const newDriver = await Driver.create({id, forename, surname, description, image, nationality, dob}) 
-    return;   
+    // Crea nuevo Driver con las propiedades recibidas
+    const newDriver = await Driver.create({ id, forename, surname, description, image, nationality, dob });
+    //---------------------------- 
+    // Busca Teams en la bd
+    const bringTeams = await Team.findAll(
+        {
+            where: 
+            {
+                name: teams
+            }
+        }
+    );
+    //---------------------------- 
+    // Asociar los Teams al Driver recien creado
+    await newDriver.setTeams(bringTeams);
+    //---------------------------- 
+    return newDriver;   
 }
 //-------------------------------------
 // Exporta la función

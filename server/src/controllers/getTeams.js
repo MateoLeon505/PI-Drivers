@@ -46,8 +46,10 @@ const getTeams = async () =>
         id: i + 1,
         name: teamName
     }));
+    // Inserta registros en la bd
+    await Team.bulkCreate(uniqueTeams);
     //-------------------------------
-    return  [...uniqueTeams]; // Retorna TODOS los Teams
+    return  dataBaseTeams; // Retorna TODOS los Teams
 }
 //-------------------------------------
 // Exporta la función
