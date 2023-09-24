@@ -9,41 +9,34 @@ module.exports = (sequelize) =>
   // defino el modelo
   sequelize.define('Driver', 
   {
-    id: 
-    {
+    id: {
       type:DataTypes.UUID,  // Identificador único | Generado automáticamente
       defaultValue:DataTypes.UUIDV4, // Agrega un uuid aleatorio
       primaryKey: true, // Cada valor será unico | Nungún pokemon tendrá el mismo id
     },
-    forename: 
-    {
+    forename: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    surname: 
-    {
+    surname: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description:
-    {
+    description:{
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    image: 
-    {
+    image: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    nationality: 
-    {
+    nationality: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    dob:
-    {
+    dob:{
       type: DataTypes.STRING,
       allowNull: false,
     }
   },{timestamps:false});
-};
+}

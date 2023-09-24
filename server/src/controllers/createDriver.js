@@ -20,9 +20,9 @@ const createDriver = async ( id, forename, surname, description, image, national
     const idTeam = bringTeams[0].id;
     //---------------------------- 
     // Asociar los Teams al Driver recien creado
-    await newDriver.setTeams(idTeam);
+    await newDriver.setTeams_d(idTeam);
     //---------------------------- 
-    return newDriver;   
+    return idTeam;   
 }
 //-------------------------------------
 // Exporta la función

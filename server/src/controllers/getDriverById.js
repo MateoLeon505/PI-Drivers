@@ -6,7 +6,7 @@ const axios = require("axios"); // Para solicitudes HTTP
 //-------------------------------------
 const getDriverById = async (id, source) =>
 {
-    const dataBaseTeams = await Team.findAll();
+    //const dataBaseTeams = await Team.findAll();
     if (source === 'api') 
     {
         const apiDriverById = (await axios.get(`http://localhost:5000/drivers/${id}`)).data;
@@ -25,9 +25,10 @@ const getDriverById = async (id, source) =>
     }
     else if (source === 'bd')
     {
-        const dbDriverById = await Driver.findByPk(id, {
-            include: [{ model: Team, as: 'teams' }],
-          });
+        const dbDriverById = await Driver.findByPk(id,
+            {
+                include: [{ model: Team, as: 'drivers' }],
+            });
 
         const driver = 
         {

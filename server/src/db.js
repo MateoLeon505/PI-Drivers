@@ -37,8 +37,8 @@ sequelize.models = Object.fromEntries(capsEntries);
 const { Driver, Team } = sequelize.models;
 //-------------------------------------
 // Relación muchos a muchos entre Driver y Team
-Driver.belongsToMany(Driver, { through: "driver_team", as: 'teams', foreignKey: 'driverId', });
-Team.belongsToMany(Team, { through: "driver_team", as: 'drivers',   foreignKey: 'teamId', });
+Driver.belongsToMany(Driver, { through: "driver_team", as: 'teams' });
+Team.belongsToMany(Team, { through: "driver_team", as: 'drivers' });
 //-------------------------------------
 module.exports =
 {
