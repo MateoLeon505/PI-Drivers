@@ -6,7 +6,6 @@ const axios = require("axios"); // Para solicitudes HTTP
 //-------------------------------------
 const getDriverById = async (id, source) =>
 {
-    //const dataBaseTeams = await Team.findAll();
     if (source === 'api') 
     {
         const apiDriverById = (await axios.get(`http://localhost:5000/drivers/${id}`)).data;
@@ -25,11 +24,14 @@ const getDriverById = async (id, source) =>
     }
     else if (source === 'bd')
     {
+        // Busca driver por 'Primary Key' e incluye a los teams
         const dbDriverById = await Driver.findByPk(id,
-            {
-                include: [{ model: Team, as: 'drivers' }],
-            });
+        {
+            include: [{ model: Team, as: 'teams' }],
+        });
 
+        let teams = dbDriverById.teams.map((team) => team.name); // Trae únicamente nombre de los 'teams'
+        teams = teams.toString(); 
         const driver = 
         {
             id: dbDriverById.id,
@@ -39,6 +41,7 @@ const getDriverById = async (id, source) =>
             image: dbDriverById.image,
             nationality: dbDriverById.nationality,
             dob: dbDriverById.dob,
+            teams: teams
         };
         return driver;   
     }

@@ -6,8 +6,27 @@ const axios = require("axios"); // Para solicitudes HTTP
 //-------------------------------------
 const getAllDrivers = async () =>
 {
-    // Trae Divers de la bd
-    const dataBaseDrivers = await Driver.findAll();
+    // Trae Divers de la bd 
+    let dataBaseDrivers = await Driver.findAll(
+    {
+        // Incluye name y excluye otras columnas de la tabla intermedia
+        include: [{ model: Team, as: 'teams', attributes: ['name'], through: { attributes: [] }, }], 
+    });
+    const dbDrivers = dataBaseDrivers.map((driver) =>
+    {
+        let teams = driver.teams.map((team) => team.name);
+        teams = teams.toString();
+        return{
+            id: driver.id,
+            forename: driver.forename,
+            surname: driver.surname,
+            description: driver.description,
+            image: driver.image,
+            nationality: driver.nationality,
+            dob: driver.dob,
+            teams: teams
+        }
+    }) 
     //-------------------------------
     // Trae Drivers de la Api
     const apiDrivers = [];
@@ -31,7 +50,7 @@ const getAllDrivers = async () =>
             }
     }))
     //-------------------------------
-    return  [...dataBaseDrivers, ...cleanDrivers]; // Retorna TODOS los drivers
+    return  [...dbDrivers, ...cleanDrivers]; // Retorna TODOS los drivers
 }
 //-------------------------------------
 // Exporta la función

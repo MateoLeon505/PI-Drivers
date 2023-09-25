@@ -11,20 +11,23 @@ const getDriverByName = async (name) =>
     name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase(); // Insensible a may o min
     // Trae Divers de la bd
     const dbDriverByName = await Driver.findOne(
-        {
-            where: 
-            { 
-                forename: 
-                {
-                    [Op.iLike]: `%${name}%` // Búsqueda insensible a May. o Min.
-                }
-            },
-            limit: 15 // Limite 15 resultados
-        });
+    {
+        where: { 
+            forename: { [Op.iLike]: `%${name}%`, // Búsqueda insensible a May. o Min.
+},
+        },
+        limit: 15, // Limite 15 resultados
+    });
     //-------------------------------
-    // 
     if (dbDriverByName) // Si se encontró en la bd
     {
+    // TRAE TEAMS:
+    const id = dbDriverByName.id;
+    // Busca driver por 'Primary Key' e incluye a los teams
+    const dbDriverById = await Driver.findByPk(id, {include: [{ model: Team, as: 'teams' }]});
+    let teams = dbDriverById.teams.map((team) => team.name); // Trae únicamente nombre de los 'teams'
+    teams = teams.toString();
+    //------------------------------- 
         const driver = 
         {
             id: dbDriverByName.id,
@@ -33,7 +36,8 @@ const getDriverByName = async (name) =>
             description: dbDriverByName.description,
             image: dbDriverByName.image,
             nationality: dbDriverByName.nationality,
-            dob: dbDriverByName.dob
+            dob: dbDriverByName.dob,
+            teams: teams
         };
         return driver;  
     }
