@@ -11,7 +11,16 @@ module.exports = {
   ],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   settings: { react: { version: '18.2' } },
-  plugins: ['react-refresh'],
+  plugins: [
+    'react-refresh',
+    '@babel/plugin-transform-modules-commonjs',
+    {
+      name: 'vite-plugin-react-router',
+      options: {
+        base: './',
+      },
+    },
+  ],
   rules: {
     'react-refresh/only-export-components': 'warn',
   },

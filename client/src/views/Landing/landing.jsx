@@ -1,13 +1,19 @@
 // Este componente es el Landing Page
 //----------------------------------------------
 import './landing.css';
-//import { useHistory } from 'react-router-dom';
+import  landingImage  from '../../Images/landingImage.jpg';
+// import { useHistory } from 'react-router-dom';
 //----------------------------------------------
 const Landing = () =>
 {
+    // const history = useHistory();
     return(
-        <div >
-            <h1>Holi</h1>
+        <div className = 'landingContainer'>
+            <h1 className = 'title'>LANDING PAGE</h1>
+            <div className = 'imageContainer'>
+                <img src = {landingImage} alt = "LandingImage" className = 'f1Image'/>
+            </div>
+            <button className = 'buttonGo'>G</button>
         </div>
     );
 }

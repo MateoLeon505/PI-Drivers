@@ -1,0 +1,44 @@
+/* Diseño Landing Page */
+/* ------------- */
+/* Contenedor Landing */
+@font-face 
+{
+    font-family: 'Speedway'; /* Nombre de la fuente */
+    src: url('../../fonts/Speedway.ttf') format('truetype'); /* Ruta a tu archivo de fuente */
+    font-weight: normal;
+    font-style: normal;
+}
+.title{
+    font-family: 'Speedway';
+}
+.landingContainer{
+    align-items: center;
+    justify-content: center;
+}
+/* ------------- */
+/* Contenedor imagen */
+.imageContainer{
+    display: flex;
+
+}
+/* Imagen */
+.f1Image{
+    height: 700px;
+    width: auto;
+}
+/* ------------- */
+/* Botón */
+@font-face 
+{
+    font-family: 'Formula1'; /* Nombre de la fuente */
+    src: url('../../fonts/formula1.ttf') format('truetype'); /* Ruta a tu archivo de fuente */
+    font-weight: normal;
+    font-style: normal;
+}
+.buttonGo{
+    text-align: center;
+    font-family: 'Formula1';
+    font-size: 30px;
+    height: 70px;
+    width: 130px;
+}
