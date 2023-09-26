@@ -43,7 +43,7 @@ const getTeams = () =>
 {
     return async function (dispatch)
     {
-        const response = await axios.get(`http://localhost:3001/drivers`);
+        const response = await axios.get(`http://localhost:3001/teams`);
         dispatch({ type: GET_TEAMS, payload: response.data });
     };
 };

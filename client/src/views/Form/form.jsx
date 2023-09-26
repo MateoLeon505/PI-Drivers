@@ -14,11 +14,10 @@ const Form = () =>
     // Busca los Teams
     useEffect(() =>
     {
-        dispatch(getTeams);
+        dispatch(getTeams());
     },[dispatch]);
-    let teams = useSelector(state => state.teams); // Trae los Teams
-    teams = teams.map((team) => team.name);
-    console.log(teams);
+    let teamOptions = useSelector(state => state.teams); // Trae los Team
+    teamOptions = teamOptions.map((team) => team.name);
     //---------------------------------
     // Para recibir la info del Formuario
     const [ form, setForm ] = useState(
@@ -44,6 +43,14 @@ const Form = () =>
             teams: []
         });
     //---------------------------------
+    const handleChange = (event) =>
+    {
+        const property = event.target.name; // Quién modificó
+        const value = event.target.value; // Qué modificó
+
+        setForm({...form, [property]: value })
+    }
+    //---------------------------------
     const handleBack = () =>
     {
         navigate('/home');
@@ -53,7 +60,54 @@ const Form = () =>
         <div className = 'FormContainer'>
             <button onClick = {handleBack} >Back</button>
             <form>
-                <h1 className = 'titles'>CREATE DRIVER</h1>
+                <div>
+                    <h1 className = 'titles'>CREATE DRIVER</h1>
+                </div>
+                <div>
+                    <label>Forename: </label>
+                    <input type = "text" onChange = {handleChange} value = {form.forename} name = 'forename'/>
+                    <label>Surname: </label>
+                    <input type = "text" onChange = {handleChange} value = {form.surname} name = 'surname'/>
+                </div>
+                <div>
+                    <label>Description: </label>
+                    <input type = "text" onChange = {handleChange} value = {form.description} name = 'description'/>
+                </div>
+                <div>
+                    <label>Image: </label>
+                    <input type = "text" onChange = {handleChange} value = {form.image} name = 'description'/>
+                </div>
+                <div>
+                    <label>Nationality: </label>
+                    <input type = "text" onChange = {handleChange} value = {form.nationality} name = 'nationality'/>
+                </div>
+                <div>
+                    <label>DOB: </label>
+                    <input type = "date" onChange = {handleChange} value = {form.dob} name = 'dob'/>
+                </div>
+                <div>
+                    <label>Teams: </label>
+                    <div>
+                        {
+                            teamOptions.map((team) =>
+                            (
+                                    <div>
+                                        <label>
+                                            <input type = "checkbox" 
+                                            value = {team}
+                                            />
+                                            {team}
+                                        </label>
+                                    </div>
+                            ))
+                        }
+                    </div>
+                </div>
+                <div>
+                    <button>
+                        Create
+                    </button>
+                </div>
             </form>
         </div>
     );

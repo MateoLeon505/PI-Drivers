@@ -26,11 +26,12 @@ const Detail = () =>
         navigate('/home');
     }
     //---------------------------------
-    const forename = driverDetail.forename.toUpperCase();
+    // const forename = driverDetail.forename.toUpperCase();
+    // const surname = driverDetail.surname.toUpperCase();
     return(
         <div className = 'detailContainer'>
             <button onClick = {handleBack}>Back</button>
-            <h1 className = 'titles'>{driverDetail.forename.toUpperCase()} {driverDetail.surname.toUpperCase()}</h1>
+            <h1 className = 'titles'>{driverDetail.forename} {driverDetail.surname}</h1>
             <img src = {driverDetail.image} alt = {driverDetail.forename} />
             <br />
             <span>Teams: {driverDetail.teams}</span>
