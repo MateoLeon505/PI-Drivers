@@ -32,7 +32,13 @@ const getAllDrivers = async () =>
     const apiDrivers = [];
     const apiData = (await axios.get('http://localhost:5000/drivers')).data;
     //---------
-    apiDrivers.push(...apiData); 
+    apiData.map((driv) =>
+    {
+        if (apiDrivers.length <50) 
+        {
+            apiDrivers.push(driv); 
+        }
+    })    
     //-------------------------------
     // Trae las propiedades de los Drivers ✔
     const cleanDrivers = await Promise.all(
