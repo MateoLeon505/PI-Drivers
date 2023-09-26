@@ -5,6 +5,7 @@
 //import React, { useState } from 'react';
 import {  useLocation, Routes, Route  } from 'react-router-dom';
 import { Landing, Home, Form, Detail } from './views/index';
+import NavBar from './views/Components/NavBar/navBar';
 import './App.css'
 //----------------------------------------------
 const  App = () => 
@@ -14,6 +15,7 @@ const  App = () =>
   console.log(location.pathname);
   return (
     <div>
+      {location.pathname !== '/' && <NavBar/> }
       <Routes>
         <Route exact path = '/' element = {<Landing/>}/>
         <Route exact path = '/home' element = {<Home/>}/>
