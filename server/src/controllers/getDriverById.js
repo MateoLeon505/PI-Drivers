@@ -25,13 +25,11 @@ const getDriverById = async (id, source) =>
     else if (source === 'bd')
     {
         // Busca driver por 'Primary Key' e incluye a los teams
-        const dbDriverById = await Driver.findByPk(id,
-        {
-            include: [{ model: Team, as: 'teams' }],
-        });
-
+        const dbDriverById = await Driver.findByPk(id, {include: [{ model: Team, as: 'teams' }]});
         let teams = dbDriverById.teams.map((team) => team.name); // Trae únicamente nombre de los 'teams'
-        teams = teams.toString(); 
+        teams = teams.toString();
+
+        //teams = teams.toString(); 
         const driver = 
         {
             id: dbDriverById.id,
