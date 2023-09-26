@@ -14,12 +14,6 @@ module.exports = {
   plugins: [
     'react-refresh',
     '@babel/plugin-transform-modules-commonjs',
-    {
-      name: 'vite-plugin-react-router',
-      options: {
-        base: './',
-      },
-    },
   ],
   rules: {
     'react-refresh/only-export-components': 'warn',

@@ -22,4 +22,3 @@ const  App = () =>
 }
 //----------------------------------------------
 export default App;
-//          <Route path = '/home' component = {Landing}/>
