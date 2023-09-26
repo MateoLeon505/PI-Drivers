@@ -26,6 +26,7 @@ const Detail = () =>
         navigate('/home');
     }
     //---------------------------------
+    const forename = driverDetail.forename.toUpperCase();
     return(
         <div className = 'detailContainer'>
             <button onClick = {handleBack}>Back</button>
@@ -38,10 +39,10 @@ const Detail = () =>
             <span>Description: {driverDetail.description}</span>
             <br />
             <br />
-            <span>DOB: {driverDetail.dob}</span>
-            <br />
-            <br />
             <span>Nationality: {driverDetail.nationality}</span>
+            <br />
+            <br />
+            <span>DOB: {driverDetail.dob}</span>
             <br />
             <br />
             <span>ID: {driverDetail.id}</span>

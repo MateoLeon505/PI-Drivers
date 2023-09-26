@@ -10,10 +10,17 @@ const Form = () =>
 {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    //---------------------------------
+    // Busca los Teams
+    useEffect(() =>
+    {
+        dispatch(getTeams);
+    },[dispatch]);
     let teams = useSelector(state => state.teams); // Trae los Teams
     teams = teams.map((team) => team.name);
+    console.log(teams);
     //---------------------------------
-    // Guarda la info del Formuario
+    // Para recibir la info del Formuario
     const [ form, setForm ] = useState(
     {
         id: "",
@@ -25,7 +32,7 @@ const Form = () =>
         teams: []
     });
     //-----------------
-    // Errores en el formulario
+    // Para detectar errores en el formulario
     const [ errors, setErrors ] = useState(
         {
             id: "",
@@ -36,13 +43,6 @@ const Form = () =>
             nationality: "",
             teams: []
         });
-    //---------------------------------
-    // Busca los Teams
-    useEffect(()=>
-    {
-        dispatch(getTeams);
-    },[dispatch]);
-    console.log(teams);
     //---------------------------------
     const handleBack = () =>
     {
