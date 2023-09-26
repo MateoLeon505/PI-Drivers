@@ -2,7 +2,7 @@
 //----------------------------------------------
 // Importación modulos y librerías
 import axios from "axios";
-const { GET_DRIVERS, GET_DRIVER_BY_NAME, CLEAR_SEARCH_RESULTS, GET_DRIVER_DETAIL, GET_TEAMS } = require('./action-types');
+import { GET_DRIVERS, GET_DRIVER_BY_NAME, CLEAR_SEARCH_RESULTS, GET_DRIVER_DETAIL, GET_TEAMS } from './action-types';
 //----------------------------------------------
 // Actions:
 const getDrivers = () =>

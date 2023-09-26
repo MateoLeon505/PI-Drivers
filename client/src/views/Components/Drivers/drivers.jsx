@@ -7,12 +7,14 @@ import './drivers.css';
 const Drivers = ({ collectionOfDrivers }) =>
 {
     return(
-        <>
-            {collectionOfDrivers.map((driver) =>
-            {
-                <div key = {driver.key}>
-                    <NavLink>
+        <div className = 'driversContainer'>
+            <div className = 'driverWrapper'>
+                {
+                    collectionOfDrivers.map((driver) =>
+                    (
+                        <NavLink key = {driver.id} to = {`/detail/${driver.id}`}>
                         <Driver
+                            key = {driver.key}
                             id = {driver.id}
                             forename = {driver.forename}
                             surname = {driver.surname}
@@ -21,12 +23,12 @@ const Drivers = ({ collectionOfDrivers }) =>
                             nationality = {driver.nationality}
                             dob = {driver.dob}
                             teams = {driver.teams}
-                        >
-                        </Driver>
-                    </NavLink>
-                </div>
-            })}
-        </>
+                            className = 'Driver'/>
+                        </NavLink>
+                    ))
+                }
+            </div>
+        </div>
     );
 }
 //----------------------------------------------

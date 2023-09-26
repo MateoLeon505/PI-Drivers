@@ -1,12 +1,21 @@
 // Este componente es el HOME
 //----------------------------------------------
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getDrivers, getDriverById } from '../../redux/actions.js';
 import Drivers from '../Components/Drivers/drivers.jsx';
 import './home.css';
 //----------------------------------------------
 const Home = () =>
 {
-    const allDrivers = useSelector((state) => state.drivers); // Lista de TODOS los Drivers
+    const dispatch = useDispatch();
+
+    useEffect(() =>
+    {
+        dispatch(getDrivers());
+    },[dispatch]);
+
+    const allDrivers = useSelector(state => state.drivers); // Lista de TODOS los Drivers
     console.log(allDrivers);
     //------------------------------------------
     return(

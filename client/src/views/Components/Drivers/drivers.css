@@ -1,0 +1,12 @@
+.driversContainer{
+    display: grid; /* cuadrícula */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Columnas automáticas */
+    gap: 20px;
+    justify-content: center; /* Centra los elementos horizontalmente */
+}
+
+.driverWrapper {
+    display: flex;
+    flex-wrap: wrap; /* Envuelve los elementos en varias filas */
+    justify-content: center; /* Centra los elementos horizontalmente en cada fila */
+  }
