@@ -14,7 +14,7 @@ const Landing = () =>
 
     return(
         <div className = 'landingContainer'>
-            <h1 className = 'title'>LANDING PAGE</h1>
+            <h1 className = 'titles'>LANDING PAGE</h1>
             <div className = 'imageContainer'>
                 <img src = {landingImage} alt = "LandingImage" className = 'f1Image' />
             </div>
