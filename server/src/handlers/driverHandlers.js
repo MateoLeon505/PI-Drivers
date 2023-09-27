@@ -8,6 +8,8 @@ const { getTeams } = require('../controllers/getTeams');
 const { createDriver } = require('../controllers/createDriver');
 //-------------------------------------
 // GET | Traer: TODOS o por name
+
+
 const getDriversHandler = async (req, res) =>
 {
     const { name } = req.query;
@@ -21,6 +23,11 @@ const getDriversHandler = async (req, res) =>
         res.status(404).send(`Error al buscar driver: ${error.message}`);    
     }
 }
+
+
+
+
+
 //-------------------------------------
 // GET | Traer: driver por ID 
 const getDriverByIdHandler = async (req, res) =>
@@ -60,7 +67,7 @@ const postDriversHandler = async (req, res) =>
     {
         const newDriver = await createDriver( id, forename, surname, description, image, nationality, dob, teams ); 
         res.status(201).json(newDriver); 
-    } 
+    }  
     catch (error) 
     {
         res.status(404).send(`Error al Crear Driver: ${error.message}`);    

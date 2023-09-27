@@ -13,14 +13,14 @@ const createDriver = async ( id, forename, surname, description, image, national
         {
             where: 
             {
-                name: teams
+                name: teams.map((team) => team)
             }
         }
     );
-    const idTeam = bringTeams[0].id;
+    const idTeams = bringTeams.map((team) => team.id);
     //---------------------------- 
     // Asociar los Teams al Driver recien creado
-    await newDriver.setTeams(idTeam);
+    await newDriver.setTeams(idTeams);
     //---------------------------- 
     return newDriver;   
 }

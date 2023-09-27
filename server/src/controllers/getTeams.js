@@ -24,8 +24,10 @@ const getTeams = async () =>
             return {
                 teams: driver.teams,
             }
-        })); // --> Acá tengo: [{teams:","}, {teams:", ,"}...}]       
+        })); // --> Acá tengo: [{teams:","}, {teams:", ,"}...}]
+        // |-> Array de objetos, donde cada objeto tiene una propiedad 'teams' que es un string de 1 o más teams
         //-------------------------------
+        // Necesito separar los teams y verificar que no estén repetidos para guardarlos
         everyTeams.forEach((driver) => 
         {
             if (driver.teams)
@@ -52,5 +54,4 @@ const getTeams = async () =>
     return  dataBaseTeams; // Retorna TODOS los Teams
 }
 //-------------------------------------
-// Exporta la función
 module.exports = { getTeams };
