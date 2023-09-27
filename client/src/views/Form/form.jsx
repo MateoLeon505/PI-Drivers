@@ -102,9 +102,8 @@ const Form = () =>
         }
         if (form.forename === '') 
         {
-            setErrors({...errors, forename:''})    
+            setErrors({...errors, forename:''});    
         }
-
     }
     //---------------------------------
     const backHandler = () =>
