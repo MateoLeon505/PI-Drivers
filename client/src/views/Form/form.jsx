@@ -43,7 +43,7 @@ const Form = () =>
             teams: []
         });
     //---------------------------------
-    const handleChange = (event) =>
+    const changeHandler = (event) =>
     {
         const property = event.target.name; // Quién modificó
         const value = event.target.value; // Qué modificó
@@ -51,39 +51,60 @@ const Form = () =>
         setForm({...form, [property]: value })
     }
     //---------------------------------
-    const handleBack = () =>
+    const handleSelect = (event) =>
+    {
+        const selectedTeam = event.target.value; // Team seleccionado
+
+        if (form.teams.includes(selectedTeam)) 
+        {
+            setForm({...form, teams: teams.filter((teams) => teams !== selectedTeam)});    
+        }
+        else
+        {
+            setForm({...form, teams: [...form.teams, selectedTeam]});
+        }
+    }
+    const handlerDeleteTeam = (event) =>
+    {
+        const selectedTeam = event.target.value; // Team seleccionado
+        const updateTeams = form.teams.filter((team) => team !== selectedTeam)
+
+        setForm({...form, teams: updateTeams})
+    }
+    //---------------------------------
+    const backHandler = () =>
     {
         navigate('/home');
     }
     //---------------------------------
     return(
         <div className = 'FormContainer'>
-            <button onClick = {handleBack} >Back</button>
-            <form>
+            <button onClick = {backHandler} >Back</button>
+            <form name = 'createDriver'>
                 <div>
                     <h1 className = 'titles'>CREATE DRIVER</h1>
                 </div>
                 <div>
                     <label>Forename: </label>
-                    <input type = "text" onChange = {handleChange} value = {form.forename} name = 'forename'/>
+                    <input type = "text" onChange = {changeHandler} value = {form.forename} name = 'forename' id='forename'/>
                     <label>Surname: </label>
-                    <input type = "text" onChange = {handleChange} value = {form.surname} name = 'surname'/>
+                    <input type = "text" onChange = {changeHandler} value = {form.surname} name = 'surname' id='surname'/>
                 </div>
                 <div>
                     <label>Description: </label>
-                    <input type = "text" onChange = {handleChange} value = {form.description} name = 'description'/>
+                    <input type = "text" onChange = {changeHandler} value = {form.description} name = 'description' id='description'/>
                 </div>
                 <div>
                     <label>Image: </label>
-                    <input type = "text" onChange = {handleChange} value = {form.image} name = 'description'/>
+                    <input type = "text" onChange = {changeHandler} value = {form.image} name = 'image' id='image'/>
                 </div>
                 <div>
                     <label>Nationality: </label>
-                    <input type = "text" onChange = {handleChange} value = {form.nationality} name = 'nationality'/>
+                    <input type = "text" onChange = {changeHandler} value = {form.nationality} name = 'nationality' id='nationality'/>
                 </div>
                 <div>
                     <label>DOB: </label>
-                    <input type = "date" onChange = {handleChange} value = {form.dob} name = 'dob'/>
+                    <input type = "date" onChange = {changeHandler} value = {form.dob} name = 'dob' id='dob'/>
                 </div>
                 <div>
                     <label>Teams: </label>
@@ -91,17 +112,34 @@ const Form = () =>
                         {
                             teamOptions.map((team) =>
                             (
-                                    <div>
-                                        <label>
-                                            <input type = "checkbox" 
-                                            value = {team}
-                                            />
-                                            {team}
-                                        </label>
-                                    </div>
+                                <label key = {team}>
+                                    <input
+                                        type = 'checkbox'
+                                        value = {team}
+                                        chaecked = {form.teams.includes(team)}
+                                        onChange = {handleSelect}>
+                                        {team}
+                                    </input>
+                                </label>
                             ))
                         }
                     </div>
+                    <select 
+                        multiple 
+                        onChange = {handleSelect}
+                        value = {form.teams}
+                        name = "teams" 
+                    >
+                        {
+                            teamOptions.map((team) =>
+                            (
+                                <option key = {team} value = {team}>
+                                    {team}     
+                                    {form.teams.includes(team) && <span onClick = {handlerDeleteTeam}>❌</span>}
+                                </option>
+                            ))
+                        }
+                    </select>
                 </div>
                 <div>
                     <button>
