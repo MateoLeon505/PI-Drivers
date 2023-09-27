@@ -4,12 +4,11 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getTeams } from '../../redux/actions';
+import Validation from './validation';
 import './form.css';
 //----------------------------------------------
 const Form = () =>
 {
-    const regexText = /^[^\d]*$/;
-    const urlRegex = /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?$/;
     const navigate = useNavigate();
     const dispatch = useDispatch();
     //---------------------------------
@@ -52,8 +51,8 @@ const Form = () =>
         const property = event.target.name; // Quién modificó
         const value = event.target.value; // Qué modificó
 
+        setErrors(Validation({...form, [property]: value }));
         setForm({...form, [property]: value });
-        validation({...form, [property]: value });
     }
     //---------------------------------
     // Actualizar teams seleccionados o deseleccionados
@@ -77,35 +76,6 @@ const Form = () =>
         return form.teams.includes(team);
     }
     //---------------------------------
-    const validation = (form) =>
-    {
-        if (urlRegex.test(form.image)) 
-        {
-            setErrors({...errors, image: ''});    
-        }
-        else
-        {
-            setErrors({...errors, image: '⚠️'});
-        }
-        if (form.image === '') 
-        {
-            setErrors({...errors, image:''})    
-        }
-        //-----------Forename:
-        if (regexText.test(form.forename)) 
-        {
-            setErrors({...errors, forename: ''});
-        }
-        else
-        {
-            setErrors({...errors, forename: '⚠️'});
-        }
-        if (form.forename === '') 
-        {
-            setErrors({...errors, forename:''});    
-        }
-    }
-    //---------------------------------
     const backHandler = () =>
     {
         navigate('/home');
@@ -119,8 +89,23 @@ const Form = () =>
                     {/* -------------------- TÍTULO -------------------- */}
                 <div className = 'header'>
                     <h1 className = 'titles'>CREATE DRIVER</h1>
-                    {errors.image && <span>⚠️</span>}
-                    {errors.forename && <span>⚠️</span>}
+                </div>
+                    {/* -------------------- Errors -------------------- */}
+                <div className = 'errors-container'>
+                    {
+                        errors.image && 
+                        <div className = 'error-box'>
+                            <span className = 'global-message'>⚠️*Invalid URL*</span>
+                        </div>
+                    }
+                    {
+                        errors.forename || errors.surname || errors.nationality 
+                        ? 
+                            <div className = 'error-box'>
+                                <span className = 'global-message'>⚠️*No numbers allowed*</span>
+                            </div>
+                        : null
+                    }
                 </div>
                     {/* -------------------- Name -------------------- */}
                 <div className = 'box-container'>
