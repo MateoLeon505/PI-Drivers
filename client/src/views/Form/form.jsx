@@ -8,6 +8,7 @@ import './form.css';
 //----------------------------------------------
 const Form = () =>
 {
+    const urlRegex = /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?$/;
     const navigate = useNavigate();
     const dispatch = useDispatch();
     //---------------------------------
@@ -43,34 +44,37 @@ const Form = () =>
             teams: []
         });
     //---------------------------------
+    // Actualiza cambios en los input
     const changeHandler = (event) =>
     {
         const property = event.target.name; // Quién modificó
         const value = event.target.value; // Qué modificó
 
-        setForm({...form, [property]: value })
+        setErrors({...form, [property]: value });
+        setForm({...form, [property]: value });
     }
     //---------------------------------
-    const handleSelect = (event) =>
+    // Actualizar teams seleccionados o deseleccionados
+    const handleSelect = (event) => 
     {
-        const selectedTeam = event.target.value; // Team seleccionado
+        const selectedTeam = event.target.value; 
 
         if (form.teams.includes(selectedTeam)) 
         {
-            setForm({...form, teams: teams.filter((teams) => teams !== selectedTeam)});    
+            setForm({...form, teams: form.teams.filter((teams) => teams !== selectedTeam)}); 
         }
         else
         {
             setForm({...form, teams: [...form.teams, selectedTeam]});
         }
     }
-    const handlerDeleteTeam = (event) =>
+    //---------------------
+    // Para saber si un Team está seleccionado o NO
+    const teamSelected = (team) => 
     {
-        const selectedTeam = event.target.value; // Team seleccionado
-        const updateTeams = form.teams.filter((team) => team !== selectedTeam)
-
-        setForm({...form, teams: updateTeams})
+        return form.teams.includes(team);
     }
+    //---------------------------------
     //---------------------------------
     const backHandler = () =>
     {
@@ -78,7 +82,7 @@ const Form = () =>
     }
     //---------------------------------
     return(
-        <div className = 'FormContainer'>
+        <div className = 'formContainer'>
             <button onClick = {backHandler} >Back</button>
             <form name = 'createDriver'>
                 <div>
@@ -112,34 +116,20 @@ const Form = () =>
                         {
                             teamOptions.map((team) =>
                             (
-                                <label key = {team}>
-                                    <input
-                                        type = 'checkbox'
-                                        value = {team}
-                                        chaecked = {form.teams.includes(team)}
-                                        onChange = {handleSelect}>
+                                <div>
+                                    <label>
+                                        <input
+                                         type = 'checkbox'
+                                         value = {team}
+                                         checked = {teamSelected(team)}
+                                         onChange = {handleSelect}>
+                                        </input>
                                         {team}
-                                    </input>
-                                </label>
+                                    </label>
+                                </div>
                             ))
                         }
                     </div>
-                    <select 
-                        multiple 
-                        onChange = {handleSelect}
-                        value = {form.teams}
-                        name = "teams" 
-                    >
-                        {
-                            teamOptions.map((team) =>
-                            (
-                                <option key = {team} value = {team}>
-                                    {team}     
-                                    {form.teams.includes(team) && <span onClick = {handlerDeleteTeam}>❌</span>}
-                                </option>
-                            ))
-                        }
-                    </select>
                 </div>
                 <div>
                     <button>
