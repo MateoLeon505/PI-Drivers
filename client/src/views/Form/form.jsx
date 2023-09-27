@@ -8,6 +8,7 @@ import './form.css';
 //----------------------------------------------
 const Form = () =>
 {
+    const regexText = /^[^\d]*$/;
     const urlRegex = /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?$/;
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const Form = () =>
     },[dispatch]);
     let teamOptions = useSelector(state => state.teams); // Trae los Team
     teamOptions = teamOptions.map((team) => team.name);
+    teamOptions = teamOptions.sort();
     //---------------------------------
     // Para recibir la info del Formuario
     const [ form, setForm ] = useState(
@@ -50,8 +52,8 @@ const Form = () =>
         const property = event.target.name; // Quién modificó
         const value = event.target.value; // Qué modificó
 
-        setErrors({...form, [property]: value });
         setForm({...form, [property]: value });
+        validation({...form, [property]: value });
     }
     //---------------------------------
     // Actualizar teams seleccionados o deseleccionados
@@ -75,6 +77,34 @@ const Form = () =>
         return form.teams.includes(team);
     }
     //---------------------------------
+    const validation = (form) =>
+    {
+        if (urlRegex.test(form.image)) 
+        {
+            setErrors({...errors, image: ''});    
+        }
+        else
+        {
+            setErrors({...errors, image: '⚠️'});
+        }
+        if (form.image === '') 
+        {
+            setErrors({...errors, image:''})    
+        }
+        //-----------Forename:
+        if (regexText.test(form.forename)) 
+        {
+            setErrors({...errors, forename: ''});
+        }
+        else
+        {
+            setErrors({...errors, forename: '⚠️'});
+        }
+        if (form.forename === '') 
+        {
+            setErrors({...errors, forename:''})    
+        }
+    }
     //---------------------------------
     const backHandler = () =>
     {
@@ -83,41 +113,56 @@ const Form = () =>
     //---------------------------------
     return(
         <div className = 'formContainer'>
-            <button onClick = {backHandler} >Back</button>
+            {/* -------------------- Botón Salir -------------------- */}
+            <button onClick = {backHandler} className = 'back' >X</button>
             <form name = 'createDriver'>
-                <div>
+                    {/* -------------------- TÍTULO -------------------- */}
+                <div className = 'header'>
                     <h1 className = 'titles'>CREATE DRIVER</h1>
+                    {errors.image && <span>⚠️</span>}
+                    {errors.forename && <span>⚠️</span>}
                 </div>
-                <div>
-                    <label>Forename: </label>
-                    <input type = "text" onChange = {changeHandler} value = {form.forename} name = 'forename' id='forename'/>
-                    <label>Surname: </label>
-                    <input type = "text" onChange = {changeHandler} value = {form.surname} name = 'surname' id='surname'/>
+                    {/* -------------------- Name -------------------- */}
+                <div className = 'box-container'>
+                    <div className = 'box'>
+                        <label className = 'properties'>Forename</label>
+                        <input type = "text" onChange = {changeHandler} value = {form.forename} name = 'forename' className = 'text-input' placeholder = 'Lewis' id = 'forename'/>
+                    </div>
+                    <div className = 'box'>
+                        <label className = 'properties'>Surname</label>
+                        <input type = "text" onChange = {changeHandler} value = {form.surname} name = 'surname' className = 'text-input' placeholder = 'Hamilton' id = 'surname'/>
+                    </div>
                 </div>
-                <div>
-                    <label>Description: </label>
-                    <input type = "text" onChange = {changeHandler} value = {form.description} name = 'description' id='description'/>
+                {/* -------------------- Descripción -------------------- */}
+                <div className = 'box2'>
+                    <label className = 'properties'>Description</label>
+                    <input type = "text" onChange = {changeHandler} value = {form.description} name = 'description' className = 'descript' id = 'description' placeholder = 'New Driver'/>
                 </div>
-                <div>
-                    <label>Image: </label>
-                    <input type = "text" onChange = {changeHandler} value = {form.image} name = 'image' id='image'/>
+                {/* -------------------- Imágen -------------------- */}
+                <div className = 'box2'>
+                    <label className = 'properties'>Image</label>
+                    <input type = "text" onChange = {changeHandler} value = {form.image} name = 'image' className = 'descript' placeholder = 'https://example.jpg' id = 'image'/>
                 </div>
-                <div>
-                    <label>Nationality: </label>
-                    <input type = "text" onChange = {changeHandler} value = {form.nationality} name = 'nationality' id='nationality'/>
+                {/* -------------------- Nacionalidad y Fecha de Nacimiento -------------------- */}
+                <div className = 'box-container'>
+                    <div className = 'box'>
+                        <label className = 'properties'>Nationality</label>
+                        <input type = "text" onChange = {changeHandler} value = {form.nationality} name = 'nationality'  className = 'text-input'  placeholder = 'British' id = 'nationality'/>
+                    </div>
+                    <div className = 'box'>
+                        <label className = 'properties'>DOB</label>
+                        <input type = "date" onChange = {changeHandler} value = {form.dob} name = 'dob' className = 'text-input'  id='dob'/>
+                    </div>
                 </div>
+                {/* -------------------- Teams -------------------- */}
                 <div>
-                    <label>DOB: </label>
-                    <input type = "date" onChange = {changeHandler} value = {form.dob} name = 'dob' id='dob'/>
-                </div>
-                <div>
-                    <label>Teams: </label>
-                    <div>
+                    <label className = 'propertiesTeams'>Teams</label>
+                    <div className = 'teams-container'>
                         {
                             teamOptions.map((team) =>
                             (
-                                <div>
-                                    <label>
+                                <div className = 'teams-checkbox'>
+                                    <label className = 'tcLabel'>
                                         <input
                                          type = 'checkbox'
                                          value = {team}
@@ -132,7 +177,7 @@ const Form = () =>
                     </div>
                 </div>
                 <div>
-                    <button>
+                    <button className = 'create'>
                         Create
                     </button>
                 </div>

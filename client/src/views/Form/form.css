@@ -1,0 +1,123 @@
+/* Contenedor Formulario */
+.formContainer{
+    height: 700px;
+    width: 450px;
+    margin: 0 auto;
+    border: 2px solid white;
+    margin-top: 10px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 6px white(0, 0, 0, 0.1);
+    text-align: center;
+    align-items: center;
+}
+/* ---------------------------- */
+/* Botón volver */
+.back{
+    margin-left: -32px;
+    margin-top: -32px;
+    display: flex;
+    border: 2px solid white;
+    border-radius: 12px;
+}
+/* ---------------------------- */
+/* Título */
+.header{
+    margin-top: -30px;
+    margin-bottom: 40px;
+}
+/* ---------------------------- */
+/* Contenedor de las propiedades */
+.box-container{
+    display: flex;
+    justify-content: space-between; /* Distribuye elementos de manera uniforme */
+    flex-wrap: wrap; /* Envuelve elementos cuando no caben en una fila */
+    align-items: center;
+}
+/* ---------------------------- */
+.box{
+    flex: 1;
+    margin-right: 2px;
+}
+/* ---------------------------- */
+.text-input{
+    text-align: center;
+    width: 80%;
+    height: 25px;
+    border: 1 px solid white;
+    border-radius: 10px;
+}
+/* ---------------------------- */
+.properties{
+    font-size: 17px;
+    display: block;
+    margin-bottom: 1px;
+    margin-top: 5px;
+    color:white;
+    font-weight: bold;
+}
+/* ---------------------------- */
+.descript{
+    width: 90%;
+    height: 30px;
+    border: 1px solid white;
+    border-radius: 10px;
+    text-align: center;
+}
+.box2{
+    margin-top: 10px;
+    flex: 1;
+    margin-right: 2px;
+}
+.propertiesTeams{
+    font-size: 17px;
+    display: block;
+    margin-top: 15px;
+    color:white;
+    font-weight: bold;
+}
+
+.teams-container{
+    display:flex;
+    flex-wrap: wrap;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    max-width: 410px;
+    margin: auto;
+    max-height: 170px;
+    overflow: auto; /* Para desplazamiento del contenedor */
+    justify-content: flex-start; /* Alinea los elementos a la izquierda */
+    align-content: flex-start; /* Alinea los elementos a la izquierda */
+}
+.teams-container::-webkit-scrollbar {
+    width: 10px; /* Ancho de la barra de desplazamiento */
+}
+
+.teams-container::-webkit-scrollbar-thumb {
+    background-color: white; /* Color del pulgar de la barra de desplazamiento */
+    border-radius: 5px; /* Borde redondeado del pulgar */
+}
+
+.teams-container::-webkit-scrollbar-track {
+    background-color: black; /* Color de fondo de la barra de desplazamiento */
+    border-radius: 10px; /* Borde redondeado de la barra de desplazamiento */
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); /* Sombra en el fondo de la barra de desplazamiento */
+}
+.teams-checkbox{
+    width: 50%; /* Ancho del contenedor de tipo (ajusta según el número de columnas deseadas) */
+    box-sizing: border-box; /* Asegura que el espacio de margen se cuente dentro del ancho */
+    overflow: hidden; /* Oculta el desbordamiento de texto */
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px; /* Espacio entre los elementos */
+}
+.tcLabel{
+    font-size: 14px;
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    text-overflow: ellipsis; /* Muestra puntos suspensivos cuando el texto es demasiado largo */
+    overflow: hidden;
+}
+.create{
+    margin-top: 10px;
+}
