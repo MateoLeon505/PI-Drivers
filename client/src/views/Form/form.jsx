@@ -53,6 +53,7 @@ const Form = () =>
 
         setErrors(Validation({...form, [property]: value }));
         setForm({...form, [property]: value });
+        formValidation(form); // Valida si el formulario está completo
     }
     //---------------------------------
     // Actualizar teams seleccionados o deseleccionados
@@ -89,8 +90,13 @@ const Form = () =>
             form.dob !== "" &&
             form.teams.length >= 0;
 
-        setIsFormValid(isValid); 
-        return isValid;
+        const withoutErrors =
+            errors.forename === "" && 
+            errors.surname === "" && 
+            errors.image === "" &&
+            errors.nationality === "" ;
+
+        if (isValid && withoutErrors) setIsFormValid(true);
     }
     //---------------------------------
     // Valida la información y crea al driver
@@ -98,27 +104,35 @@ const Form = () =>
     {
         event.preventDefault(); // Para que no se recargue la página
 
-        // 1ra letra mayúsc. y el resto minúsculas
-        const forenameFormat = form.forename.charAt(0).toUpperCase() + form.forename.slice(1).toLowerCase();
-        const surnameFormat = form.surname.charAt(0).toUpperCase() + form.surname.slice(1).toLowerCase();
-        // Actualiza Propiedades con el formato deseado 
-        setForm(
-        {
-            ...form, 
-            forename: forenameFormat, 
-            surname: surnameFormat
-        }); 
-        formValidation(form); // Valida si el formulario está completo
-
         if (isFormValid) 
         {
-            await dispatch(postDriver(form));
-            alert('Driver creado correctamente');
-
+            // 1ra letra mayúsc. y el resto minúsculas
+            const forenameFormat = form.forename.charAt(0).toUpperCase() + form.forename.slice(1).toLowerCase();
+            const surnameFormat = form.surname.charAt(0).toUpperCase() + form.surname.slice(1).toLowerCase();
+            // Actualiza Propiedades con el formato deseado 
+            setForm(
+            {
+                ...form, 
+                forename: forenameFormat, 
+                surname: surnameFormat
+            }); 
+            await dispatch(postDriver(form)); // Crea el drver
+            alert('Driver created successfully'); // Aviso de que se ccreó correctamente
+            // Limpia el formulario
+            setForm({
+                forename: "",
+                surname: "",
+                description: "",
+                image: "",
+                nationality: "",
+                dob: "",
+                teams: []
+            });
+            setIsFormValid(false);
         }
         else
         {
-            alert('MISSING DATA')
+            alert('Missing Data'); // Formulario incompleto
         }
     }
     //---------------------------------
