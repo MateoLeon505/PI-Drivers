@@ -30,6 +30,7 @@ const Form = () =>
         description: "",
         image: "",
         nationality: "",
+        dob: "",
         teams: []
     });
     //-----------------
@@ -42,6 +43,7 @@ const Form = () =>
             description: "",
             image: "",
             nationality: "",
+            dob: "",
             teams: []
         });
     //---------------------------------
@@ -95,14 +97,14 @@ const Form = () =>
                     {
                         errors.image && 
                         <div className = 'error-box'>
-                            <span className = 'global-message'>⚠️*Invalid URL*</span>
+                            <span className = 'global-message'>❗Invalid URL</span>
                         </div>
                     }
                     {
                         errors.forename || errors.surname || errors.nationality 
                         ? 
                             <div className = 'error-box'>
-                                <span className = 'global-message'>⚠️*No numbers allowed*</span>
+                                <span className = 'global-message'>❗No numbers allowed</span>
                             </div>
                         : null
                     }
@@ -111,11 +113,13 @@ const Form = () =>
                 <div className = 'box-container'>
                     <div className = 'box'>
                         <label className = 'properties'>Forename</label>
-                        <input type = "text" onChange = {changeHandler} value = {form.forename} name = 'forename' className = 'text-input' placeholder = 'Lewis' id = 'forename'/>
+                        <input type = "text" onChange = {changeHandler} value = {form.forename} name = 'forename' className = {`${errors.forename ? 'input-errors' : 'text-input'}`} placeholder = 'Lewis' id = 'forename'/>
+                        {errors.forename && <span className = 'errors-message'>{errors.forename}</span>}
                     </div>
                     <div className = 'box'>
                         <label className = 'properties'>Surname</label>
-                        <input type = "text" onChange = {changeHandler} value = {form.surname} name = 'surname' className = 'text-input' placeholder = 'Hamilton' id = 'surname'/>
+                        <input type = "text" onChange = {changeHandler} value = {form.surname} name = 'surname' className = {`${errors.surname ? 'input-errors' : 'text-input'}`} placeholder = 'Hamilton' id = 'surname'/>
+                        {errors.surname && <span className = 'errors-message'>{errors.surname}</span>}
                     </div>
                 </div>
                 {/* -------------------- Descripción -------------------- */}
@@ -126,13 +130,15 @@ const Form = () =>
                 {/* -------------------- Imágen -------------------- */}
                 <div className = 'box2'>
                     <label className = 'properties'>Image</label>
-                    <input type = "text" onChange = {changeHandler} value = {form.image} name = 'image' className = 'descript' placeholder = 'https://example.jpg' id = 'image'/>
+                    <input type = "text" onChange = {changeHandler} value = {form.image} name = 'image' className = {`${errors.image ? 'errors-descript' : 'descript'}`} placeholder = 'https://example.jpg' id = 'image'/>
+                    {errors.image && <span className = 'errors-message2'>{errors.image}</span>}
                 </div>
                 {/* -------------------- Nacionalidad y Fecha de Nacimiento -------------------- */}
                 <div className = 'box-container'>
                     <div className = 'box'>
                         <label className = 'properties'>Nationality</label>
-                        <input type = "text" onChange = {changeHandler} value = {form.nationality} name = 'nationality'  className = 'text-input'  placeholder = 'British' id = 'nationality'/>
+                        <input type = "text" onChange = {changeHandler} value = {form.nationality} name = 'nationality'  className = {`${errors.nationality ? 'input-errors' : 'text-input'}`}  placeholder = 'British' id = 'nationality'/>
+                        {errors.nationality && <span className = 'errors-message'>{errors.nationality}</span>}
                     </div>
                     <div className = 'box'>
                         <label className = 'properties'>DOB</label>

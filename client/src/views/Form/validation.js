@@ -13,7 +13,7 @@ const Validation  = (form) =>
     }
     else
     {
-        errors.image = '⚠️';
+        errors.image = '❗';
     }
     if (form.image === '')
     {
@@ -27,7 +27,7 @@ const Validation  = (form) =>
     }
     else
     {
-        errors.forename = '⚠️';
+        errors.forename = '❗';
     }
     if (form.forename === '')
     {
@@ -41,7 +41,7 @@ const Validation  = (form) =>
     }
     else
     {
-        errors.surname = '⚠️';
+        errors.surname = '❗';
     }
     if (form.surname === '')
     {
@@ -55,7 +55,7 @@ const Validation  = (form) =>
     }
     else
     {
-        errors.nationality = '⚠️';
+        errors.nationality = '❗';
     }
     if (form.nationality === '')
     {
