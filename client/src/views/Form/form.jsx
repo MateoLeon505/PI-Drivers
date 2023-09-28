@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getTeams } from '../../redux/actions';
+import { getTeams, postDriver } from '../../redux/actions';
 import Validation from './validation';
 import './form.css';
 //----------------------------------------------
@@ -24,7 +24,6 @@ const Form = () =>
     // Para recibir la info del Formuario
     const [ form, setForm ] = useState(
     {
-        id: "",
         forename: "",
         surname: "",
         description: "",
@@ -37,7 +36,6 @@ const Form = () =>
     // Para detectar errores en el formulario
     const [ errors, setErrors ] = useState(
         {
-            id: "",
             forename: "",
             surname: "",
             description: "",
@@ -76,6 +74,52 @@ const Form = () =>
     const teamSelected = (team) => 
     {
         return form.teams.includes(team);
+    }
+    //---------------------------------
+    // Valida que el formulario esté completo
+    const [ isFormValid, setIsFormValid ] = useState(false); 
+    const formValidation = (form) =>
+    {
+        const isValid =
+            form.forename !== "" &&
+            form.surname !== "" &&
+            form.description !== "" &&
+            form.image !== "" &&
+            form.nationality !== "" &&
+            form.dob !== "" &&
+            form.teams.length >= 0;
+
+        setIsFormValid(isValid); 
+        return isValid;
+    }
+    //---------------------------------
+    // Valida la información y crea al driver
+    const submitHandler = async (event) =>
+    {
+        event.preventDefault(); // Para que no se recargue la página
+
+        // 1ra letra mayúsc. y el resto minúsculas
+        const forenameFormat = form.forename.charAt(0).toUpperCase() + form.forename.slice(1).toLowerCase();
+        const surnameFormat = form.surname.charAt(0).toUpperCase() + form.surname.slice(1).toLowerCase();
+        // Actualiza Propiedades con el formato deseado 
+        setForm(
+        {
+            ...form, 
+            forename: forenameFormat, 
+            surname: surnameFormat
+        }); 
+        formValidation(form); // Valida si el formulario está completo
+
+        if (isFormValid) 
+        {
+            await dispatch(postDriver(form));
+            alert('Driver creado correctamente');
+
+        }
+        else
+        {
+            alert('MISSING DATA')
+        }
     }
     //---------------------------------
     const backHandler = () =>
@@ -168,7 +212,7 @@ const Form = () =>
                     </div>
                 </div>
                 <div>
-                    <button className = 'create'>
+                    <button className = 'create' onClick = {submitHandler}>
                         Create
                     </button>
                 </div>

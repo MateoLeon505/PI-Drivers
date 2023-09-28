@@ -1,7 +1,7 @@
 // La responsabilidad de este módulo es especificar el cambio de estado en respuesta a las acciones
 //----------------------------------------------
 // Trae 'action-types'
-import { GET_DRIVERS, GET_DRIVER_BY_NAME, CLEAR_SEARCH_RESULTS, GET_DRIVER_DETAIL, GET_TEAMS } from './action-types';
+import { GET_DRIVERS, GET_DRIVER_BY_NAME, CLEAR_SEARCH_RESULTS, GET_DRIVER_DETAIL, GET_TEAMS, POST_DRIVER } from './action-types';
 //----------------------------------------------
 // Define estado inicial
 const initialState = // Estado Global
@@ -9,6 +9,7 @@ const initialState = // Estado Global
     drivers: [],
     searchResults: [],
     detail: [],
+    posted: [],
     teams: []
 };
 //---------------------------------------------- 
@@ -35,19 +36,24 @@ const reducer = (state = initialState, action) =>
                 ...state, 
                 searchResults: []
             }
-
+        // Trae detalles del Driver
         case GET_DRIVER_DETAIL:
             return {
                 ...state, 
                 detail: action.payload
             }
-        
+        // Trae los Teams
         case GET_TEAMS:
             return {
                 ...state,
                 teams: action.payload
             }
-            
+        case POST_DRIVER:
+            return {
+                ...state,
+                posted: action.payload
+            }
+        
         default:
             return { ...state }; //Copia del estado
     }
