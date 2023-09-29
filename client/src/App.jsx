@@ -12,7 +12,6 @@ const  App = () =>
 {
   const location = useLocation(); // Ubicacíon
   //-------------
-  console.log(location.pathname);
   return (
     <div>
       {location.pathname !== '/' && <NavBar/> }

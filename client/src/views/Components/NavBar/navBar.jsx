@@ -10,9 +10,7 @@ const NavBar = () =>
 
     return(
         <div className = 'navBar-container'>
-            <div>
-                <h3 >DRIVERS APP</h3>
-            </div>
+            <h3 >DRIVERS APP</h3>
             {location.pathname === '/home' && <SearchBar></SearchBar>}
             <NavLink to = 'home'>Home</NavLink>
             <NavLink to = 'form'>Form</NavLink>
