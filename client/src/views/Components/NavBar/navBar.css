@@ -2,5 +2,5 @@
     display: flex; /* Contenedor flexible */
     justify-content: space-between; /* Distribuir contenido */
     border: 1px solid black;
-
+    align-items: center;
 }
