@@ -1,13 +1,19 @@
 // NavBar: Barra de Navegación
 //----------------------------------------------
 import './navBar.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
+import SearchBar from '../SearchBar/searchBar';
 //----------------------------------------------
 const NavBar = () =>
 {
+    const location = useLocation();
+
     return(
-        <div className = 'navBarContainer'>
-            <h1 className = 'titles'>DRIVERS APP</h1>
+        <div className = 'navBar-container'>
+            <div>
+                <h3 >DRIVERS APP</h3>
+            </div>
+            {location.pathname === '/home' && <SearchBar></SearchBar>}
             <NavLink to = 'home'>Home</NavLink>
             <NavLink to = 'form'>Form</NavLink>
             <NavLink to = '/'>Out</NavLink>
