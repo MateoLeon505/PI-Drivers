@@ -3,6 +3,8 @@
     text-align: center;
     border-radius: 20px;
     margin: 20px;
+    height: 300px;
+    width: 300px;
 }
 .card{
     background-color: transparent;
@@ -23,8 +25,8 @@
 }
 
 .imageDriver{
-    width: 200px;
-    height: auto;
+    width: 100px;
+    height: 100px;
 }
 
 .teams{

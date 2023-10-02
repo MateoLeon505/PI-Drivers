@@ -1,6 +1,6 @@
 // Este componente es el HOME
 //----------------------------------------------
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDrivers, getDriverById } from '../../redux/actions.js';
 import Drivers from '../Components/Drivers/drivers.jsx';
@@ -9,6 +9,8 @@ import './home.css';
 const Home = () =>
 {
     const dispatch = useDispatch();
+
+    const [ currentPage, setCurrentPage ] = useState(1); // Núm para páginas
 
     useEffect(() =>
     {
