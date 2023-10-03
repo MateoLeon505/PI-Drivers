@@ -41,7 +41,18 @@ const Home = () =>
     },[dispatch]);
     //---------------
     // Hay algún filtro
-    const filterByTeam = useSelector(state => state.filterTeam);
+    const filterByTeam = useSelector(state => state.filterTeam); // Drivers filtrados
+    const [ pageFilter, setPageFilter ] = useState(1); // Núm de página
+    // Cambia página
+    const changePageFilter = (newPage) =>
+    {
+        setPageFilter(newPage);
+    }
+    const driversFiltered = filterByTeam.length / driversOnPage; // Drivers x pag
+    const filterCollection = filterByTeam.slice(
+        (pageFilter - 1) * driversOnPage,
+        pageFilter * driversOnPage
+    )
     //------------------------------------------
     return(
         <div className = 'homeContainer'>
@@ -64,7 +75,12 @@ const Home = () =>
                                     (                            
                                         <div>
                                             <h1 className = 'titles'>DRIVERS</h1>
-                                            <Drivers collectionOfDrivers = {filterByTeam}/>
+                                            <Drivers collectionOfDrivers = {filterCollection}/>
+                                            {
+                                                filterByTeam.length >= 10 && 
+                                                    <Pagination totalOfPages = {driversFiltered} pagination = {changePageFilter} ></Pagination> 
+                                            }
+                                            
                                         </div>
                                     )
                                 :
@@ -78,6 +94,7 @@ const Home = () =>
                             )
                     )
             }
+            {console.log(filterByTeam)}
         </div>
     );
 }

@@ -22,6 +22,7 @@ const NavBar = () =>
     //---------------
     const teamSelected = (event) => setTeamToFilter(event.target.value);
     //---------------
+    // Botón de Filtro
     const submitHandler = (event) =>
     {
         event.preventDefault();
@@ -39,6 +40,7 @@ const NavBar = () =>
                     <SearchBar/>
                     <form>
                         <select onChange = {teamSelected}>
+                            <option value = 'all'>All</option>
                             {
                                 teams.map((team) => (
                                     <option value = {team.name}>{team.name}</option>
@@ -46,6 +48,7 @@ const NavBar = () =>
                             }
                         </select>
                         <select>
+                            <option value="">All</option>
                             <option value = 'created'>Created</option>
                             <option value = 'fromapi'>From Api</option>
                         </select>

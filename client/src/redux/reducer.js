@@ -58,14 +58,20 @@ const reducer = (state = initialState, action) =>
             }
         // Trae drivers por Team
         case FILTER_BY_TEAM:
-            const filter = [];
-            console.log('-------------------------');
-            state.drivers.map((driver) => 
+            let filter = [];
+            if (action.payload === 'all') 
             {
-                const teams = driver.teams.split(',').map((team) => team.trim()); // Divide y elimina espacios
-                let match = teams.filter((team) => team === action.payload) // Guarda teams que concidan
-                if (match.length > 0) filter.push(driver); // Guarda el driver que tenga algún team que coincida 
-            })
+                filter = state.drivers;    
+            }
+            else 
+            {
+                state.drivers.map((driver) => 
+                {
+                    const teams = driver.teams.split(',').map((team) => team.trim()); // Divide y elimina espacios
+                    const match = teams.filter((team) => team === action.payload) // Guarda teams que concidan
+                    if (match.length > 0) filter.push(driver); // Guarda el driver que tenga algún team que coincida 
+                })
+            }
             return{
                 ...state,
                 filterTeam: filter
