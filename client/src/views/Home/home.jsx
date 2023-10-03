@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDrivers, getDriverById } from '../../redux/actions.js';
 import Drivers from '../Components/Drivers/drivers.jsx';
+import gifLoading from '../../Images/gifLoading.gif';
 import './home.css';
 //----------------------------------------------
 const Home = () =>
@@ -24,6 +25,7 @@ const Home = () =>
         <div className = 'homeContainer'>
             <h1 className = 'titles'>DRIVERS</h1>
             <Drivers collectionOfDrivers = {allDrivers}/>
+            <img src = {gifLoading} alt="" />
         </div>
     );
 }
