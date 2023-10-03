@@ -13,6 +13,7 @@ const initialState =
     posted: [],
     teams: [],
     filterTeam: [],
+    teamSelected: '',
 };
 //---------------------------------------------- 
 // Creación del reducer
@@ -74,6 +75,7 @@ const reducer = (state = initialState, action) =>
             }
             return{
                 ...state,
+                teamSelected: action.payload === 'all' ? 'DRIVERS' : action.payload.toUpperCase(),
                 filterTeam: filter
             }
         default:

@@ -42,17 +42,20 @@ const Home = () =>
     //---------------
     // Hay algún filtro
     const filterByTeam = useSelector(state => state.filterTeam); // Drivers filtrados
+    const teamSelected = useSelector(state => state.teamSelected); // Team Seleccionado
     const [ pageFilter, setPageFilter ] = useState(1); // Núm de página
+    const driversFiltered = Math.ceil(filterByTeam.length / driversOnPage); // Drivers x pag
+    
+    // Grupo de drivers por página
+    const filterCollection = filterByTeam.slice(
+        (pageFilter - 1) * driversOnPage,
+        pageFilter * driversOnPage
+    )
     // Cambia página
     const changePageFilter = (newPage) =>
     {
         setPageFilter(newPage);
     }
-    const driversFiltered = filterByTeam.length / driversOnPage; // Drivers x pag
-    const filterCollection = filterByTeam.slice(
-        (pageFilter - 1) * driversOnPage,
-        pageFilter * driversOnPage
-    )
     //------------------------------------------
     return(
         <div className = 'homeContainer'>
@@ -74,10 +77,10 @@ const Home = () =>
                                 ?
                                     (                            
                                         <div>
-                                            <h1 className = 'titles'>DRIVERS</h1>
+                                            <h1 className = 'titles'>{teamSelected}</h1>
                                             <Drivers collectionOfDrivers = {filterCollection}/>
                                             {
-                                                filterByTeam.length >= 10 && 
+                                                filterByTeam.length > driversOnPage && 
                                                     <Pagination totalOfPages = {driversFiltered} pagination = {changePageFilter} ></Pagination> 
                                             }
                                             
