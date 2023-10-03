@@ -45,6 +45,10 @@ const NavBar = () =>
                                 ))
                             }
                         </select>
+                        <select>
+                            <option value = 'created'>Created</option>
+                            <option value = 'fromapi'>From Api</option>
+                        </select>
                         <button onClick = {submitHandler}>Filter</button>
                     </form>
                 </>
