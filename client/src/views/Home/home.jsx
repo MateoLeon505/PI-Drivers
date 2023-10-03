@@ -21,13 +21,14 @@ const Home = () =>
     },[dispatch]);
     //---------------
     const allDrivers = useSelector(state => state.drivers); // Lista de TODOS los Drivers
+    const totalOfPages = allDrivers.length / 9; // Tot Drivers / Drivers x Pág
     //------------------------------------------
     return(
         <div className = 'homeContainer'>
             <h1 className = 'titles'>DRIVERS</h1>
             <Drivers collectionOfDrivers = {allDrivers}/>
-            <Pagination></Pagination>
-            <img src = {gifLoading} alt="" />
+            <Pagination totalOfPages = {totalOfPages} ></Pagination>
+            <img src = {gifLoading} alt = "Loading" />
         </div>
     );
 }
