@@ -2,7 +2,7 @@
 //----------------------------------------------
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getDrivers, getDriverById } from '../../redux/actions.js';
+import { getDrivers } from '../../redux/actions.js';
 import Drivers from '../Components/Drivers/drivers.jsx';
 import Pagination from '../Components/Pagination/pagination.jsx';
 import gifLoading from '../../Images/gifLoading.gif';
@@ -27,6 +27,9 @@ const Home = () =>
         setCurrentPage(newPage);
     }
     //---------------
+    // Resultados de búsqueda
+    const searchResults = useSelector(state => state.searchResults);
+    //---------------
     // Trae Drivers cuando se monta el componente
     useEffect(() =>
     {
@@ -35,9 +38,23 @@ const Home = () =>
     //------------------------------------------
     return(
         <div className = 'homeContainer'>
-            <h1 className = 'titles'>DRIVERS</h1>
-            <Drivers collectionOfDrivers = {collectionOfDrivers}/>
-            <Pagination totalOfPages = {totalOfPages} pagination = {changePage} ></Pagination>
+            {
+                searchResults.length > 0
+                ?
+                    (
+                        <div>
+                            <Drivers collectionOfDrivers = {searchResults}/>
+                        </div>
+                    )
+                : 
+                    (
+                        <div>
+                            <h1 className = 'titles'>DRIVERS</h1>
+                            <Drivers collectionOfDrivers = {collectionOfDrivers}/>
+                            <Pagination totalOfPages = {totalOfPages} pagination = {changePage} ></Pagination>
+                        </div>
+                    )
+            }
             <img src = {gifLoading} alt = "Loading" />
         </div>
     );

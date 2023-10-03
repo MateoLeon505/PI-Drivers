@@ -53,7 +53,6 @@ const reducer = (state = initialState, action) =>
                 ...state,
                 posted: action.payload
             }
-        
         default:
             return { ...state }; //Copia del estado
     }

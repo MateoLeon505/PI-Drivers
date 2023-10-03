@@ -18,15 +18,8 @@ const getDriverByName = (name) =>
 {
     return async function (dispatch)
     {
-        if (name.trim() === '') 
-        {
-            dispatch({ type: CLEAR_SEARCH_RESULTS })    
-        }
-        else
-        {
-            const response = await axios.get(`http://localhost:3001/drivers?name=${name}`);
-            dispatch({ type: GET_DRIVER_BY_NAME, payload: response.data });
-        }
+        const response = await axios.get(`http://localhost:3001/drivers?name=${name}`);
+        dispatch({ type: GET_DRIVER_BY_NAME, payload: response.data });
     }
 }
 //-----------------
