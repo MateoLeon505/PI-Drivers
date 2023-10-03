@@ -13,21 +13,31 @@ const Home = () =>
     const dispatch = useDispatch(); // para despachar acciones
     //---------------
     const [ currentPage, setCurrentPage ] = useState(1); // Núm de página
+    const allDrivers = useSelector(state => state.drivers); // Lista de TODOS los Drivers
+    const driversOnPage = 9;
+    const totalOfPages = allDrivers.length / driversOnPage; // Tot Drivers / Drivers x Pág
+    //---------------
+    // Paginación drivers 
+    const collectionOfDrivers = allDrivers.slice(
+        (currentPage - 1) * driversOnPage,
+        currentPage * driversOnPage 
+    );
+    const changePage = (newPage) =>
+    {
+        setCurrentPage(newPage);
+    }
     //---------------
     // Trae Drivers cuando se monta el componente
     useEffect(() =>
     {
         dispatch(getDrivers());
     },[dispatch]);
-    //---------------
-    const allDrivers = useSelector(state => state.drivers); // Lista de TODOS los Drivers
-    const totalOfPages = allDrivers.length / 9; // Tot Drivers / Drivers x Pág
     //------------------------------------------
     return(
         <div className = 'homeContainer'>
             <h1 className = 'titles'>DRIVERS</h1>
-            <Drivers collectionOfDrivers = {allDrivers}/>
-            <Pagination totalOfPages = {totalOfPages} ></Pagination>
+            <Drivers collectionOfDrivers = {collectionOfDrivers}/>
+            <Pagination totalOfPages = {totalOfPages} pagination = {changePage} ></Pagination>
             <img src = {gifLoading} alt = "Loading" />
         </div>
     );
