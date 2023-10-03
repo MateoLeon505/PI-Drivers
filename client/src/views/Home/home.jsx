@@ -12,10 +12,14 @@ const Home = () =>
 {
     const dispatch = useDispatch(); // para despachar acciones
     //---------------
+    const [ isLoading, setIsLoading ] = useState(true);  // Carga de la página
+    //---------------
     const [ currentPage, setCurrentPage ] = useState(1); // Núm de página
     const allDrivers = useSelector(state => state.drivers); // Lista de TODOS los Drivers
     const driversOnPage = 9;
     const totalOfPages = allDrivers.length / driversOnPage; // Tot Drivers / Drivers x Pág
+    //---------------
+    const searchResults = useSelector(state => state.searchResults); // Resultados de búsqueda
     //---------------
     // Paginación drivers 
     const collectionOfDrivers = allDrivers.slice(
@@ -27,35 +31,53 @@ const Home = () =>
         setCurrentPage(newPage);
     }
     //---------------
-    // Resultados de búsqueda
-    const searchResults = useSelector(state => state.searchResults);
-    //---------------
     // Trae Drivers cuando se monta el componente
     useEffect(() =>
     {
-        dispatch(getDrivers());
+        setIsLoading(true);
+
+        dispatch(getDrivers())
+        .finally(() => setIsLoading(false));
     },[dispatch]);
+    //---------------
+    // Hay algún filtro
+    const filterByTeam = useSelector(state => state.filterTeam);
     //------------------------------------------
     return(
         <div className = 'homeContainer'>
             {
-                searchResults.length > 0
-                ?
+                isLoading
+                ? <img src = {gifLoading} alt = "Loading" />
+                :
                     (
-                        <div>
-                            <Drivers collectionOfDrivers = {searchResults}/>
-                        </div>
-                    )
-                : 
-                    (
-                        <div>
-                            <h1 className = 'titles'>DRIVERS</h1>
-                            <Drivers collectionOfDrivers = {collectionOfDrivers}/>
-                            <Pagination totalOfPages = {totalOfPages} pagination = {changePage} ></Pagination>
-                        </div>
+                        searchResults.length > 0
+                        ?
+                            (
+                                <div>
+                                    <Drivers collectionOfDrivers = {searchResults}/>
+                                </div>
+                            )
+                        : 
+                            (
+                                filterByTeam.length > 0 
+                                ?
+                                    (                            
+                                        <div>
+                                            <h1 className = 'titles'>DRIVERS</h1>
+                                            <Drivers collectionOfDrivers = {filterByTeam}/>
+                                        </div>
+                                    )
+                                :
+                                    (
+                                        <div>
+                                            <h1 className = 'titles'>DRIVERS</h1>
+                                            <Drivers collectionOfDrivers = {collectionOfDrivers}/>
+                                            <Pagination totalOfPages = {totalOfPages} pagination = {changePage} ></Pagination>
+                                        </div>
+                                    )
+                            )
                     )
             }
-            <img src = {gifLoading} alt = "Loading" />
         </div>
     );
 }

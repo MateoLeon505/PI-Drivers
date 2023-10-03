@@ -2,7 +2,7 @@
 //----------------------------------------------
 // Importación modulos y librerías
 import axios from "axios";
-import { GET_DRIVERS, GET_DRIVER_BY_NAME, CLEAR_SEARCH_RESULTS, GET_DRIVER_DETAIL, GET_TEAMS, POST_DRIVER } from './action-types';
+import { GET_DRIVERS, GET_DRIVER_BY_NAME, GET_DRIVER_DETAIL, GET_TEAMS, POST_DRIVER, FILTER_BY_TEAM } from './action-types';
 //----------------------------------------------
 // Actions:
 const getDrivers = () =>
@@ -49,6 +49,14 @@ const postDriver = (form) =>
         dispatch({ type: POST_DRIVER, payload: response.data});
     }
 }
+//-----------------
+const filterByTeam = (teamToFilter) =>
+{
+    return async function (dispatch)
+    {
+        dispatch({ type: FILTER_BY_TEAM, payload: teamToFilter})
+    }
+}
 //----------------------------------------------
 // Exportación actions
-export { getDrivers, getDriverByName, getDriverById, getTeams, postDriver };
+export { getDrivers, getDriverByName, getDriverById, getTeams, postDriver, filterByTeam };
