@@ -44,10 +44,10 @@ const Home = () =>
     // X Team
     const filterByTeam = useSelector(state => state.filterTeam); // Drivers filtrados x Team
     const teamSelected = useSelector(state => state.teamSelected); // nombre del Team Seleccionado
-    const driversFiltered = Math.ceil(filterByTeam.length / driversOnPage); // Drivers x pag  
     //---
     // X Origin
     const filterByOrigin = useSelector(state => state.filterOrigin);  // Drivers filtrados x Origen
+    const originSelected = useSelector(state => state.originSelected); // origen Seleccionado
     //-------------------
     // Filtrado combinado
     const filteredDrivers = 
@@ -61,21 +61,22 @@ const Home = () =>
     ? filterByTeam
     : // Un solo filtro (Origin)
     (filterByOrigin.length > 0)
-    ? filterByOrigin
-    : allDrivers // TODOS
-    console.log(`filteredDrivers: ${filteredDrivers}`);
+    && filterByOrigin
+
+    console.log(filteredDrivers.length);
+    const driversFiltered = Math.ceil(filteredDrivers.length / driversOnPage); // Drivers x pag  
     //-------------------
     // Grupo de drivers por página
-    const filterCollection = filteredDrivers.slice(
+    const filterCollection = Array.isArray(filteredDrivers) ? filteredDrivers.slice(
         (currentPage - 1) * driversOnPage,
         currentPage * driversOnPage
-    )
+    ) : [];
     //---------------
     // Cuando cambia el filtro, vuelve a la página 1
     useEffect(() =>
     {
         setCurrentPage(1);
-    },[filteredDrivers]);
+    },[filterByTeam, filterByOrigin]);
     //------------------------------------------
     return(
         <div className = 'homeContainer'>
@@ -97,7 +98,7 @@ const Home = () =>
                                 ?
                                     (                            
                                         <div>
-                                            <h1 className = 'titles'>{teamSelected}hola</h1>
+                                            <h1 className = 'titles'>{teamSelected && originSelected ? `${teamSelected} ${originSelected}` : 'DRIVERS'}</h1>
                                             <Drivers collectionOfDrivers = {filterCollection}/>
                                             {
                                                 filteredDrivers.length > driversOnPage && 

@@ -15,6 +15,7 @@ const initialState =
     filterTeam: [],
     teamSelected: '',
     filterOrigin: [],
+    originSelected: '',
 };
 //---------------------------------------------- 
 // Creación del reducer
@@ -78,7 +79,7 @@ const reducer = (state = initialState, action) =>
             }
             return{
                 ...state,
-                teamSelected: action.payload === 'all' ? 'DRIVERS' : action.payload,
+                teamSelected: action.payload,
                 filterTeam: filter
             }
         //----------------------
@@ -96,7 +97,8 @@ const reducer = (state = initialState, action) =>
             console.log(origin);
             return{
                 ...state,
-                filterOrigin: origin
+                filterOrigin: origin,
+                originSelected: action.payload
             }
         //----------------------
         // Por defecto
