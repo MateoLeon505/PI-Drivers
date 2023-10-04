@@ -85,14 +85,14 @@ const reducer = (state = initialState, action) =>
         case FILTER_BY_ORIGIN:
             let origin; 
             const uuidRegex = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
-
+            // Drivers de la bd
             if (action.payload === 'created') origin = state.drivers.filter((driver) => uuidRegex.test(driver.id)); 
-
+            // Drivers de la Api
             else if (action.payload === 'fromapi') origin = state.drivers.filter((driver) => typeof driver.id === 'number' 
             && Number.isInteger(driver.id));
-            
+            // All drivers
             else origin = state.drivers;
-
+            console.log(origin);
             return{
                 ...state,
                 filterOrigin: origin

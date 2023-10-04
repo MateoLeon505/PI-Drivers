@@ -40,26 +40,31 @@ const Home = () =>
         .finally(() => setIsLoading(false));
     },[dispatch]);
     //---------------
-    // FILTROS
-    const filterByTeam = useSelector(state => state.filterTeam); // Drivers filtrados
-    const teamSelected = useSelector(state => state.teamSelected); // Team Seleccionado
+    //----------------------------------FILTROS------------------------------------------
+    // X Team
+    const filterByTeam = useSelector(state => state.filterTeam); // Drivers filtrados x Team
+    const teamSelected = useSelector(state => state.teamSelected); // nombre del Team Seleccionado
     const driversFiltered = Math.ceil(filterByTeam.length / driversOnPage); // Drivers x pag  
     //---
-    const filterByOrigin = useSelector(state => state.filterOrigin);  
-
+    // X Origin
+    const filterByOrigin = useSelector(state => state.filterOrigin);  // Drivers filtrados x Origen
+    //---
     // Filtrado combinado
     const filteredDrivers = 
     filterByTeam.length > 0 && filterByOrigin.length > 0
     ?   // Ambos Filtros 
-        filterByTeam.filter((driver))
+        filterByTeam.filter((driver) =>
+        {
+            
+        })
     : filterByTeam
-
-
+    //---------------
     // Grupo de drivers por página
     const filterCollection = filterByTeam.slice(
         (currentPage - 1) * driversOnPage,
         currentPage * driversOnPage
     )
+    //---------------
     // Cuando cambia el filtro, vuelve a la página 1
     useEffect(() =>
     {
