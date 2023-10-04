@@ -94,7 +94,6 @@ const reducer = (state = initialState, action) =>
             && Number.isInteger(driver.id));
             // All drivers
             else origin = state.drivers;
-            console.log(origin);
             return{
                 ...state,
                 filterOrigin: origin,

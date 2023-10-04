@@ -63,7 +63,7 @@ const Home = () =>
     (filterByOrigin.length > 0)
     && filterByOrigin
 
-    console.log(filteredDrivers.length);
+    console.log(filteredDrivers.length);//---------------- ELIMINAR DESPUES
     const driversFiltered = Math.ceil(filteredDrivers.length / driversOnPage); // Drivers x pag  
     //-------------------
     // Grupo de drivers por página
