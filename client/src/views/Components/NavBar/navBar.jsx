@@ -12,13 +12,15 @@ const NavBar = () =>
     const location = useLocation();
     const dispatch = useDispatch();
     //---------------
-    const [ teamToFilter, setTeamToFilter ] = useState(''); // Estado que va a guardar el Team seleccionado 
-    const [ origin, setOrigin ] = useState(''); // Estado que va a guardar el origen seleccionado
+    const [ teamToFilter, setTeamToFilter ] = useState('all'); // Estado que va a guardar el Team seleccionado 
+    const [ origin, setOrigin ] = useState('all'); // Estado que va a guardar el origen seleccionado
     //---------------
     useEffect(() =>
     {
+        dispatch(filterByTeam(teamToFilter));
+        dispatch(filterByOrigin(origin));
         dispatch(getTeams());
-    },[]);
+    },[teamToFilter, origin]);
     const teams = useSelector(state => state.teams);
     //---------------
     const teamSelected = (event) => setTeamToFilter(event.target.value); // Actualiza el estado con el team seleccionado

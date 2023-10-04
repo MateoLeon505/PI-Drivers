@@ -48,19 +48,25 @@ const Home = () =>
     //---
     // X Origin
     const filterByOrigin = useSelector(state => state.filterOrigin);  // Drivers filtrados x Origen
-    //---
+    //-------------------
     // Filtrado combinado
     const filteredDrivers = 
-    filterByTeam.length > 0 && filterByOrigin.length > 0
+    (filterByTeam.length > 0 && filterByOrigin.length > 0)
     ?   // Ambos Filtros 
-        filterByTeam.filter((driver) =>
-        {
-            
-        })
-    : filterByTeam
-    //---------------
+        filterByTeam.filter((driverByTeam) =>
+            filterByOrigin.some((driverByOrigin) => driverByOrigin.id === driverByTeam.id)
+        )
+    : // Un solo filtro (Team)
+    (filterByTeam.length > 0)
+    ? filterByTeam
+    : // Un solo filtro (Origin)
+    (filterByOrigin.length > 0)
+    ? filterByOrigin
+    : allDrivers // TODOS
+    console.log(`filteredDrivers: ${filteredDrivers}`);
+    //-------------------
     // Grupo de drivers por página
-    const filterCollection = filterByTeam.slice(
+    const filterCollection = filteredDrivers.slice(
         (currentPage - 1) * driversOnPage,
         currentPage * driversOnPage
     )
@@ -69,7 +75,7 @@ const Home = () =>
     useEffect(() =>
     {
         setCurrentPage(1);
-    },[filterByTeam, teamSelected]);
+    },[filteredDrivers]);
     //------------------------------------------
     return(
         <div className = 'homeContainer'>
@@ -87,14 +93,14 @@ const Home = () =>
                             )
                         : 
                             (
-                                filterByTeam.length > 0 
+                                filteredDrivers.length > 0 
                                 ?
                                     (                            
                                         <div>
-                                            <h1 className = 'titles'>{teamSelected}</h1>
+                                            <h1 className = 'titles'>{teamSelected}hola</h1>
                                             <Drivers collectionOfDrivers = {filterCollection}/>
                                             {
-                                                filterByTeam.length > driversOnPage && 
+                                                filteredDrivers.length > driversOnPage && 
                                                     <Pagination totalOfPages = {driversFiltered} pagination = {changePage} ></Pagination> 
                                             }
                                             

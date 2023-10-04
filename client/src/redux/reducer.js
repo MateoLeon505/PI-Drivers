@@ -82,6 +82,7 @@ const reducer = (state = initialState, action) =>
                 filterTeam: filter
             }
         //----------------------
+        // Filtro por origen
         case FILTER_BY_ORIGIN:
             let origin; 
             const uuidRegex = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
