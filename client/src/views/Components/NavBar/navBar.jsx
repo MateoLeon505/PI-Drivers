@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
 import SearchBar from '../SearchBar/searchBar';
-import { getTeams, filterByTeam } from '../../../redux/actions';
+import { getTeams, filterByTeam, filterByOrigin } from '../../../redux/actions';
 import './navBar.css';
 //----------------------------------------------
 const NavBar = () =>
@@ -13,6 +13,7 @@ const NavBar = () =>
     const dispatch = useDispatch();
     //---------------
     const [ teamToFilter, setTeamToFilter ] = useState(''); // Estado que va a guardar el Team seleccionado 
+    const [ origin, setOrigin ] = useState(''); // Estado que va a guardar el origen seleccionado
     //---------------
     useEffect(() =>
     {
@@ -20,15 +21,19 @@ const NavBar = () =>
     },[]);
     const teams = useSelector(state => state.teams);
     //---------------
-    const teamSelected = (event) => setTeamToFilter(event.target.value);
+    const teamSelected = (event) => setTeamToFilter(event.target.value); // Actualiza el estado con el team seleccionado
+    const originSelected = (event) => setOrigin(event.target.value); // Actualiza el estado con el origen seleccionado
     //---------------
     // Botón de Filtro
     const submitHandler = (event) =>
     {
         event.preventDefault();
         //-----
+        if (origin) dispatch(filterByOrigin(origin));
+        //else dispatch(filterByOrigin([]));
+
         if (teamToFilter) dispatch(filterByTeam(teamToFilter));   
-        else dispatch(filterByTeam([]));
+        //else dispatch(filterByTeam([]));
     }
     //---------------
     return(
@@ -47,8 +52,8 @@ const NavBar = () =>
                                 ))
                             }
                         </select>
-                        <select>
-                            <option value="">All</option>
+                        <select onChange = {originSelected}>
+                            <option value = "all" >All</option>
                             <option value = 'created'>Created</option>
                             <option value = 'fromapi'>From Api</option>
                         </select>
@@ -61,7 +66,6 @@ const NavBar = () =>
             <NavLink to = 'home'>Home</NavLink>
             <NavLink to = 'form'>Form</NavLink>
             <NavLink to = '/'>Out</NavLink>
-            {console.log(teams)}
         </div>
     );
 }

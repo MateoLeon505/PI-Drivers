@@ -43,19 +43,19 @@ const Home = () =>
     // Hay algún filtro
     const filterByTeam = useSelector(state => state.filterTeam); // Drivers filtrados
     const teamSelected = useSelector(state => state.teamSelected); // Team Seleccionado
-    const [ pageFilter, setPageFilter ] = useState(1); // Núm de página
-    const driversFiltered = Math.ceil(filterByTeam.length / driversOnPage); // Drivers x pag
-    
+    const driversFiltered = Math.ceil(filterByTeam.length / driversOnPage); // Drivers x pag  
+    //---------------  
     // Grupo de drivers por página
     const filterCollection = filterByTeam.slice(
-        (pageFilter - 1) * driversOnPage,
-        pageFilter * driversOnPage
+        (currentPage - 1) * driversOnPage,
+        currentPage * driversOnPage
     )
-    // Cambia página
-    const changePageFilter = (newPage) =>
+    // Cuando cambia el filtro, vuelve a la página 1
+    useEffect(() =>
     {
-        setPageFilter(newPage);
-    }
+        setCurrentPage(1);
+    },[filterByTeam, teamSelected]);
+
     //------------------------------------------
     return(
         <div className = 'homeContainer'>
@@ -81,7 +81,7 @@ const Home = () =>
                                             <Drivers collectionOfDrivers = {filterCollection}/>
                                             {
                                                 filterByTeam.length > driversOnPage && 
-                                                    <Pagination totalOfPages = {driversFiltered} pagination = {changePageFilter} ></Pagination> 
+                                                    <Pagination totalOfPages = {driversFiltered} pagination = {changePage} ></Pagination> 
                                             }
                                             
                                         </div>
@@ -97,7 +97,6 @@ const Home = () =>
                             )
                     )
             }
-            {console.log(filterByTeam)}
         </div>
     );
 }

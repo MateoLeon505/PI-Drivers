@@ -2,7 +2,7 @@
 //----------------------------------------------
 // Trae 'action-types'
 import { GET_DRIVERS, GET_DRIVER_BY_NAME, CLEAR_SEARCH_RESULTS, 
-         GET_DRIVER_DETAIL, GET_TEAMS, POST_DRIVER, FILTER_BY_TEAM } from './action-types';
+         GET_DRIVER_DETAIL, GET_TEAMS, POST_DRIVER, FILTER_BY_TEAM, FILTER_BY_ORIGIN } from './action-types';
 //----------------------------------------------
 // Define estado inicial (global)
 const initialState = 
@@ -68,14 +68,14 @@ const reducer = (state = initialState, action) =>
             {
                 state.drivers.map((driver) => 
                 {
-                    const teams = driver.teams.split(',').map((team) => team.trim()); // Divide y elimina espacios
+                    const teams = (driver.teams || '').split(',').map((team) => team.trim()); // Divide y elimina espacios
                     const match = teams.filter((team) => team === action.payload) // Guarda teams que concidan
                     if (match.length > 0) filter.push(driver); // Guarda el driver que tenga algún team que coincida 
                 })
             }
             return{
                 ...state,
-                teamSelected: action.payload === 'all' ? 'DRIVERS' : action.payload.toUpperCase(),
+                teamSelected: action.payload === 'all' ? 'DRIVERS' : action.payload,
                 filterTeam: filter
             }
         default:
