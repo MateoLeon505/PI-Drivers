@@ -10,14 +10,25 @@ const getDriverByName = async (name) =>
     // 1ra letra mayúsc. y el resto minúsculas
     name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase(); // Insensible a may o min
     // Trae Divers de la bd
-    const dbDriverByName = await Driver.findOne(
+    let dbDriverByName = await Driver.findOne(
     {
         where: { 
             forename: { [Op.iLike]: `%${name}%`, // Búsqueda insensible a May. o Min.
-},
+            },
         },
         limit: 15, // Limite 15 resultados
     });
+    if (!dbDriverByName) 
+    {
+        dbDriverByName = await Driver.findOne(
+            {
+                where: { 
+                    surname: { [Op.iLike]: `%${name}%`, // Búsqueda insensible a May. o Min.
+                    },
+                },
+                limit: 15, // Limite 15 resultados
+            });
+    }
     //-------------------------------
     if (dbDriverByName) // Si se encontró en la bd
     {
@@ -43,7 +54,8 @@ const getDriverByName = async (name) =>
     }
     else // Si no, busca en la Api
     {
-        const apiDriverByName = (await axios.get(`http://localhost:5000/drivers?name.forename=${name}`)).data;
+        let apiDriverByName = (await axios.get(`http://localhost:5000/drivers?name.forename=${name}`)).data;
+        if (apiDriverByName.length === 0) apiDriverByName = (await axios.get(`http://localhost:5000/drivers?name.surname=${name}`)).data;
         if (apiDriverByName.length > 0) 
         {   
             return apiDriverByName.slice(0, 15).map((driver) =>

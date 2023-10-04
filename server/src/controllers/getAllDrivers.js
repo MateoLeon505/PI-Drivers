@@ -34,10 +34,10 @@ const getAllDrivers = async () =>
     //---------
     apiData.map((driv) =>
     {
-        if (apiDrivers.length <150) 
-        {
+        // if (apiDrivers.length <150) 
+        // {
             apiDrivers.push(driv); 
-        }
+        // }
     })    
     //-------------------------------
     // Trae las propiedades de los Drivers ✔
