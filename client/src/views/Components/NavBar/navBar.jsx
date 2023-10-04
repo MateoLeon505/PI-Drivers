@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
 import SearchBar from '../SearchBar/searchBar';
-import { getTeams, filterByTeam, filterByOrigin } from '../../../redux/actions';
+import { getTeams, filterByTeam, filterByOrigin, getDrivers } from '../../../redux/actions';
 import './navBar.css';
 //----------------------------------------------
 const NavBar = () =>
@@ -29,11 +29,14 @@ const NavBar = () =>
     {
         event.preventDefault();
         //-----
-        if (origin) dispatch(filterByOrigin(origin));
-        //else dispatch(filterByOrigin([]));
-
-        if (teamToFilter) dispatch(filterByTeam(teamToFilter));   
-        //else dispatch(filterByTeam([]));
+        if (teamToFilter && origin) 
+        {
+            dispatch(filterByTeam(teamToFilter));
+            dispatch(filterByOrigin(origin));
+        }
+        else if (teamToFilter) dispatch(filterByTeam(teamToFilter));
+        else if (origin) dispatch(filterByOrigin(origin));
+        else dispatch(getDrivers());
     }
     //---------------
     return(

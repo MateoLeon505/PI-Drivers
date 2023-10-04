@@ -14,6 +14,7 @@ const initialState =
     teams: [],
     filterTeam: [],
     teamSelected: '',
+    filterOrigin: [],
 };
 //---------------------------------------------- 
 // Creación del reducer
@@ -27,43 +28,45 @@ const reducer = (state = initialState, action) =>
                 ...state, // Copia del estado actual
                 drivers: action.payload // y modifica la propiedad con nuevo valor
             };
+        //----------------------
         // Trae Driver por name
         case GET_DRIVER_BY_NAME:
             return { 
                 ...state, 
                 searchResults: action.payload 
             };
+        //----------------------
         // Limpiar búsqueda
         case CLEAR_SEARCH_RESULTS:
             return {
                 ...state, 
                 searchResults: []
             }
+        //----------------------
         // Trae detalles del Driver
         case GET_DRIVER_DETAIL:
             return {
                 ...state, 
                 detail: action.payload
             }
+        //----------------------
         // Trae los Teams
         case GET_TEAMS:
             return {
                 ...state,
                 teams: action.payload
             }
-
+        //----------------------
         case POST_DRIVER:
             return {
                 ...state,
                 posted: action.payload
             }
+        //----------------------
         // Trae drivers por Team
         case FILTER_BY_TEAM:
             let filter = [];
-            if (action.payload === 'all') 
-            {
-                filter = state.drivers;    
-            }
+            if (action.payload === 'all')  filter = state.drivers;    
             else 
             {
                 state.drivers.map((driver) => 
@@ -78,6 +81,24 @@ const reducer = (state = initialState, action) =>
                 teamSelected: action.payload === 'all' ? 'DRIVERS' : action.payload,
                 filterTeam: filter
             }
+        //----------------------
+        case FILTER_BY_ORIGIN:
+            let origin; 
+            const uuidRegex = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
+
+            if (action.payload === 'created') origin = state.drivers.filter((driver) => uuidRegex.test(driver.id)); 
+
+            else if (action.payload === 'fromapi') origin = state.drivers.filter((driver) => typeof driver.id === 'number' 
+            && Number.isInteger(driver.id));
+            
+            else origin = state.drivers;
+
+            return{
+                ...state,
+                filterOrigin: origin
+            }
+        //----------------------
+        // Por defecto
         default:
             return { ...state }; //Copia del estado
     }

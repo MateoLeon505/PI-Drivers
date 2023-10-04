@@ -40,11 +40,21 @@ const Home = () =>
         .finally(() => setIsLoading(false));
     },[dispatch]);
     //---------------
-    // Hay algún filtro
+    // FILTROS
     const filterByTeam = useSelector(state => state.filterTeam); // Drivers filtrados
     const teamSelected = useSelector(state => state.teamSelected); // Team Seleccionado
     const driversFiltered = Math.ceil(filterByTeam.length / driversOnPage); // Drivers x pag  
-    //---------------  
+    //---
+    const filterByOrigin = useSelector(state => state.filterOrigin);  
+
+    // Filtrado combinado
+    const filteredDrivers = 
+    filterByTeam.length > 0 && filterByOrigin.length > 0
+    ?   // Ambos Filtros 
+        filterByTeam.filter((driver))
+    : filterByTeam
+
+
     // Grupo de drivers por página
     const filterCollection = filterByTeam.slice(
         (currentPage - 1) * driversOnPage,
@@ -55,7 +65,6 @@ const Home = () =>
     {
         setCurrentPage(1);
     },[filterByTeam, teamSelected]);
-
     //------------------------------------------
     return(
         <div className = 'homeContainer'>
