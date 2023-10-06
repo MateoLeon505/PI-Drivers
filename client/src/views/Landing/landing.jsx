@@ -14,11 +14,11 @@ const Landing = () =>
 
     return(
         <div className = 'landingContainer'>
-            <h1 className = 'titles'>LANDING PAGE</h1>
+            <h1 className = 'titles'>( DRIVERS APP )</h1>
             <div className = 'imageContainer'>
                 <img src = {landingImage} alt = "LandingImage" className = 'f1Image' />
             </div>
-            <button className = 'buttonGo' onClick = {handleToHome}>GO</button>
+            <button className = 'buttonGo' onClick = {handleToHome}>(GO)</button>
         </div>
     );
 }
