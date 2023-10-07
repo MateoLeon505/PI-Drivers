@@ -16,6 +16,9 @@
     border: 1px solid #1B2A27;
     margin-left: 20px;
 }
+.search:hover{
+    border: 1px solid #F0E5E3;
+}
 @font-face 
 {
     font-family: 'heydings_icons'; /* Nombre de la fuente */

@@ -2,6 +2,7 @@
     display: grid; /* cuadrícula */
     gap: 20px;
     justify-content: center; /* Centra los elementos horizontalmente */
+    margin-top: 140px;
 }
 
 .driverWrapper {

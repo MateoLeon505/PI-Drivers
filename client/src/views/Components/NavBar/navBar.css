@@ -42,11 +42,7 @@
     font-family: 'Formula1';
     font-size: 40px;
 }
-.icons{
-    font-family: 'icons';
-    font-size: 32px;
-    color: #F0E5E3;
-}
+
 .navBar-formContainer{
     display: flex;
     align-items: center;
@@ -82,6 +78,11 @@
     align-items: center; /* Centra verticalmente el contenido */
     justify-content: center; /* Centra horizontalmente el contenido */
     border: 1px solid #1B2A27;
+    border-radius: 0;
+}
+.filter-button:hover{
+    border: 1px solid #F0E5E3;
+
 }
 .filter-symbol{
     font-family: 'heydings_icons';
@@ -89,4 +90,19 @@
     color: #F0E5E3;
     transform: rotate(180deg); /* Gira el elemento 180 grados */
     display: inline-block; /* Asegura que la rotación no afecte a otros elementos en línea */
+}
+.icons{
+    font-family: 'icons';
+    font-size: 32px;
+    color: #F0E5E3;
+    padding: 5px 10px; /* Añade espacio alrededor del texto */
+    border-radius: 5px; /* Agrega bordes redondos */
+}
+.icons-selected{
+    font-family: 'icons';
+    font-size: 32px;
+    color: #F0E5E3;
+    background-color: #1B2A27;
+    padding: 5px 10px; /* Añade espacio alrededor del texto */
+    border-radius: 5px; /* Agrega bordes redondos */
 }

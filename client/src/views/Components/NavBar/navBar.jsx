@@ -15,13 +15,11 @@ const NavBar = () =>
     const [ teamToFilter, setTeamToFilter ] = useState('all'); // Estado que va a guardar el Team seleccionado 
     const [ origin, setOrigin ] = useState('all'); // Estado que va a guardar el origen seleccionado
     //---------------
-    // useEffect(() =>
-    // {
-    //     dispatch(filterByTeam(teamToFilter));
-    //     dispatch(filterByOrigin(origin));
-    //     dispatch(getTeams());
-    // },[teamToFilter, origin]);
     const teams = useSelector(state => state.teams);
+    useEffect(() =>
+    {
+        dispatch(getTeams());
+    },[teams]);
     //---------------
     const teamSelected = (event) => setTeamToFilter(event.target.value); // Actualiza el estado con el team seleccionado
     const originSelected = (event) => setOrigin(event.target.value); // Actualiza el estado con el origen seleccionado
@@ -66,8 +64,8 @@ const NavBar = () =>
                     </form>
                 </>
             )}
-            <NavLink to = 'home' className = 'link'><span className = 'icons'>h</span></NavLink>
-            <NavLink to = 'form' className = 'link'><span className = 'icons'>D</span></NavLink>
+            <NavLink to = 'home' className = 'link'><span className = {location.pathname === '/home' ? 'icons-selected' :'icons'}>h</span></NavLink>
+            <NavLink to = 'form' className = 'link'><span className = {location.pathname === '/form' ? 'icons-selected' :'icons'}>D</span></NavLink>
             <NavLink to = '/' className = 'link'><span className = 'icons'>o</span></NavLink>
         </div>
     );
