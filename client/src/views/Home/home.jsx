@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getDrivers } from '../../redux/actions.js';
 import Drivers from '../Components/Drivers/drivers.jsx';
 import Pagination from '../Components/Pagination/pagination.jsx';
-import gifLoading from '../../Images/gifLoading.gif';
+import loading from '../../Images/loading.gif'
 import './home.css';
 //----------------------------------------------
 const Home = () =>
@@ -34,8 +34,6 @@ const Home = () =>
     // Trae Drivers cuando se monta el componente
     useEffect(() =>
     {
-        setIsLoading(true);
-
         dispatch(getDrivers())
         .finally(() => setIsLoading(false));
     },[dispatch]);
@@ -79,10 +77,10 @@ const Home = () =>
     },[filterByTeam, filterByOrigin]);
     //------------------------------------------
     return(
-        <div className = 'homeContainer'>
+        <div className = {!isLoading ? 'homeContainer' : null}>
             {
                 isLoading
-                ? <img src = {gifLoading} alt = "Loading" />
+                ? <img src = {loading} alt = "Loading" />
                 :
                     (
                         searchResults.length > 0
@@ -98,7 +96,7 @@ const Home = () =>
                                 ?
                                     (                            
                                         <div>
-                                            <h1 className = 'titles'>{teamSelected && originSelected ? `${teamSelected} ${originSelected}` : 'DRIVERS'}</h1>
+                                            <h1 className = 'title-drivers'>{teamSelected && originSelected ? `${teamSelected} ${originSelected}` : 'DRIVERS'}</h1>
                                             <Drivers collectionOfDrivers = {filterCollection}/>
                                             {
                                                 filteredDrivers.length > driversOnPage && 
@@ -110,7 +108,7 @@ const Home = () =>
                                 :
                                     (
                                         <div>
-                                            <h1 className = 'titles'>DRIVERS</h1>
+                                            <h1 className = 'title-drivers'>DRIVERS</h1>
                                             <Drivers collectionOfDrivers = {collectionOfDrivers}/>
                                             <Pagination totalOfPages = {totalOfPages} pagination = {changePage} ></Pagination>
                                         </div>

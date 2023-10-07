@@ -1,0 +1,16 @@
+.homeContainer{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Usar la altura completa de la ventana */
+    text-align: center; /* Centrar el contenido de manera horizontal */
+}
+.title-drivers{
+    font-family: 'Raceline';
+    font-size: 100px;
+    position: fixed; /* Posición absoluta */
+    top: 0px; /* Ajusta la distancia desde la parte superior */
+    text-align: center;
+    left: 560px; /* Ajusta la distancia desde la izquierda */
+    color:#9f0602; /* Cambia el color del texto para que sea visible en la imagen */
+}

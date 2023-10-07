@@ -1,6 +1,14 @@
 /* Diseño Landing Page */
 /* ------------- */
 /* Contenedor Landing */
+.landingContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Usar la altura completa de la ventana */
+    text-align: center; /* Centrar el contenido de manera horizontal */
+}
 @font-face 
 {
     font-family: 'Raceline'; /* Nombre de la fuente */
@@ -10,51 +18,30 @@
 }
 .titles{
     font-family: 'Raceline';
-    font-size: 100px;
-    position: absolute; /* Posición absoluta */
-    top: -50px; /* Ajusta la distancia desde la parte superior */
-    left: 200px; /* Ajusta la distancia desde la izquierda */
+    font-size: 90px;
+    position:fixed; /* Posición absoluta */
+    top: -40px; /* Ajusta la distancia desde la parte superior */
     z-index: 2; /* Asegura que el título esté por encima de la imagen */
     color:#9f0602; /* Cambia el color del texto para que sea visible en la imagen */
 }
-.landingContainer{
-    align-items: center;
-    justify-content: center;
-}
 /* ------------- */
-/* Modifica el cuerpo y el documento HTML para tener un alto del 100% */
-/* body, html {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden; --> Evita barras de desplazamiento 
-} */
 /* Contenedor imagen */
 .imageContainer{
     position: relative; /* Permite posicionar elementos hijos de forma absoluta */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh; /* Establece el alto al 100% de la ventana del navegador */
+    height: 95vh; /* Establece el alto al 100% de la ventana del navegador */
     width: 100%; /* Ocupa todo el ancho disponible */
+    border: 1px solid #F0E5E3;
+    border-radius: 20px;
+    background-color: #F0E5E3;
 
 }
 /* Imagen */
 .f1Image{
     max-width: 100%;
     max-height: 100%;
-    width: auto;
-    height: auto;
+    border-radius: 20px;
 }
 /* ------------- */
-/* Botón */
-@font-face 
-{
-    font-family: 'Formula1'; /* Nombre de la fuente */
-    src: url('../../fonts/formula1.ttf') format('truetype'); /* Ruta a tu archivo de fuente */
-    font-weight: normal;
-    font-style: normal;
-}
 .buttonGo{
     text-align: center;
     font-family: fantasy;
@@ -63,11 +50,12 @@
     width: 130px;
     position: absolute; /* Posición absoluta */
     bottom: 50px; /* Ajusta la distancia desde la parte inferior */
-    left: 850px; /* Ajusta la distancia desde la derecha */
     z-index: 2; /* Asegura que el botón esté por encima de la imagen */
     background-color: #1B2A27;
-    color: white; /* Cambia el color del texto para que sea visible en la imagen */
+    color: #F0E5E3; /* Cambia el color del texto para que sea visible en la imagen */
+    border-radius: 25px;
 }
 .buttonGo:hover{
-    background-color: #1B2A27;
+    background-color: #2A403C ;
+    border: 1px solid #F0E5E3;
 }
