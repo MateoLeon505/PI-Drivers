@@ -31,7 +31,7 @@
     height: 95vh; /* Establece el alto al 100% de la ventana del navegador */
     width: 100%; /* Ocupa todo el ancho disponible */
     border: 1px solid #F0E5E3;
-    border-radius: 20px;
+    border-radius: 30px;
     background-color: #F0E5E3;
 
 }
@@ -39,7 +39,7 @@
 .f1Image{
     max-width: 100%;
     max-height: 100%;
-    border-radius: 20px;
+    border-radius: 30px;
 }
 /* ------------- */
 .buttonGo{

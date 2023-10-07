@@ -48,8 +48,8 @@ const NavBar = () =>
             (
                 <>
                     <SearchBar/>
-                    <form>
-                        <select onChange = {teamSelected}>
+                    <form className = 'navBar-formContainer'>
+                        <select onChange = {teamSelected} className = 'select-container'>
                             <option value = 'all'>All</option>
                             {
                                 teams.map((team) => (
@@ -57,12 +57,12 @@ const NavBar = () =>
                                 ))
                             }
                         </select>
-                        <select onChange = {originSelected}>
+                        <button onClick = {submitHandler} className = 'filter-button'><span className = 'filter-symbol'>g</span></button>
+                        <select onChange = {originSelected} className = 'select-container2'>
                             <option value = "all" >All</option>
                             <option value = 'created'>Created</option>
                             <option value = 'fromapi'>From Api</option>
                         </select>
-                        <button onClick = {submitHandler}>Filter</button>
                     </form>
                 </>
             )}

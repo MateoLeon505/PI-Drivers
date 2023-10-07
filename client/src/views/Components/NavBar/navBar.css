@@ -47,3 +47,46 @@
     font-size: 32px;
     color: #F0E5E3;
 }
+.navBar-formContainer{
+    display: flex;
+    align-items: center;
+
+}
+.select-container {
+    height: 35px;
+    width: 160px;
+    border-radius: 10px 0 0 10px; 
+    background-color: #ACB2B6;
+    border: 1px solid #1B2A27;
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #1B2A27;
+    margin-right: 0;
+}
+.select-container2 {
+    height: 35px;
+    width: 160px;
+    border-radius: 0 10px 10px 0; 
+    background-color: #ACB2B6;
+    border: 1px solid #1B2A27;
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #1B2A27;
+    margin-left: 0;
+}
+.filter-button{
+    background-color: #1B2A27;
+    height: 35px;
+    width: 40px;
+    display: flex;
+    align-items: center; /* Centra verticalmente el contenido */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    border: 1px solid #1B2A27;
+}
+.filter-symbol{
+    font-family: 'heydings_icons';
+    font-size: 30px;
+    color: #F0E5E3;
+    transform: rotate(180deg); /* Gira el elemento 180 grados */
+    display: inline-block; /* Asegura que la rotación no afecte a otros elementos en línea */
+}

@@ -6,13 +6,15 @@
 }
 .search{
     background-color: #1B2A27;
-    height: 37px;
+    height: 35px;
     width: 40px;
     display: flex;
     align-items: center; /* Centra verticalmente el contenido */
     justify-content: center; /* Centra horizontalmente el contenido */
     position: absolute;
-    border-radius: 12px;
+    border-radius: 0 10px 10px 0;
+    border: 1px solid #1B2A27;
+    margin-left: 20px;
 }
 @font-face 
 {
@@ -29,10 +31,16 @@
 .input-driver{
     height: 35px;
     width: 200px;
-    border-radius: 10px;
+    border-radius: 10px 0 0 10px;
     background-color: #ACB2B6;
     border: 1px solid #1B2A27;
     font-size: 17px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #1B2A27;
+    margin-right: 45px;
+}
+.input-driver:focus {
+    border: 1px solid #1B2A27; /* Cambia el color del borde cuando el input está enfocado */
+    outline: none; /* Quita el contorno predeterminado que algunos navegadores aplican al input enfocado */
+
 }
