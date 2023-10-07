@@ -14,7 +14,7 @@ const Landing = () =>
 
     return(
         <div className = 'landingContainer'>
-            <h1 className = 'titles'>MOTORSPORT DRIVERS</h1>
+            <h1 className = 'titles'>RACEHUB</h1>
             <div className = 'imageContainer'>
                 <img src = {landingImage} alt = "LandingImage" className = 'f1Image' />
             </div>

@@ -148,7 +148,7 @@ const Form = () =>
             <form name = 'createDriver'>
                     {/* -------------------- TÍTULO -------------------- */}
                 <div className = 'header'>
-                    <h1 className = 'titles'>CREATE DRIVER</h1>
+                    <h1 className = 'title-CreateDriver'>CREATE DRIVER</h1>
                 </div>
                     {/* -------------------- Errors -------------------- */}
                 <div className = 'errors-container'>

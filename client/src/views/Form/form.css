@@ -12,6 +12,13 @@
     align-items: center;
 }
 /* ---------------------------- */
+.title-CreateDriver{
+    font-family: 'Raceline';
+    font-size: 45px;
+    margin-top: 45px;
+    margin-bottom: -25px;
+    color:#9f0602; /* Cambia el color del texto para que sea visible en la imagen */
+}
 /* Botón volver */
 .back{
     margin-left: -22px; 

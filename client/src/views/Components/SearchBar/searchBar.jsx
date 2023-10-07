@@ -35,14 +35,14 @@ const SearchBar = () =>
     //---------------
     return(
         <div className = 'searchBar-container'>
-            <form>
+            <form className = 'search-form'>
                 <input 
                 type = "search"
                 value = {name}
                 onChange = {changeHandler} 
                 placeholder = 'Driver'
                 className = 'input-driver'/>
-                <button className = 'search' onClick = {searchDriver}>Search</button>
+                <button className = 'search' onClick = {searchDriver}><span className = 'lupa'>M</span></button>
             </form>
         </div>
     );

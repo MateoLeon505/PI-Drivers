@@ -1,14 +1,49 @@
 .navBar-container{
     height: 60px;
+    width: 206vh;
     font-size: 18px; /* Tamaño Fuente */
     display: flex; /* Contenedor Flexible */
-    background-color: #000000; /* Fondo */
+    background-color:#2A403C ; /* Fondo */
     justify-content: space-between; /* Distribuir contenido */
     align-items: center; /* Centrar los elementos verticalmente */
-    border: 1px solid #000000;
+    border: 1px solid #2A403C ;
     padding-left: 20px;
     padding-right: 20px;
     position:sticky;
     top: 0;
     z-index: 100; /* Asegúrate de que esté encima de otros elementos */
+}
+@font-face 
+{
+    font-family: 'Formula1'; /* Nombre de la fuente */
+    src: url('../../../fonts/formula1.ttf') format('truetype'); /* Ruta a tu archivo de fuente */
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face 
+{
+    font-family: 'Speedway'; /* Nombre de la fuente */
+    src: url('../../../fonts/Speeday.ttf') format('truetype'); /* Ruta a tu archivo de fuente */
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face 
+{
+    font-family: 'icons'; /* Nombre de la fuente */
+    src: url('../../../fonts/icons.ttf') format('truetype'); /* Ruta a tu archivo de fuente */
+    font-weight: normal;
+    font-style: normal;
+}
+.name-app{
+    font-family: 'Speedway';
+    font-size: 35px;
+}
+.icon{
+    font-family: 'Formula1';
+    font-size: 40px;
+}
+.icons{
+    font-family: 'icons';
+    font-size: 32px;
+    color: #F0E5E3;
 }

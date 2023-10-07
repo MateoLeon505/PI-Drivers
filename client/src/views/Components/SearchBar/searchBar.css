@@ -1,0 +1,38 @@
+
+.search-form {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse; /* Cambio de dirección para poner el botón a la derecha */
+}
+.search{
+    background-color: #1B2A27;
+    height: 37px;
+    width: 40px;
+    display: flex;
+    align-items: center; /* Centra verticalmente el contenido */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    position: absolute;
+    border-radius: 12px;
+}
+@font-face 
+{
+    font-family: 'heydings_icons'; /* Nombre de la fuente */
+    src: url('../../../fonts/heydings_icons.ttf') format('truetype'); /* Ruta a tu archivo de fuente */
+    font-weight: normal;
+    font-style: normal;
+}
+.lupa{
+    font-family: 'heydings_icons';
+    font-size: 30px;
+    color: #F0E5E3;
+}
+.input-driver{
+    height: 35px;
+    width: 200px;
+    border-radius: 10px;
+    background-color: #ACB2B6;
+    border: 1px solid #1B2A27;
+    font-size: 17px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #1B2A27;
+}
