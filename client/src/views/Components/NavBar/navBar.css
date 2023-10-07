@@ -96,7 +96,15 @@
     font-size: 32px;
     color: #F0E5E3;
     padding: 5px 10px; /* Añade espacio alrededor del texto */
-    border-radius: 5px; /* Agrega bordes redondos */
+    border-radius: 10px; /* Agrega bordes redondos */
+}
+.icons:hover{
+    font-family: 'icons';
+    font-size: 32px;
+    color: #F0E5E3;
+    background-color: #1B2A27;
+    padding: 5px 10px; /* Añade espacio alrededor del texto */
+    border-radius: 10px; /* Agrega bordes redondos */
 }
 .icons-selected{
     font-family: 'icons';
@@ -104,5 +112,5 @@
     color: #F0E5E3;
     background-color: #1B2A27;
     padding: 5px 10px; /* Añade espacio alrededor del texto */
-    border-radius: 5px; /* Agrega bordes redondos */
+    border-radius: 10px; /* Agrega bordes redondos */
 }

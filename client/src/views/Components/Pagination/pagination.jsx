@@ -1,3 +1,5 @@
+import './pagination.css';
+
 const Pagination = ({ pagination, totalOfPages }) =>
 {
     const pages = [];
@@ -11,6 +13,7 @@ const Pagination = ({ pagination, totalOfPages }) =>
                 (
                     <button
                         key = {page}
+                        className = "pagination-button"
                         onClick = {() => pagination(page)}>
                         {page}
                     </button>

@@ -1,34 +1,50 @@
 .driverContainer{
-    border: 2px solid white;
+    background-color: #ACB2B6;
+    border: 2px solid #2A403C;
     text-align: center;
+    align-items:center;
     border-radius: 20px;
     margin: 20px;
     height: 300px;
     width: 300px;
+    display: flex;
+    flex-direction: column; /* Establece la dirección de los elementos hijos */
+    align-items: center; /* Centra horizontalmente los elementos hijos */
 }
 .card{
-    background-color: transparent;
-    border: 4px solid white;
+    background-color: #ACB2B6;
     border-radius: 25px;
-    margin: 15px;
+    margin: 10px;
+    height: 200px;
+    width: 200px;
+    background-size: cover; /* Escala la imagen de fondo para llenar el contenedor */
+    background-position: center; /* Centra la imagen de fondo */
+    overflow: hidden; /* Oculta el contenido fuera del límite del contenedor */
+    position: relative; /* Permite posicionar elementos hijos relativamente */
+}
+.imageContainer{
+    height: 100%; /* Ocupa todo el espacio vertical disponible en la tarjeta */
+    display: flex;
+    justify-content: center; /* Centra la imagen horizontalmente en la tarjeta */
+    align-items: center; /* Centra la imagen verticalmente en la tarjeta */
 }
 .driverContainer:hover{
     transform: translateY(-5px); /* Levanta la tarjeta en hover */
 }
+
 .name{
-    font-size: 24px;
+    font-size: 28px;
+    font-family: 'Raceline';
+    color: #2A403C;
 }
 
-.imgContainer{
-    position: relative;
-    display: block;
-}
 
 .imageDriver{
-    width: 100px;
-    height: 100px;
+    height: 300px;
+    width: auto;
 }
 
 .teams{
     font-size: 17px;
+    color: #F0E5E3;
 }

@@ -6,16 +6,14 @@ const Driver = ({ id, forename, surname, description, image, nationality, dob, t
 {
     return(
         <div className = 'driverContainer'>
+            <span className = 'name'>{forename} {surname}</span>
             <div className = 'card'>
-                <div className = 'header'>
-                    <span className = 'name'>{forename} {surname}</span>
-                </div>
-                <div className = 'imgContainer'>
+                <div className = 'imageContainer'>
                     <img src = {image} alt = {surname} className = 'imageDriver'/>
                 </div>
-                <div className = 'teams'>
+            </div>
+            <div className = 'teams'>
                     <span>Teams: {teams}</span>
-                </div>
             </div>
         </div>
     );

@@ -60,7 +60,7 @@ const Home = () =>
     : // Un solo filtro (Origin)
     (filterByOrigin.length > 0)
     && filterByOrigin
-    
+
     const driversFiltered = Math.ceil(filteredDrivers.length / driversOnPage); // Drivers x pag  
     //-------------------
     // Grupo de drivers por página
@@ -95,8 +95,12 @@ const Home = () =>
                                 ?
                                     (                            
                                         <div>
-                                            <h1 className = 'title-drivers'>{teamSelected && originSelected ? `${teamSelected} ${originSelected}` : 'All DRIVERS'}</h1>
-                                            <h1 className = 'title-drivers'>{}</h1>
+                                            <h1 className = 'title-drivers'>
+                                                {teamSelected === 'all' && originSelected === 'all' 
+                                                    ? 'All DRIVERS'
+                                                    : `${teamSelected} ${originSelected}`
+                                                }
+                                            </h1>
                                             <Drivers collectionOfDrivers = {filterCollection}/>
                                             {
                                                 filteredDrivers.length > driversOnPage && 

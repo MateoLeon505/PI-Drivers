@@ -1,0 +1,15 @@
+.pagination-button{
+    text-align: center;
+    font-family: fantasy;
+    font-size: 20px;
+    height: 30px;
+    width: 20px;
+    background-color: #1B2A27;
+    color: #F0E5E3; /* Cambia el color del texto para que sea visible en la imagen */
+    border-radius: 7px;
+    display: flex;
+    position: relative;
+    align-items: center; /* Centra verticalmente el contenido */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    border: 1px solid #1B2A27;
+}
