@@ -16,13 +16,10 @@ const NavBar = () =>
     const [ origin, setOrigin ] = useState('all'); // Estado que va a guardar el origen seleccionado
     //---------------
     const teams = useSelector(state => state.teams);
-    if (teams.length === 0) 
+    useEffect(() =>
     {
-        useEffect(() =>
-        {
-            dispatch(getTeams());
-        },[teams]);    
-    }
+        dispatch(getTeams());
+    },[teams]);    
     //---------------
     const teamSelected = (event) => setTeamToFilter(event.target.value); // Actualiza el estado con el team seleccionado
     const originSelected = (event) => setOrigin(event.target.value); // Actualiza el estado con el origen seleccionado
