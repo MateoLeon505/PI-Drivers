@@ -9,3 +9,17 @@
     margin-top: -40px;
     text-align: center;
 }
+.back-buttonSearch{
+    font-size: 15px;
+    position: absolute; /* Posición fija */
+    margin-top: -40px;
+    margin-left: 50px;
+    color: #F0E5E3;
+    border: 2px solid #2A403C;
+    background-color:  #1B2A27;
+    border-radius: 12px;
+}
+.back-buttonSearch:hover{
+    background-color: #2A403C;
+    border: 2px solid #1B2A27;
+}

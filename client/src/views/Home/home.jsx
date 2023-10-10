@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getDrivers } from '../../redux/actions.js';
 import Drivers from '../Components/Drivers/drivers.jsx';
 import Pagination from '../Components/Pagination/pagination.jsx';
+import { CLEAR_SEARCH_RESULTS } from '../../redux/action-types.js';
 import loading from '../../Images/loading.gif'
 import './home.css';
 //----------------------------------------------
@@ -74,6 +75,12 @@ const Home = () =>
     {
         setCurrentPage(1);
     },[filterByTeam, filterByOrigin]);
+    //---------------
+    const handleBack = (event) =>
+    {
+        event.preventDefault();
+        dispatch({type: CLEAR_SEARCH_RESULTS});
+    }
     //------------------------------------------
     return(
         <div>
@@ -86,6 +93,7 @@ const Home = () =>
                         ?
                             (
                                 <div>
+                                    <button className = 'back-buttonSearch' onClick = {handleBack} >Back</button>
                                     <Drivers collectionOfDrivers = {searchResults}/>
                                 </div>
                             )

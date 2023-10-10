@@ -12,6 +12,9 @@ const NavBar = () =>
     const location = useLocation();
     const dispatch = useDispatch();
     //---------------
+    const teamGlobal = useSelector(state => state.teamSelected)
+    const originGlobal = useSelector(state => state.originSelected);
+
     const [ teamToFilter, setTeamToFilter ] = useState('all'); // Estado que va a guardar el Team seleccionado 
     const [ origin, setOrigin ] = useState('all'); // Estado que va a guardar el origen seleccionado
     //---------------
@@ -48,18 +51,18 @@ const NavBar = () =>
                     <SearchBar/>
                     <form className = 'navBar-formContainer'>
                         <select onChange = {teamSelected} className = 'select-container'>
-                            <option value = 'all'>All</option>
+                            <option value = 'all' selected = {teamToFilter === 'all'}>All</option>
                             {
                                 teams.map((team) => (
-                                    <option value = {team.name} key = {team.name}>{team.name}</option>
+                                    <option value = {team.name} key = {team.name} selected = {teamToFilter === team.name}>{team.name}</option>
                                 ))
                             }
                         </select>
                         <button onClick = {submitHandler} className = 'filter-button'><span className = 'filter-symbol'>g</span></button>
                         <select onChange = {originSelected} className = 'select-container2'>
-                            <option value = "all" >All</option>
-                            <option value = 'created'>Created</option>
-                            <option value = 'fromapi'>From Api</option>
+                            <option value = "all" selected = {origin === 'all'}>All</option>
+                            <option value = 'created' selected = {origin === 'created'}>Created</option>
+                            <option value = 'fromapi' selected = {origin === 'fromapi'}>From Api</option>
                         </select>
                     </form>
                 </>
