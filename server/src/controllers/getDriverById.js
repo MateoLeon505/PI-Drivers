@@ -1,8 +1,7 @@
 // Este módulo tiene la responsabilidad de Traer a un Driver por ID
 //-------------------------------------
-// Importación de módulos
-const { Driver, Team } = require('../db'); // Trae los modelos
-const axios = require("axios"); // Para solicitudes HTTP
+const { Driver, Team } = require('../db'); 
+const axios = require("axios"); 
 //-------------------------------------
 const getDriverById = async (id, source) =>
 {
@@ -26,7 +25,7 @@ const getDriverById = async (id, source) =>
     {
         // Busca driver por 'Primary Key' e incluye a los teams
         const dbDriverById = await Driver.findByPk(id, {include: [{ model: Team, as: 'teams' }]});
-        let teams = dbDriverById.teams.map((team) => team.name); // Trae únicamente nombre de los 'teams'
+        let teams = dbDriverById.teams.map((team) => team.name); 
         teams = teams.toString();
 
         const driver = 
@@ -44,5 +43,4 @@ const getDriverById = async (id, source) =>
     }
 }
 //-------------------------------------
-// Exporta la función
 module.exports = { getDriverById };

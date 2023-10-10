@@ -1,8 +1,7 @@
 // Este módulo tiene la responsabilidad de Traer a TODOS los 'Teams'
 //-------------------------------------
-// Importación de módulos
-const { Driver, Team } = require('../db'); // Trae los modelos
-const axios = require("axios"); // Para solicitudes HTTP
+const { Team } = require('../db'); 
+const axios = require("axios"); 
 //-------------------------------------
 const getTeams = async () =>
 {
@@ -10,7 +9,7 @@ const getTeams = async () =>
     // Trae Teams de la bd
     const dataBaseTeams = await Team.findAll();
     //-------------------------------
-    if (dataBaseTeams.length === 0) // Si la bd está vacía
+    if (dataBaseTeams.length === 0) 
     {
         const apiDrivers = [];
         const apiData = (await axios.get('http://localhost:5000/drivers')).data; // Trae Drivers de la Api
@@ -51,7 +50,7 @@ const getTeams = async () =>
     // Inserta registros en la bd
     await Team.bulkCreate(uniqueTeams);
     //-------------------------------
-    return  dataBaseTeams; // Retorna TODOS los Teams
+    return dataBaseTeams; 
 }
 //-------------------------------------
 module.exports = { getTeams };
