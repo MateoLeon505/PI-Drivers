@@ -18,7 +18,28 @@ const getDriverByName = async (name) =>
                 {surname: { [Op.iLike]: `%${name}%` }},
             ],
         },
+        include: [
+            {
+                model: Team,
+                as: 'teams'
+            }
+        ]
     });
+    dbDriverByName = dbDriverByName.map((driver) =>
+    {
+        let teams = driver.teams.map((team) => team.name);
+        teams = teams.toString();
+        return{
+            id: driver.id,
+            forename: driver.forename,
+            surname: driver.surname,
+            description: driver.description,
+            image: driver.image,
+            nationality: driver.nationality,
+            dob: driver.dob,
+            teams: teams
+        }
+    })
     if (dbDriverByName.length > 0) combinedResults.push(...dbDriverByName);
     //-------------------------------
     // BUSCA Divers en la API

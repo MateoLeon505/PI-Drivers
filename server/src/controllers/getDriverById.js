@@ -29,7 +29,6 @@ const getDriverById = async (id, source) =>
         let teams = dbDriverById.teams.map((team) => team.name); // Trae únicamente nombre de los 'teams'
         teams = teams.toString();
 
-        //teams = teams.toString(); 
         const driver = 
         {
             id: dbDriverById.id,
