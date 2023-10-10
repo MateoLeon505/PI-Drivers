@@ -76,7 +76,7 @@ const Home = () =>
     },[filterByTeam, filterByOrigin]);
     //------------------------------------------
     return(
-        <div className = {!isLoading ? 'homeContainer' : null}>
+        <div>
             {
                 isLoading
                 ? <img src = {loading} alt = "Loading" />

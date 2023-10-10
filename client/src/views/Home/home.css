@@ -1,13 +1,11 @@
-.homeContainer{
-    display:flex;
-}
+
 .title-drivers{
     font-family: 'Raceline';
-    font-size: 90px;
-    position:absolute; /* Posición absoluta */
+    font-size: 70px;
+    position: absolute; /* Posición fija */
     left: 50%;
     transform: translate(-50%, -50%); /* Trasladar el título hacia arriba la mitad de su altura y hacia la izquierda la mitad de su ancho */
-    z-index: 2; /* Asegura que el título esté por encima de la imagen */
     color:#9f0602; /* Cambia el color del texto para que sea visible en la imagen */
-    margin-top: 110px;
+    margin-top: -40px;
+    text-align: center;
 }
