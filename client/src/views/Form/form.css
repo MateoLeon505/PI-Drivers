@@ -1,15 +1,17 @@
 /* Contenedor Formulario */
 .formContainer{
-    height: 700px;
+    height: 560px;
     width: 440px;
     margin: 0 auto;
-    border: 2px solid white;
+    border: 3px solid #1B2A27;
     margin-top: 10px;
     padding: 20px;
     border-radius: 20px;
-    box-shadow: 0px 4px 6px white(0, 0, 0, 0.1);
     text-align: center;
     align-items: center;
+    background-color: #ACB2B6;
+    box-shadow: 0px 4px 6px #1B2A27(0, 0, 0, 0.1);
+
 }
 /* ---------------------------- */
 .title-CreateDriver{
@@ -26,11 +28,11 @@
     display: flex;
     position: absolute;
     background-color: transparent;
-
     border-radius: 20px;
+    border: none;
 }
 .back:hover{
-    background-color: black;
+    background-color:#1B2A27;
 }
 /* ---------------------------- */
 /* Título */
@@ -49,7 +51,7 @@
     align-items: center; /* Centrar los elementos verticalmente */
     left: 50%; /* Centra horizontalmente en relación con el contenedor principal */
     transform: translateX(-50%); /* Centra horizontalmente el propio elemento */
-    margin-top: -20px;
+    margin-top: -12px;
 }
 .errors-message{
     position: absolute;
@@ -85,7 +87,8 @@
     text-align: center;
     width: 80%;
     height: 25px;
-    border: 1px solid white;
+    border: 2px solid #F0E5E3;
+    background-color:  #2A403C;
     border-radius: 10px;
 }
 .input-errors{
@@ -94,7 +97,8 @@
     text-align: center;
     width: 80%;
     height: 25px;
-    border: 1px solid red;
+    background-color:  #2A403C;
+    border: 2px solid #9f0602;
     border-radius: 10px;
 }
 /* ---------------------------- */
@@ -104,22 +108,24 @@
     display: block;
     margin-bottom: 1px;
     margin-top: 7px;
-    color:white;
-    font-weight: bold;
+    color:#F0E5E3;
+    font-weight:100;
 }
 /* ---------------------------- */
 /* Input para recibir la descripción */
 .descript{
     width: 90%;
     height: 30px;
-    border: 1px solid white;
+    border: 2px solid #F0E5E3;
+    background-color:  #2A403C;
     border-radius: 10px;
     text-align: center;
 }
 .errors-descript{
     width: 90%;
     height: 30px;
-    border: 1px solid red;
+    background-color:  #2A403C;
+    border: 2px solid #9f0602;
     border-radius: 10px;
     text-align: center;
 }
@@ -136,19 +142,19 @@
     font-size: 17px;
     display: block;
     margin-top: 15px;
-    color:white;
-    font-weight: bold;
+    color:#F0E5E3;
+    font-weight: 100;
 }
 /* Div: Contenedor de TODOS LOS TEAMS */
 .teams-container{
     display:flex;
     flex-wrap: wrap;
-    border: 1px solid white;
+    border: 1px solid #F0E5E3;
     border-radius: 5px;
     padding: 10px;
     max-width: 410px;
     margin: auto;
-    max-height: 170px;
+    max-height: 120px;
     overflow: auto ; /* Para desplazamiento del contenedor */
 }
 /* Para la barra de desplazamiento */
@@ -156,11 +162,11 @@
     width: 10px; /* Ancho de la barra de desplazamiento */
 }
 .teams-container::-webkit-scrollbar-thumb {
-    background-color: white; /* Color del pulgar de la barra de desplazamiento */
+    background-color: #F0E5E3; /* Color del pulgar de la barra de desplazamiento */
     border-radius: 5px; /* Borde redondeado del pulgar */
 }
 .teams-container::-webkit-scrollbar-track {
-    background-color: black; /* Color de fondo de la barra de desplazamiento */
+    background-color: #2A403C; /* Color de fondo de la barra de desplazamiento */
     border-radius: 10px; /* Borde redondeado de la barra de desplazamiento */
 }
 /* Div: Contenedor de cada Team */
@@ -175,6 +181,7 @@
 /* Nombre de cada Team */
 .tcLabel{
     font-size: 14px;
+    color: #F0E5E3;
     white-space: nowrap; /* Evita que el texto se divida en varias líneas */
     text-overflow: ellipsis; /* Muestra puntos suspensivos cuando el texto es demasiado largo */
     overflow: hidden;
@@ -183,6 +190,11 @@
 /* Botón de crear */
 .create{
     margin-top: 10px;
-    border: 2px solid white;
+    border: 2px solid #F0E5E3;
+    background-color:  #1B2A27;
     border-radius: 12px;
+}
+.create:hover{
+    background-color: #2A403C;
+    border: 2px solid #F0E5E3;
 }

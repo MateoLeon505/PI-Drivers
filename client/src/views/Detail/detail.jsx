@@ -29,17 +29,17 @@ const Detail = () =>
     return(
         <div className = 'firstContainer'>
             <div className = 'detailContainer'>
-                <button onClick = {handleBack} className = 'back-button'>Back</button>
+                <button onClick = {handleBack} className = 'back-button'>x</button>
                 <div className = 'imgContainer'>
                     <img src = {driverDetail.image} alt = {driverDetail.forename} className = 'img'/>
                 </div>
                 <div className = 'descriptionContainer'>
-                    <h1 className = 'name'>{driverDetail.forename} {driverDetail.surname}</h1>
-                    <span>Teams: {driverDetail.teams}</span>
-                    <span>Description: {driverDetail.description}</span>
-                    <span>Nationality: {driverDetail.nationality}</span>
-                    <span>DOB: {driverDetail.dob}</span>
-                    <span>ID: {driverDetail.id}</span>
+                    <h1 className = 'name-detail'>{driverDetail.forename} {driverDetail.surname}</h1>
+                    <span className = 'props'>Id: <span className = 'name-props'>{driverDetail.id}</span> </span>
+                    <span className = 'props'>Nationality: <span className = 'name-props'>{driverDetail.nationality}</span> </span>
+                    <span className = 'props'>DOB: <span className = 'name-props'>{driverDetail.dob}</span> </span>
+                    <span className = 'props'>Teams: <span className = 'name-props'>{driverDetail.teams}</span> </span>
+                    <span className = 'props'>Description: <span className = 'name-props'>{driverDetail.description}</span> </span>
                 </div>
             </div>
         </div>

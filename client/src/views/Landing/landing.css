@@ -19,10 +19,10 @@
 .titles{
     font-family: 'Raceline';
     font-size: 90px;
-    position:fixed; /* Posición absoluta */
-    top: -40px; /* Ajusta la distancia desde la parte superior */
-    z-index: 2; /* Asegura que el título esté por encima de la imagen */
-    color:#9f0602; /* Cambia el color del texto para que sea visible en la imagen */
+    position:fixed; 
+    top: -40px; 
+    z-index: 2; 
+    color:#9f0602; 
 }
 /* ------------- */
 /* Contenedor imagen */
@@ -56,6 +56,6 @@
     border-radius: 25px;
 }
 .buttonGo:hover{
-    background-color: #2A403C ;
+    background-color: #2A403C;
     border: 1px solid #F0E5E3;
 }
