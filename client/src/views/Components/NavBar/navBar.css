@@ -1,6 +1,6 @@
 .navBar-container{
     height: 60px;
-    width: 206vh;
+    width: 209vh;
     font-size: 18px; /* Tamaño Fuente */
     display: flex; /* Contenedor Flexible */
     background-color:#2A403C ; /* Fondo */
@@ -9,9 +9,10 @@
     border: 1px solid #2A403C ;
     padding-left: 20px;
     padding-right: 20px;
-    position:sticky;
+    position:absolute;
     top: 0;
     z-index: 100; /* Asegúrate de que esté encima de otros elementos */
+    text-align: left;
 }
 @font-face 
 {

@@ -5,9 +5,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh; /* Usar la altura completa de la ventana */
-    text-align: center; /* Centrar el contenido de manera horizontal */
+    height: 95vh; /* Usar la altura completa de la ventana */
+    width: 169vh;
+    position: absolute;
+    top: 50%; /* Centra verticalmente en relación con la parte superior de la página */
+    left: 50%; /* Centra horizontalmente en relación con el lado izquierdo de la página */
+    transform: translate(-50%, -50%); /* Centra vertical y horizontalmente el propio elemento */
 }
 @font-face 
 {
