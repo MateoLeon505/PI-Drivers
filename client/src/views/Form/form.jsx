@@ -69,6 +69,7 @@ const Form = () =>
         {
             setForm({...form, teams: [...form.teams, selectedTeam]});
         }
+        formValidation(form);
     }
     //---------------------
     // Para saber si un Team está seleccionado o NO
@@ -88,7 +89,7 @@ const Form = () =>
             form.image !== "" &&
             form.nationality !== "" &&
             form.dob !== "" &&
-            form.teams.length >= 0;
+            form.teams.length > 0;
 
         const withoutErrors =
             errors.forename === "" && 
@@ -97,18 +98,22 @@ const Form = () =>
             errors.nationality === "" ;
 
         if (isValid && withoutErrors) setIsFormValid(true);
+        console.log(`isValid:` + isValid);
+        console.log(`withoutErrors:` + withoutErrors);
     }
     //---------------------------------
     // Valida la información y crea al driver
     const submitHandler = async (event) =>
     {
         event.preventDefault(); // Para que no se recargue la página
-
+        formValidation(form);
         if (isFormValid) 
         {
             // 1ra letra mayúsc. y el resto minúsculas
             const forenameFormat = form.forename.charAt(0).toUpperCase() + form.forename.slice(1).toLowerCase();
             const surnameFormat = form.surname.charAt(0).toUpperCase() + form.surname.slice(1).toLowerCase();
+            console.log('Forename Formateado:', forenameFormat);
+            console.log('Surname Formateado:', surnameFormat);
             // Actualiza Propiedades con el formato deseado 
             setForm(
             {
@@ -117,7 +122,7 @@ const Form = () =>
                 surname: surnameFormat
             }); 
             await dispatch(postDriver(form)); // Crea el drver
-            alert('Driver created successfully'); // Aviso de que se ccreó correctamente
+            alert('Driver created successfully'); // Aviso de que se creó correctamente
             // Limpia el formulario
             setForm({
                 forename: "",
@@ -210,7 +215,7 @@ const Form = () =>
                         {
                             teamOptions.map((team) =>
                             (
-                                <div className = 'teams-checkbox'>
+                                <div className = 'teams-checkbox' key = {team}>
                                     <label className = 'tcLabel'>
                                         <input
                                          type = 'checkbox'
