@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import './pagination.css';
 
 const Pagination = ({ pagination, totalOfPages }) =>
 {
     const pages = [];
+    const [ pageSelected, setPageSelected ] = useState(null);
     //---------------
     for (let i = 1; i <= totalOfPages; i++) pages.push(i);
     //---------------
@@ -13,8 +15,12 @@ const Pagination = ({ pagination, totalOfPages }) =>
                 (
                     <button
                         key = {page}
-                        className = "pagination-button"
-                        onClick = {() => pagination(page)}>
+                        className = {page === pageSelected ? "pagination-buttonSelected" : "pagination-button"}
+                        onClick = {() => 
+                            {
+                                    pagination(page); 
+                                    setPageSelected(page);
+                            }}>
                         {page}
                     </button>
                 ))

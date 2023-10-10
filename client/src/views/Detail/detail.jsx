@@ -26,27 +26,22 @@ const Detail = () =>
         navigate('/home');
     }
     //---------------------------------
-    // const forename = driverDetail.forename.toUpperCase();
-    // const surname = driverDetail.surname.toUpperCase();
     return(
-        <div className = 'detailContainer'>
-            <button onClick = {handleBack}>Back</button>
-            <h1 className = 'titles'>{driverDetail.forename} {driverDetail.surname}</h1>
-            <img src = {driverDetail.image} alt = {driverDetail.forename} />
-            <br />
-            <span>Teams: {driverDetail.teams}</span>
-            <br />
-            <br />
-            <span>Description: {driverDetail.description}</span>
-            <br />
-            <br />
-            <span>Nationality: {driverDetail.nationality}</span>
-            <br />
-            <br />
-            <span>DOB: {driverDetail.dob}</span>
-            <br />
-            <br />
-            <span>ID: {driverDetail.id}</span>
+        <div className = 'firstContainer'>
+            <div className = 'detailContainer'>
+                <button onClick = {handleBack} className = 'back-button'>Back</button>
+                <div className = 'imgContainer'>
+                    <img src = {driverDetail.image} alt = {driverDetail.forename} className = 'img'/>
+                </div>
+                <div className = 'descriptionContainer'>
+                    <h1 className = 'name'>{driverDetail.forename} {driverDetail.surname}</h1>
+                    <span>Teams: {driverDetail.teams}</span>
+                    <span>Description: {driverDetail.description}</span>
+                    <span>Nationality: {driverDetail.nationality}</span>
+                    <span>DOB: {driverDetail.dob}</span>
+                    <span>ID: {driverDetail.id}</span>
+                </div>
+            </div>
         </div>
     );
 }

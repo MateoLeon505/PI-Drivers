@@ -18,8 +18,8 @@ const NavBar = () =>
     const teams = useSelector(state => state.teams);
     useEffect(() =>
     {
-        dispatch(getTeams());
-    },[teams]);    
+        if (teams.length === 0) dispatch(getTeams());
+    },[]);    
     //---------------
     const teamSelected = (event) => setTeamToFilter(event.target.value); // Actualiza el estado con el team seleccionado
     const originSelected = (event) => setOrigin(event.target.value); // Actualiza el estado con el origen seleccionado

@@ -1,0 +1,49 @@
+.firstContainer{
+    background-color: #ACB2B6;
+    border: 5px solid #2A403C;
+    border-radius: 20px;
+    margin: 20px;
+    display: flex;
+    width: 1400px;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 2px;
+}
+.detailContainer{
+    background-color: #ACB2B6;
+    border: 2px solid #2A403C;
+    border-radius: 20px;
+    margin: 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 20px;
+}
+.back-button{
+    background-color: #1B2A27;
+    color: #F0E5E3;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: -15px;
+}
+.imgContainer{
+    width: 50%; /* Ocupa todo el espacio vertical disponible en la tarjeta */
+    display: flex;
+    justify-content: center; /* Centra la imagen horizontalmente en la tarjeta */
+    align-items: center; /* Centra la imagen verticalmente en la tarjeta */
+}
+.img{
+    max-width: 50%;
+    height: auto;
+    border-radius: 15px;
+}
+.descriptionContainer {
+    width: 50%;
+}
+
+.descriptionContainer span {
+    display: block;
+    margin-bottom: 10px;
+  }
