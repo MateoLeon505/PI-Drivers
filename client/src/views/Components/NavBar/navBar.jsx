@@ -51,7 +51,7 @@ const NavBar = () =>
                             <option value = 'all'>All</option>
                             {
                                 teams.map((team) => (
-                                    <option value = {team.name}>{team.name}</option>
+                                    <option value = {team.name} key = {team.name}>{team.name}</option>
                                 ))
                             }
                         </select>

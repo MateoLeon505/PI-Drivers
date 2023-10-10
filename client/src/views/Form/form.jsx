@@ -103,7 +103,7 @@ const Form = () =>
     }
     //---------------------------------
     // Valida la información y crea al driver
-    const submitHandler = async (event) =>
+    const submitHandler = (event) =>
     {
         event.preventDefault(); // Para que no se recargue la página
         formValidation(form);
@@ -115,13 +115,11 @@ const Form = () =>
             console.log('Forename Formateado:', forenameFormat);
             console.log('Surname Formateado:', surnameFormat);
             // Actualiza Propiedades con el formato deseado 
-            setForm(
-            {
-                ...form, 
+            setForm({...form, 
                 forename: forenameFormat, 
                 surname: surnameFormat
             }); 
-            await dispatch(postDriver(form)); // Crea el drver
+            dispatch(postDriver(form)); // Crea el drver
             alert('Driver created successfully'); // Aviso de que se creó correctamente
             // Limpia el formulario
             setForm({
@@ -205,7 +203,7 @@ const Form = () =>
                     </div>
                     <div className = 'box'>
                         <label className = 'properties'>DOB</label>
-                        <input type = "date" onChange = {changeHandler} value = {form.dob} name = 'dob' className = 'text-input'  id='dob'/>
+                        <input type = "date" onChange = {changeHandler} value = {form.dob} name = 'dob' className = 'text-input'  id = 'dob'/>
                     </div>
                 </div>
                 {/* -------------------- Teams -------------------- */}
