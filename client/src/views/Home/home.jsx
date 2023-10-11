@@ -76,7 +76,7 @@ const Home = () =>
     else if (sortedSelected === 'desc') 
     {
         filteredDrivers.sort((a, b) => b.forename.localeCompare(a.forename));
-      }
+    }
 
     const driversFiltered = Math.ceil(filteredDrivers.length / driversOnPage); // Drivers x pag  
     //-------------------

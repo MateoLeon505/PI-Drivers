@@ -6,14 +6,14 @@
     left: 50%;
     transform: translate(-50%, -50%); /* Trasladar el título hacia arriba la mitad de su altura y hacia la izquierda la mitad de su ancho */
     color:#9f0602; /* Cambia el color del texto para que sea visible en la imagen */
-    margin-top: -40px;
+    margin-top: -2%;
     text-align: center;
 }
 .back-buttonSearch{
     font-size: 15px;
     position: absolute; /* Posición fija */
-    margin-top: -40px;
-    margin-left: 50px;
+    margin-top: -5%;
+    margin-left: 1%;
     color: #F0E5E3;
     border: 2px solid #2A403C;
     background-color:  #1B2A27;

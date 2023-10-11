@@ -2,24 +2,24 @@
     background-color: #ACB2B6;
     border: 5px solid #2A403C;
     border-radius: 20px;
-    margin: 20px;
-    margin-top: 70px;
+    margin: 2% auto;
     display: flex;
-    width: 1400px;
-    align-items: flex-start;
-    justify-content: space-between;
-    padding: 2px;
+    width: 95%;
+    padding: 0%;
 }
 .detailContainer{
     background-color: #ACB2B6;
     border: 2px solid #2A403C;
     border-radius: 20px;
-    margin: 20px;
+    margin: 2%;
     display: flex;
-    width: 1300px;
+    width: 100%;
+    max-width: 100%;
     align-items: flex-start;
     justify-content: space-between;
     padding: 20px;
+    overflow-y: auto; 
+    max-height: 60vh; 
 }
 .back-button{
     background-color: transparent;
@@ -35,7 +35,7 @@
     background-color: #2A403C;
 }
 .imgContainer{
-    width: 50%; 
+    width: 80%; 
     display: flex;
     justify-content: center; 
     align-items: center; 
