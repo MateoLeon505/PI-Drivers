@@ -34,7 +34,7 @@ const getDriverByName = async (name) =>
             forename: driver.forename,
             surname: driver.surname,
             description: driver.description,
-            image: driver.image,
+            image: driver.image|| "https://www.infobae.com/new-resizer/pSFNj731ixlR1smI8lNO00wpdis=/arc-anglerfish-arc2-prod-infobae/public/YOCWF4P2SVFE5GO2NLCVAAJZDU.jpg" ||"https://files.antena2.com/antena2/public/2021-09/000_app2002091461222_1_0.jpg?VersionId=2qQF31Nt4H6Q3.6vUjT1hd2c.zi0eFm2",
             nationality: driver.nationality,
             dob: driver.dob,
             teams: teams
@@ -54,7 +54,7 @@ const getDriverByName = async (name) =>
             forename: driver.name.forename,
             surname: driver.name.surname,
             description: driver.description,
-            image: driver.image.url,
+            image: driver.image.url || "https://www.infobae.com/new-resizer/pSFNj731ixlR1smI8lNO00wpdis=/arc-anglerfish-arc2-prod-infobae/public/YOCWF4P2SVFE5GO2NLCVAAJZDU.jpg" ||"https://files.antena2.com/antena2/public/2021-09/000_app2002091461222_1_0.jpg?VersionId=2qQF31Nt4H6Q3.6vUjT1hd2c.zi0eFm2",
             nationality: driver.nationality,
             dob: driver.dob,
             teams: driver.teams
