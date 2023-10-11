@@ -7,7 +7,7 @@
 .search{
     background-color: #1B2A27;
     height: 35px;
-    width: 40px;
+    width: 30px;
     display: flex;
     align-items: center; /* Centra verticalmente el contenido */
     justify-content: center; /* Centra horizontalmente el contenido */
@@ -33,11 +33,11 @@
 }
 .input-driver{
     height: 35px;
-    width: 200px;
+    width: 150px;
     border-radius: 10px 0 0 10px;
     background-color: #ACB2B6;
     border: 1px solid #1B2A27;
-    font-size: 17px;
+    font-size: 15px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #1B2A27;
     margin-right: 45px;

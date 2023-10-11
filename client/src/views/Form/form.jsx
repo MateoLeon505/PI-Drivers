@@ -109,16 +109,6 @@ const Form = () =>
         formValidation(form);
         if (isFormValid) 
         {
-            // 1ra letra mayúsc. y el resto minúsculas
-            const forenameFormat = form.forename.charAt(0).toUpperCase() + form.forename.slice(1).toLowerCase();
-            const surnameFormat = form.surname.charAt(0).toUpperCase() + form.surname.slice(1).toLowerCase();
-            console.log('Forename Formateado:', forenameFormat);
-            console.log('Surname Formateado:', surnameFormat);
-            // Actualiza Propiedades con el formato deseado 
-            setForm({...form, 
-                forename: forenameFormat, 
-                surname: surnameFormat
-            }); 
             dispatch(postDriver(form)); // Crea el drver
             alert('Driver created successfully'); // Aviso de que se creó correctamente
             // Limpia el formulario

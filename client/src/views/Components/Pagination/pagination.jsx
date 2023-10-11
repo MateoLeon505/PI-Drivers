@@ -8,8 +8,28 @@ const Pagination = ({ pagination, totalOfPages }) =>
     //---------------
     for (let i = 1; i <= totalOfPages; i++) pages.push(i);
     //---------------
+    const handlePrevClick = () => 
+    {
+        if (pageSelected > 1) 
+        {
+            const newPage = pageSelected - 1;
+            pagination(newPage);
+            setPageSelected(newPage);
+        }
+    };
+    const handleNextClick = () => 
+    {
+        if (pageSelected < totalOfPages) 
+        {
+            const newPage = pageSelected + 1 ;
+            pagination(newPage);
+            setPageSelected(newPage);
+        }
+    };
+    //---------------
     return(
         <div className = "pagination">
+            <button className = 'prev-next' onClick = {handlePrevClick}>Prev</button>
             {
                 pages.map((page) => 
                 (
@@ -25,8 +45,11 @@ const Pagination = ({ pagination, totalOfPages }) =>
                     </button>
                 ))
             }
+            <button className = 'prev-next' onClick = {handleNextClick}>Next</button>
         </div>
     );
 }
 //---------------------------------------------- 
 export default Pagination;
+
+

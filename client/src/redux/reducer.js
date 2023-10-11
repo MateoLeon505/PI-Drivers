@@ -1,8 +1,8 @@
 // La responsabilidad de este módulo es especificar el cambio de estado en respuesta a las acciones
 //----------------------------------------------
 // Trae 'action-types'
-import { GET_DRIVERS, GET_DRIVER_BY_NAME, CLEAR_SEARCH_RESULTS, 
-         GET_DRIVER_DETAIL, GET_TEAMS, POST_DRIVER, FILTER_BY_TEAM, FILTER_BY_ORIGIN } from './action-types';
+import { GET_DRIVERS, GET_DRIVER_BY_NAME, CLEAR_SEARCH_RESULTS, GET_DRIVER_DETAIL, 
+    GET_TEAMS, POST_DRIVER, FILTER_BY_TEAM, FILTER_BY_ORIGIN, SORT, FILTER_BY_YEAR } from './action-types';
 //----------------------------------------------
 // Define estado inicial (global)
 const initialState = 
@@ -10,12 +10,14 @@ const initialState =
     drivers: [],
     searchResults: [],
     detail: [],
-    posted: [],
     teams: [],
     filterTeam: [],
     teamSelected: '',
     filterOrigin: [],
     originSelected: '',
+    sortedSelected: '',
+    filterByYear: [],
+    yearSelected: '',
 };
 //---------------------------------------------- 
 // Creación del reducer
@@ -58,12 +60,6 @@ const reducer = (state = initialState, action) =>
                 teams: action.payload
             }
         //----------------------
-        case POST_DRIVER:
-            return {
-                ...state,
-                posted: action.payload
-            }
-        //----------------------
         // Trae drivers por Team
         case FILTER_BY_TEAM:
             let filter = [];
@@ -99,6 +95,34 @@ const reducer = (state = initialState, action) =>
                 filterOrigin: origin,
                 originSelected: action.payload
             }
+        //----------------------
+        // ORDEN Asc o Desc
+        case SORT:
+            return {
+                ...state,
+                sortedSelected: action.payload
+            }
+        //----------------------
+        case FILTER_BY_YEAR: 
+        let filterYear = [];
+
+        if (action.payload === 'all')
+        {
+            filterYear = state.drivers;
+        }
+        state.drivers.map((driver) =>
+        {
+            if (driver.dob.split('-')[0] === action.payload) 
+            {
+                filterYear.push(driver);    
+            } 
+        })
+        console.log(action.payload);
+        return {
+            ...state,
+            filterByYear: filterYear,
+            yearSelected: action.payload
+        }
         //----------------------
         // Por defecto
         default:

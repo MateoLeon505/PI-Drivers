@@ -47,20 +47,36 @@ const Home = () =>
     // X Origin
     const filterByOrigin = useSelector(state => state.filterOrigin);  // Drivers filtrados x Origen
     const originSelected = useSelector(state => state.originSelected); // origen Seleccionado
+    //---
+    // X Orden Alfabético
+    const sortedDrivers = useSelector(state => state.sorted); // Drivers ordenados
+    const sortedSelected = useSelector(state => state.sortedSelected); // Sorted seleccionado
+    //---
+    // X Año de Nacimiento
+    const filterByYear = useSelector(state => state.filterByYear);
     //-------------------
     // Filtrado combinado
-    const filteredDrivers = 
-    (filterByTeam.length > 0 && filterByOrigin.length > 0)
-    ?   // Ambos Filtros 
-        filterByTeam.filter((driverByTeam) =>
-            filterByOrigin.some((driverByOrigin) => driverByOrigin.id === driverByTeam.id)
-        )
-    : // Un solo filtro (Team)
-    (filterByTeam.length > 0)
-    ? filterByTeam
-    : // Un solo filtro (Origin)
-    (filterByOrigin.length > 0)
-    && filterByOrigin
+    let filteredDrivers = filterByTeam.length > 0 ? filterByTeam : allDrivers;
+
+    if (filterByOrigin.length > 0) 
+    {
+        filteredDrivers = filteredDrivers.filter((driverByTeam) => 
+        filterByOrigin.some((driverByOrigin) => driverByOrigin.id === driverByTeam.id));
+    }
+      
+    if (filterByYear.length > 0) 
+    {
+        filteredDrivers = filterByYear.filter((driverByYear) => filteredDrivers.some((driver) => driver.id === driverByYear.id));
+    }
+
+    if (sortedSelected === 'asc')
+    {
+        filteredDrivers.sort((a, b) => a.forename.localeCompare(b.forename));
+    }
+    else if (sortedSelected === 'desc') 
+    {
+        filteredDrivers.sort((a, b) => b.forename.localeCompare(a.forename));
+      }
 
     const driversFiltered = Math.ceil(filteredDrivers.length / driversOnPage); // Drivers x pag  
     //-------------------
@@ -103,12 +119,7 @@ const Home = () =>
                                 ?
                                     (                            
                                         <div>
-                                            <h1 className = 'title-drivers'>
-                                                {teamSelected === 'all' && originSelected === 'all' 
-                                                    ? 'All DRIVERS'
-                                                    : `${teamSelected} ${originSelected}`
-                                                }
-                                            </h1>
+                                            <h1 className = 'title-drivers'>DRIVERS</h1>
                                             <Drivers collectionOfDrivers = {filterCollection}/>
                                             {
                                                 filteredDrivers.length > driversOnPage && 
@@ -120,7 +131,7 @@ const Home = () =>
                                 :
                                     (
                                         <div>
-                                            <h1 className = 'title-drivers'>All DRIVERS</h1>
+                                            <h1 className = 'title-drivers'>DRIVERS</h1>
                                             <Drivers collectionOfDrivers = {collectionOfDrivers}/>
                                             <Pagination totalOfPages = {totalOfPages} pagination = {changePage} ></Pagination>
                                         </div>
