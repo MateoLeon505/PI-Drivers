@@ -28,13 +28,15 @@ const Detail = () =>
     //---------------------------------
     return(
         <div className = 'firstContainer'>
+            <button onClick = {handleBack} className = 'back-button'>x</button>
             <div className = 'detailContainer'>
-                <button onClick = {handleBack} className = 'back-button'>x</button>
+                <div className = 'title-container'>
+                    <h1 className = 'name-detail'>{driverDetail.forename} {driverDetail.surname}</h1>
+                </div>
                 <div className = 'imgContainer'>
                     <img src = {driverDetail.image} alt = {driverDetail.forename} className = 'img'/>
                 </div>
                 <div className = 'descriptionContainer'>
-                    <h1 className = 'name-detail'>{driverDetail.forename} {driverDetail.surname}</h1>
                     <span className = 'props'>Id: <span className = 'name-props'>{driverDetail.id}</span> </span>
                     <span className = 'props'>Nationality: <span className = 'name-props'>{driverDetail.nationality}</span> </span>
                     <span className = 'props'>DOB: <span className = 'name-props'>{driverDetail.dob}</span> </span>
