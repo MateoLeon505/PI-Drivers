@@ -3,7 +3,7 @@
     border: 2px solid #2A403C;
     text-align: center;
     align-items:center;
-    border-radius: 20px;
+    border-radius: 10%;
     margin: 20px;
     height: 300px;
     width: 300px;
@@ -13,10 +13,10 @@
 }
 .card{
     background-color: #ACB2B6;
-    border-radius: 25px;
-    margin: 10px;
-    height: 200px;
-    width: 200px;
+    border-radius: 12%;
+    margin: 2%;
+    height: 62%;
+    width: 62%;
     background-size: cover; /* Escala la imagen de fondo para llenar el contenedor */
     background-position: center; /* Centra la imagen de fondo */
     overflow: hidden; /* Oculta el contenido fuera del límite del contenedor */

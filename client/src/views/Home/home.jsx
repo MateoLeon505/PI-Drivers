@@ -42,14 +42,11 @@ const Home = () =>
     //----------------------------------FILTROS------------------------------------------
     // X Team
     const filterByTeam = useSelector(state => state.filterTeam); // Drivers filtrados x Team
-    const teamSelected = useSelector(state => state.teamSelected); // nombre del Team Seleccionado
     //---
     // X Origin
     const filterByOrigin = useSelector(state => state.filterOrigin);  // Drivers filtrados x Origen
-    const originSelected = useSelector(state => state.originSelected); // origen Seleccionado
     //---
     // X Orden Alfabético
-    const sortedDrivers = useSelector(state => state.sorted); // Drivers ordenados
     const sortedSelected = useSelector(state => state.sortedSelected); // Sorted seleccionado
     //---
     // X Año de Nacimiento

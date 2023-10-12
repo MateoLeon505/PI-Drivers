@@ -1,7 +1,7 @@
 .firstContainer{
     background-color: #ACB2B6;
-    border: 5px solid #2A403C;
-    border-radius: 20px;
+    border: 0.3em solid #2A403C;
+    border-radius: 2em;
     margin: 2% auto;
     display: flex;
     width: 95%;
@@ -9,60 +9,72 @@
 }
 .detailContainer{
     background-color: #ACB2B6;
-    border: 2px solid #2A403C;
-    border-radius: 20px;
+    border: 0.2em solid #2A403C;
+    border-radius: 0.7em;
     margin: 2%;
     display: flex;
     width: 100%;
     max-width: 100%;
     align-items: flex-start;
     justify-content: space-between;
-    padding: 20px;
+    padding: 1.1em;
     overflow-y: auto; 
     max-height: 60vh; 
 }
+/* Para la barra de desplazamiento */
+.detailContainer::-webkit-scrollbar {
+    width: 0.5em; 
+}
+.detailContainer::-webkit-scrollbar-thumb {
+    background-color: #F0E5E3; 
+    border-radius: 5em; 
+}
+
+
+
 .back-button{
     background-color: transparent;
     color: #F0E5E3;
     border: none;
-    border-radius: 20px;
+    border-radius: 1.2em;
     cursor: pointer;
-    margin-left: -22px;
-    margin-top: -22px;
+    top: 0;
     font-family: 'icons';
 }
+
 .back-button:hover{
     background-color: #2A403C;
 }
 .imgContainer{
-    width: 80%; 
+    width: 50%; 
     display: flex;
     justify-content: center; 
     align-items: center; 
 }
 .img{
-    max-width: 50%;
+    max-width: 60%;
     height: auto;
     border-radius: 15px;
     border: 3px solid #F0E5E3;
 }
 .descriptionContainer {
     width: 50%;
-    text-align: left;
+    text-align: justify;
 }
 .name-detail{
     font-family: 'Raceline';
     color:#9f0602; 
-    font-size: 60px;
-    margin-top: -5px;
+    font-size: 50px;
+    margin-top: -1%;
+    margin-bottom: -0.1%;
 }
 .props{
     display: block;
-    margin-bottom: 10px;
-    font-size: 20px;
+    margin-bottom: 0.3em;
+    font-size: 15px;
     color: #F0E5E3;
 }
 .name-props{
-    font-size: 17px;
+    font-size: 14px;
     color: #2A403C;
 }
