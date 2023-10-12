@@ -1,15 +1,15 @@
 .driverContainer{
     background-color: #ACB2B6;
-    border: 2px solid #2A403C;
+    border: 1% solid #2A403C;
     text-align: center;
     align-items:center;
     border-radius: 10%;
-    margin: 20px;
+    margin: 0.3em;
+    margin-top: 2em;
     height: 300px;
     width: 300px;
     display: flex;
     flex-direction: column; /* Establece la dirección de los elementos hijos */
-    align-items: center; /* Centra horizontalmente los elementos hijos */
 }
 .card{
     background-color: #ACB2B6;
@@ -47,4 +47,40 @@
 .teams{
     font-size: 17px;
     color: #F0E5E3;
+}
+@media (max-width: 768px) {
+    .driverContainer{
+        background-color: #ACB2B6;
+        border: 1% solid #2A403C;
+        text-align: center;
+        align-items:center;
+        border-radius: 10%;
+        margin: 0.3em;
+        margin-top: 2em;
+        height: 300px;
+        width: 300px;
+        display: flex;
+        flex-direction: column; /* Establece la dirección de los elementos hijos */
+    }
+    .firstContainer {
+        margin: 5% auto;
+        border-radius: 1em;
+        width: 95%;
+        padding: 0%;
+    }
+    .detailContainer{
+        flex-direction: column;
+        align-items: center;
+    }
+    .imgContainer {
+        width: 70%;
+    }
+    .img {
+        max-width: 100%;
+        border-radius: 0.5em;
+    }
+    .name-detail{
+        font-size: 1.8em;
+    }
+
 }
