@@ -1,6 +1,7 @@
 .driversContainer{
     display: grid; /* cuadrícula */
-    gap: 2%;
+    grid-template-columns: repeat(auto-fill, minmax(670px, 1fr)); 
+    gap: 51%;
     max-width: 100%;
     margin-top: 10%;
 }
@@ -9,4 +10,14 @@
     display: flex;
     flex-wrap: wrap; /* Envuelve los elementos en varias filas */
     justify-content: center; /* Centra los elementos horizontalmente en cada fila */
-  }
+}
+
+
+@media (max-width: 768px) {
+    .driversContainer{
+        grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); 
+        max-width: 50vh;
+        margin-top: 10%;
+    }
+
+}

@@ -166,3 +166,50 @@
     padding: 5px 10px; /* Añade espacio alrededor del texto */
     border-radius: 10px; /* Agrega bordes redondos */
 }
+
+
+@media (max-width: 768px) {
+    .navBar-container {
+        height: 15rem; /* Altura automática para acomodar el contenido */
+        flex-direction: column; /* Cambiar la dirección a column para apilar elementos */
+    }
+
+    .name-app {
+        font-size: 15px; /* Ajustar el tamaño de la fuente del nombre de la aplicación */
+    }
+    .icon{
+        font-size: 17px;
+    }
+
+    .icons {
+        font-size: 20px; /* Ajustar el tamaño de la fuente de los íconos */
+    }
+    .icons-selected{
+        font-size: 20px;
+        background-color: #1B2A27;
+        padding: 5px 10px; /* Añade espacio alrededor del texto */
+        border-radius: 10px; /* Agrega bordes redondos */
+    }
+
+    .navBar-formContainer {
+        margin-top: 10px; /* Agregar espacio entre la barra de búsqueda y los controles */
+    }
+    .select-container, .select-container2, .select-container3, .select-container4 {
+        width: 100%;
+    }
+    .filter-byTeam, .filter-byOrigin, .sort, .year {
+        display: none; 
+    }
+    .filter-button, .clear-button {
+        width: 1%;
+        height: 1%;
+        font-size: 0.6rem; 
+    }
+    .filter-button{
+        height: 1%;
+        width: 1%;
+    }
+    .filter-symbol{
+        font-size: 0.8rem;
+    }
+}

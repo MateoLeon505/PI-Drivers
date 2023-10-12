@@ -13,7 +13,7 @@ const Driver = ({ id, forename, surname, description, image, nationality, dob, t
                 </div>
             </div>
             <div className = 'teams'>
-                    <span>Teams: {teams}</span>
+                    <span>{teams}</span>
             </div>
         </div>
     );

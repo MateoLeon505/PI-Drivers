@@ -1,11 +1,9 @@
 .driverContainer{
     background-color: #ACB2B6;
-    border: 1% solid #2A403C;
     text-align: center;
     align-items:center;
     border-radius: 10%;
     margin: 0.3em;
-    margin-top: 2em;
     height: 300px;
     width: 300px;
     display: flex;
@@ -33,54 +31,59 @@
 }
 
 .name{
-    font-size: 28px;
+    font-size: 1.8rem;
     font-family: 'Raceline';
     color: #2A403C;
 }
 
 
 .imageDriver{
-    height: 300px;
+    height: 152%;
     width: auto;
 }
 
 .teams{
-    font-size: 17px;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-bottom: 1%;
+    font-size: 0.8rem;
     color: #F0E5E3;
 }
+
+
 @media (max-width: 768px) {
     .driverContainer{
-        background-color: #ACB2B6;
-        border: 1% solid #2A403C;
-        text-align: center;
-        align-items:center;
-        border-radius: 10%;
-        margin: 0.3em;
-        margin-top: 2em;
-        height: 300px;
-        width: 300px;
-        display: flex;
-        flex-direction: column; /* Establece la dirección de los elementos hijos */
+        border-radius: 15%;
+        margin: 0.1em;
+        margin-bottom:0.2rem ;
+        height: 105px;
+        width: 105px;
     }
-    .firstContainer {
-        margin: 5% auto;
-        border-radius: 1em;
-        width: 95%;
-        padding: 0%;
-    }
-    .detailContainer{
-        flex-direction: column;
-        align-items: center;
-    }
-    .imgContainer {
+    .card{
+        border-radius: 20%;
+        margin: 1%;
+        height: 70%;
         width: 70%;
     }
-    .img {
-        max-width: 100%;
-        border-radius: 0.5em;
+
+    .imageContainer{
+        height: 100%; 
+        display: flex;
+        justify-content: center; 
+        align-items: center;
     }
-    .name-detail{
-        font-size: 1.8em;
+    .imageDriver{
+        height: 160%;
+        width: auto;
     }
 
+    .name{
+        font-size: 0.7rem;
+        margin-left: 0.2rem;
+        margin-right: 0.1rem;
+        color: #2A403C;
+    }    
+    .teams{
+        display: none;
+    }
 }
