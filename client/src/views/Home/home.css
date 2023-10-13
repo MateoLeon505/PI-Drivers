@@ -10,16 +10,31 @@
     text-align: center;
 }
 .back-buttonSearch{
-    font-size: 15px;
+    font-size: 0.9rem;
     position: absolute; /* Posición fija */
-    margin-top: -5%;
-    margin-left: 1%;
+    top: 5rem;
+    left: 0.5rem;
     color: #F0E5E3;
-    border: 2px solid #2A403C;
+    border: 0.1rem solid #2A403C;
     background-color:  #1B2A27;
-    border-radius: 12px;
+    border-radius: 1rem;
 }
 .back-buttonSearch:hover{
     background-color: #2A403C;
-    border: 2px solid #1B2A27;
+    border: 0.1rem solid #1B2A27;
+}
+@media (max-width: 768px) {
+    .title-drivers{
+        font-size: 3rem;
+        position: absolute; 
+        top: 9rem;
+        text-align: center;
+    }
+    .back-buttonSearch{
+        font-size: 0.8rem;
+        position: absolute; 
+        top: 8rem;
+        border-radius: 1rem;
+    }
+
 }

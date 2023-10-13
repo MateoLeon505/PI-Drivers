@@ -113,9 +113,11 @@ const NavBar = () =>
                     </form>
                 </>
             )}
+            <div className = 'icons-container'>
             <NavLink to = 'home' className = 'link'><span className = {location.pathname === '/home' ? 'icons-selected' :'icons'}>h</span></NavLink>
             <NavLink to = 'form' className = 'link'><span className = {location.pathname === '/form' ? 'icons-selected' :'icons'}>D</span></NavLink>
             <NavLink to = '/' className = 'link'><span className = 'icons'>o</span></NavLink>
+            </div>
         </div>
     );
 }
