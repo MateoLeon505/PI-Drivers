@@ -55,3 +55,45 @@
     color: #F0E5E3; 
     border: 1px solid #2A403C;
 }
+
+
+@media (max-width: 768px) {
+    .pagination{
+        margin: 1%;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr); /* Crea 20 columnas con igual tamaño */
+        gap: 0.1rem; /* Espacio entre los botones */
+    }
+    .pagination-button{
+        font-size: 0.6rem;
+        height: 1.5rem;
+        width: 1.5rem;
+        background-color: #1B2A27;
+        color: #F0E5E3; 
+        border-radius: 0.4rem;
+    }
+    .pagination-buttonSelected{
+        font-size: 0.6rem;
+        height: 1.5rem;
+        width: 1.5rem;
+        background-color: #F0E5E3;
+        color: #1B2A27; 
+        border: 1px solid #1B2A27;
+        border-radius: 0.4rem;
+        display: flex;
+        align-items: center; /* Centra verticalmente el contenido */
+        justify-content: center; /* Centra horizontalmente el contenido */
+    }
+    .prev-next{
+        font-size: 0.6rem;
+        height: 1.5rem;
+        width: 1.5rem;
+        background-color: #2A403C;
+        color: #F0E5E3; 
+        border-radius: 7px;
+        display: flex;
+        align-items: center; /* Centra verticalmente el contenido */
+        justify-content: center; /* Centra horizontalmente el contenido */
+        border: 1px solid #2A403C;
+    }
+}
