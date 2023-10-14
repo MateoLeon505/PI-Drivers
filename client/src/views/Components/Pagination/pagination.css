@@ -84,5 +84,16 @@
         align-items: center; /* Centra verticalmente el contenido */
         justify-content: center; /* Centra horizontalmente el contenido */
     }
-
+    .prev-next{
+        font-size: 0.6rem;
+        height: 1.5rem;
+        width: 1.5rem;
+        background-color: #2A403C;
+        color: #F0E5E3; 
+        border-radius: 7px;
+        display: flex;
+        align-items: center; /* Centra verticalmente el contenido */
+        justify-content: center; /* Centra horizontalmente el contenido */
+        border: 1px solid #2A403C;
+    }
 }
