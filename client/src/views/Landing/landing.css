@@ -5,8 +5,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 95vh; /* Usar la altura completa de la ventana */
-    width: 169vh;
+    height: 95%; 
+    width: 75%;
     position: absolute;
     top: 50%; /* Centra verticalmente en relación con la parte superior de la página */
     left: 50%; /* Centra horizontalmente en relación con el lado izquierdo de la página */
@@ -21,9 +21,9 @@
 }
 .titles{
     font-family: 'Raceline';
-    font-size: 90px;
+    font-size: 6rem;
     position:fixed; 
-    top: -40px; 
+    top: -2rem; 
     z-index: 2; 
     color:#9f0602; 
 }
@@ -34,15 +34,14 @@
     height: 95vh; /* Establece el alto al 100% de la ventana del navegador */
     width: 100%; /* Ocupa todo el ancho disponible */
     border: 1px solid #F0E5E3;
-    border-radius: 30px;
+    border-radius: 2rem;
     background-color: #F0E5E3;
-
 }
 /* Imagen */
 .f1Image{
     max-width: 100%;
     max-height: 100%;
-    border-radius: 30px;
+    border-radius: 2rem;
 }
 /* ------------- */
 .buttonGo{
@@ -61,4 +60,32 @@
 .buttonGo:hover{
     background-color: #2A403C;
     border: 1px solid #F0E5E3;
+}
+
+
+@media (max-width: 768px) {
+    .landingContainer {
+        width: 100%; /* Ocupa el ancho completo de la pantalla */
+        display: flex;
+        height: 90vh; 
+        position: absolute;
+    }
+    .titles {
+        font-size: 3rem;
+        top: -2rem;
+    }
+    .imageContainer {
+        height: 90%; 
+        width: 90%; 
+        overflow: hidden; /* Oculta el contenido fuera del límite del contenedor */
+    }
+    .f1Image {
+        height: 99%; 
+        object-fit: cover; 
+    }
+    .buttonGo {
+        font-size: 1.5rem; 
+        width: 80%;
+        bottom: 1rem; 
+    }
 }

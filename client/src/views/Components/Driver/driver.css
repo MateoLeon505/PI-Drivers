@@ -11,7 +11,7 @@
 }
 .card{
     background-color: #ACB2B6;
-    border-radius: 12%;
+    border-radius: 1rem;
     margin: 2%;
     height: 62%;
     width: 62%;
@@ -53,14 +53,13 @@
 
 @media (max-width: 768px) {
     .driverContainer{
-        border-radius: 15%;
+        border-radius: 1rem;
         margin: 0.1em;
-        margin-bottom:0.2rem ;
         height: 105px;
         width: 105px;
     }
     .card{
-        border-radius: 20%;
+        border-radius: 0.1rem;
         margin: 1%;
         height: 70%;
         width: 70%;

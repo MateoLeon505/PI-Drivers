@@ -1,12 +1,11 @@
 /* Contenedor Formulario */
 .formContainer{
     height: 80%;
-    width:30%;
+    width:26%;
     margin: 0 auto;
-    border: 3px solid #1B2A27;
     margin-top: 2%;
-    padding: 20px;
-    border-radius: 20px;
+    padding: 1.4rem;
+    border-radius: 1.5rem;
     text-align: center;
     align-items: center;
     background-color: #ACB2B6;
@@ -23,7 +22,7 @@
     font-size: 45px;
     margin-top: 45px;
     margin-bottom: -25px;
-    color:#9f0602; /* Cambia el color del texto para que sea visible en la imagen */
+    color:#9f0602; 
 }
 /* Botón volver */
 .back{
@@ -201,4 +200,115 @@
 .create:hover{
     background-color: #2A403C;
     border: 2px solid #F0E5E3;
+}
+/* ---------------------------- */
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+
+    /* Contenedor Formulario */
+.formContainer{
+    height: 75%;
+    width:84%;
+    margin: 0 auto;
+    margin-top: 3rem;
+    padding: 1.4rem;
+}
+/* ---------------------------- */
+.title-CreateDriver{
+    font-size: 2rem;
+    margin-top: 2rem;
+    margin-bottom: -2rem;
+}
+/* ---------------------------- */
+/* Errores */
+.errors-container{
+    font-size: 0.6rem;
+    margin-top: -0.2rem;
+}
+.errors-message{
+    font-size: 0.7rem;
+    margin-top: -1.5rem;
+    margin-left: 6.8rem;
+}
+.errors-message2{
+    font-size: 0.7rem;
+    margin-top: -1.6rem;
+    margin-left: 15.8rem;
+}
+/* ---------------------------- */
+/* Div: Contenedor de propiedad e input */
+.box{
+    flex: 1;
+    margin-right: 0.1rem;
+}
+/* ---------------------------- */
+/* Input que recibe texto */
+.text-input{
+    font-size: 0.8rem;
+    width: 70%;
+    height: 1.4rem;
+    border-radius: 0.6rem;
+}
+.input-errors{
+    font-size: 0.7rem;
+    width: 70%;
+    height: 1.4rem;
+    border-radius: 0.6rem;
+}
+/* ---------------------------- */
+/* Nombre de las propiedades del Driver */
+.properties{
+    font-size: 0.7rem;
+    margin-bottom: 0.1rem;
+    margin-top: 0.5rem;
+}
+/* ---------------------------- */
+/* Input para recibir la descripción */
+.descript{
+    width: 90%;
+    height: 1.4rem;
+    border-radius: 0.6rem;
+}
+.errors-descript{
+    width: 90%;
+    height: 1.4rem;
+    border-radius: 0.6rem;
+}
+/* ---------------------------- */
+/* Título de TEAMS */
+.propertiesTeams{
+    font-size: 1rem;
+    display: block;
+    margin-top: 0.3rem;
+}
+/* Div: Contenedor de TODOS LOS TEAMS */
+.teams-container{
+    border-radius: 0.5rem;
+    padding: 0.2rem;
+    max-width: 30rem;
+    max-height: 7rem;
+}
+/* Div: Contenedor de cada Team */
+.teams-checkbox{
+    margin-bottom: 0.2rem; /* Espacio entre los elementos */
+}
+/* Nombre de cada Team */
+.tcLabel{
+    font-size: 0.7rem;
+}
+/* ---------------------------- */
+/* Botón de crear */
+.create{
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    border-radius: 1rem;
+    height: 2.5rem;
+}
+
 }

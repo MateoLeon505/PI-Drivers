@@ -1,9 +1,8 @@
 .pagination{
-    margin: 2%;
+    margin: 2% 43%;
     display: grid;
-    justify-content: center;
     grid-template-columns: repeat(30, 1fr); /* Crea 20 columnas con igual tamaño */
-    gap: 4px; /* Espacio entre los botones */
+    gap: 1rem; /* Espacio entre los botones */
 }
 .pagination-button{
     font-size: 13px;
@@ -68,10 +67,10 @@
 
 @media (max-width: 768px) {
     .pagination{
-        margin: 3%;
+        margin: 2% 25%;
         display: grid;
         grid-template-columns: repeat(5, 1fr); /* Crea 20 columnas con igual tamaño */
-        gap: 0.1rem; /* Espacio entre los botones */
+        gap: 1rem; /* Espacio entre los botones */
     }
     .pagination-button{
         font-size: 0.6rem;

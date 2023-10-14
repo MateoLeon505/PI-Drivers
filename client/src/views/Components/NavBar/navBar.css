@@ -175,7 +175,7 @@
 
 @media (max-width: 768px) {
     .navBar-container {
-        height:18%; 
+        height:4.3rem; 
         flex-direction: column; /* Cambiar la dirección a column para apilar elementos */
         position:absolute;
         display: flex;
@@ -211,7 +211,7 @@
     .navBar-formContainer {
         display: flex;
         position: absolute;
-        top: 4.5rem;
+        top: 5rem;
     }
     .select-container, .select-container2, .select-container3, .select-container4 {
         width: 3.5rem;
