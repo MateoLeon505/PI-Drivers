@@ -1,7 +1,8 @@
 .pagination{
     margin: 2%;
     display: grid;
-    grid-template-columns: repeat(27, 1fr); /* Crea 20 columnas con igual tamaño */
+    justify-content: center;
+    grid-template-columns: repeat(30, 1fr); /* Crea 20 columnas con igual tamaño */
     gap: 4px; /* Espacio entre los botones */
 }
 .pagination-button{
@@ -38,8 +39,16 @@
     background-color: #F0E5E3;
     color: #1B2A27; 
 }
+@font-face 
+{
+    font-family: 'iconsP';
+    src: url('../../../fonts/Font_iconsP.ttf') format('truetype'); 
+    font-weight: normal;
+    font-style: normal;
+}
 .prev-next{
     font-size: 13px;
+    font-family: 'iconsP';
     height: 30px;
     width: 20px;
     background-color: #2A403C;
@@ -59,7 +68,7 @@
 
 @media (max-width: 768px) {
     .pagination{
-        margin: 1%;
+        margin: 3%;
         display: grid;
         grid-template-columns: repeat(5, 1fr); /* Crea 20 columnas con igual tamaño */
         gap: 0.1rem; /* Espacio entre los botones */

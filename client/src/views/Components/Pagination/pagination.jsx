@@ -1,10 +1,31 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './pagination.css';
 
 const Pagination = ({ pagination, totalOfPages }) =>
 {
     const pages = [];
-    const [ pageSelected, setPageSelected ] = useState(null);
+    const [ pageSelected, setPageSelected ] = useState(1);
+    const [visiblePages, setVisiblePages] = useState([]);
+    //---------------
+    const calculateVisiblePages = () =>
+    {
+        let start = pageSelected - 1;
+        let end = start + 3;
+        if (start < 1) {
+          start = 1;
+          end = 4;
+        }
+        if (end > totalOfPages) {
+          end = totalOfPages + 1;
+          start = end - 3;
+        }
+        setVisiblePages(Array.from({ length: 3 }, (_, i) => start + i));
+    }
+    //-------
+    useEffect(() =>
+    {
+        calculateVisiblePages();
+    }, [pagination, totalOfPages]);
     //---------------
     for (let i = 1; i <= totalOfPages; i++) pages.push(i);
     //---------------
@@ -29,9 +50,9 @@ const Pagination = ({ pagination, totalOfPages }) =>
     //---------------
     return(
         <div className = "pagination">
-            <button className = 'prev-next' onClick = {handlePrevClick}>Prev</button>
+            <button className = 'prev-next' onClick = {handlePrevClick}>f</button>
             {
-                pages.map((page) => 
+                visiblePages.map((page) => 
                 (
                     <button
                         key = {page}
@@ -45,7 +66,7 @@ const Pagination = ({ pagination, totalOfPages }) =>
                     </button>
                 ))
             }
-            <button className = 'prev-next' onClick = {handleNextClick}>Next</button>
+            <button className = 'prev-next' onClick = {handleNextClick}>g</button>
         </div>
     );
 }

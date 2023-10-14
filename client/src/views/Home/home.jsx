@@ -17,7 +17,7 @@ const Home = () =>
     //---------------
     const [ currentPage, setCurrentPage ] = useState(1); // Núm de página
     const allDrivers = useSelector(state => state.drivers); // Lista de TODOS los Drivers
-    const driversOnPage = 9;
+    const driversOnPage = 12;
     const totalOfPages = allDrivers.length / driversOnPage; // Tot Drivers / Drivers x Pág
     //---------------
     const searchResults = useSelector(state => state.searchResults); // Resultados de búsqueda
