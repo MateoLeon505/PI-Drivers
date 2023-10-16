@@ -24,7 +24,7 @@
 }
 .back-buttonSearch{
     font-size: 0.9rem;
-    position: absolute; /* Posición fija */
+    position: absolute; 
     top: 5rem;
     left: 0.5rem;
     color: #F0E5E3;
