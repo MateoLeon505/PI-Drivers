@@ -48,102 +48,117 @@
     display: flex;
     align-items: center;
 }
+
+.filter-cont{
+    display: flex;
+    align-items: center; 
+    text-align: center; 
+    position: relative;
+}
+
 .filter-byTeam{
+    font-size: 0.7rem;
     position: absolute;
-    font-size: 11px;
-    top: 0;
-    margin-left: 3%;
+    top: -0.95rem;
+    left: 50%; 
+    transform: translateX(-50%); /* Corrige el centrado horizontal */
 }
 .select-container {
-    height: 25px;
-    width: 110px;
-    border-radius: 10px 0 0 10px; 
+    height: 1.5rem;
+    width: 7rem;
+    border-radius: 0.6rem 0 0 0.6rem; 
     background-color: #ACB2B6;
-    border: 1px solid #1B2A27;
-    font-size: 13px;
+    border: 0.1rem solid #1B2A27;
+    font-size: 0.74rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #1B2A27;
 }
 .filter-byOrigin{
-    position:absolute;
-    font-size: 11px;
-    top: 0;
-    margin-left: 9%;
+    font-size: 0.7rem;
+    position: absolute;
+    top: -0.95rem;
+    left: 50%; 
+    transform: translateX(-50%); /* Corrige el centrado horizontal */
 }
 .select-container2 {
-    height: 25px;
-    width: 60px;
-    border-radius: 0 0 0 0; 
+    height: 1.5rem;
+    width: 4.5rem;
+    border-radius: 0 0.4rem 0.4rem 0; 
     background-color: #ACB2B6;
-    border: 1px solid #1B2A27;
-    font-size: 13px;
+    border: 0.1rem solid #1B2A27;
+    font-size: 0.74rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #1B2A27;
 }
 .filter-button{
     background-color: #1B2A27;
-    height: 30px;
-    width: 40px;
+    height: 1.8rem;
+    width: 2.5rem;
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
     display: flex;
     align-items: center; /* Centra verticalmente el contenido */
     justify-content: center; /* Centra horizontalmente el contenido */
-    border: 1px solid #1B2A27;
 }
 .filter-button:hover{
-    border: 1px solid #F0E5E3;
-
+    border: 0.1rem solid #F0E5E3;
 }
 .filter-symbol{
     font-family: 'heydings_icons';
-    font-size: 20px;
+    font-size: 1.3rem;
+    margin-top: 0.3rem;
     color: #F0E5E3;
     transform: rotate(180deg); /* Gira el elemento 180 grados */
     display: inline-block; /* Asegura que la rotación no afecte a otros elementos en línea */
 }
 .sort{
+    font-size: 0.7rem;
     position: absolute;
-    font-size: 11px;
-    top: 0;
-    margin-left: 18%;
+    top: -0.95rem;
+    left: 50%; 
+    transform: translateX(-50%); /* Corrige el centrado horizontal */
 }
 .select-container3{
-    height: 25px;
-    width: 80px;
-    border-radius: 0 0 0 0; 
+    height: 1.5rem;
+    width: 5.3rem;
+    border-radius: 0.4rem 0 0  0.4rem; 
     background-color: #ACB2B6;
-    border: 1px solid #1B2A27;
-    font-size: 11px;
+    border: 0.1rem solid #1B2A27;
+    font-size: 0.74rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #1B2A27;
 }
 .year{
-    position:absolute;
-    font-size: 12px;
-    top: 0;
-    margin-left: 23%;
+    font-size: 0.7rem;
+    position: absolute;
+    top: -0.95rem;
+    left: 50%; 
+    transform: translateX(-50%); /* Corrige el centrado horizontal */
 }
 .select-container4{
-    height: 25px;
-    width: 50px;
-    border-radius: 0 5px 5px 0; 
+    height: 1.5rem;
+    width: 3.5rem;
+    border-radius: 0 0.4rem 0.4rem 0; 
     background-color: #ACB2B6;
-    border: 1px solid #1B2A27;
-    font-size: 12px;
+    border: 0.1rem solid #1B2A27;
+    font-size: 0.74rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #1B2A27;
 }
 .clear-button{
     background-color: #1B2A27;
-    height: 30px;
-    width: 20px;
+    height: 1.8rem;
+    width: 2.5rem;
     display: flex;
     align-items: center; /* Centra verticalmente el contenido */
     justify-content: center; /* Centra horizontalmente el contenido */
-    border: 1px solid #1B2A27;
     border-radius: 10px;
-    font-size: 15px;
+    font-size: 0.7rem;
+    margin-left: 0.1rem;
 }
-
+.clear-button:hover{
+    border: 1px solid #F0E5E3;
+}
 .icons-container{
     display: flex;
     gap: 8rem;
@@ -213,22 +228,39 @@
         position: absolute;
         top: 5rem;
     }
-    .select-container, .select-container2, .select-container3, .select-container4 {
-        width: 3.5rem;
-        font-size: 0.68rem;
+    .select-container {
+        width: 5.4rem;
+        font-size: 0.66rem;
+    }
+    .select-container2 {
+        width: 3.9rem;
+        font-size: 0.66rem;
+    }
+    .select-container3 {
+        width: 4.8rem;
+        font-size: 0.65rem;
+    }
+    .select-container4 {
+        width: 3rem;
+        font-size: 0.66rem;
     }
     .filter-byTeam, .filter-byOrigin, .sort, .year {
-        display: none; 
+        color: #1B2A27; 
     }
     .clear-button {
         width: 1rem;
         height: 1.6rem;
         font-size: 0.6rem; 
+        border-radius: 0.4rem;
+        margin-left: -0.1rem;
     }
     .filter-button{
         width: 1rem;
         height: 1.6rem;
         font-size: 0.6rem; 
+        border-radius: 0.4rem;
+        margin-left: -0.1rem;
+        margin-right: -0.1rem;
     }
     .filter-symbol{
         font-size: 0.8rem;

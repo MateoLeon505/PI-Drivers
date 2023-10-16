@@ -47,9 +47,9 @@
 .buttonGo{
     text-align: center;
     font-family: fantasy;
-    font-size: 30px;
-    height: 70px;
-    width: 130px;
+    font-size: 1.5rem;
+    height: 4rem;
+    width: 10.3rem;
     position: absolute; /* Posición absoluta */
     bottom: 50px; /* Ajusta la distancia desde la parte inferior */
     z-index: 2; /* Asegura que el botón esté por encima de la imagen */

@@ -1,3 +1,16 @@
+.loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageLoading{
+    display: flex;
+    position: absolute;
+    right: 35%;
+    height: 70vh;
+}
+
 
 .title-drivers{
     font-family: 'Raceline';
@@ -24,6 +37,16 @@
     border: 0.1rem solid #1B2A27;
 }
 @media (max-width: 768px) {
+    .loading{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .imageLoading{
+        left: -1rem;
+        height: 50vh;
+    }
     .title-drivers{
         font-size: 3rem;
         position: absolute; 

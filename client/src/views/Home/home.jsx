@@ -99,7 +99,12 @@ const Home = () =>
         <div>
             {
                 isLoading
-                ? <img src = {loading} alt = "Loading" />
+                ? 
+                    (
+                        <div className = 'loading'>
+                            <img src = {loading} alt = "Loading" className = 'imageLoading' />
+                        </div>
+                    )
                 :
                     (
                         searchResults.length > 0

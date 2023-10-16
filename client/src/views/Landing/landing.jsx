@@ -18,7 +18,7 @@ const Landing = () =>
             <div className = 'imageContainer'>
                 <img src = {landingImage} alt = "LandingImage" className = 'f1Image' />
             </div>
-            <button className = 'buttonGo' onClick = {handleToHome}>GO</button>
+            <button className = 'buttonGo' onClick = {handleToHome}>Lets GO!</button>
         </div>
     );
 }
