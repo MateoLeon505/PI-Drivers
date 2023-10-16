@@ -49,8 +49,8 @@ const Home = () =>
     // X Orden Alfabético
     const sortedSelected = useSelector(state => state.sortedSelected); // Sorted seleccionado
     //---
-    // X Año de Nacimiento
-    const filterByYear = useSelector(state => state.filterByYear);
+    // X Orden de Nacimiento
+    const orderAgeSelected = useSelector(state => state.orderAgeSelected);
     //-------------------
     // Filtrado combinado
     let filteredDrivers = filterByTeam.length > 0 ? filterByTeam : allDrivers;
@@ -60,11 +60,6 @@ const Home = () =>
         filteredDrivers = filteredDrivers.filter((driverByTeam) => 
         filterByOrigin.some((driverByOrigin) => driverByOrigin.id === driverByTeam.id));
     }
-      
-    if (filterByYear.length > 0) 
-    {
-        filteredDrivers = filterByYear.filter((driverByYear) => filteredDrivers.some((driver) => driver.id === driverByYear.id));
-    }
 
     if (sortedSelected === 'asc')
     {
@@ -73,6 +68,19 @@ const Home = () =>
     else if (sortedSelected === 'desc') 
     {
         filteredDrivers.sort((a, b) => b.forename.localeCompare(a.forename));
+    }
+        // if (filterByYear.length > 0) 
+    // {
+    //     filteredDrivers = filterByYear.filter((driverByYear) => filteredDrivers.some((driver) => driver.id === driverByYear.id));
+    // }
+
+    if (orderAgeSelected === 'young') 
+    {    
+        filteredDrivers.sort((a, b) => b.dob.split('-')[0].localeCompare(a.dob.split('-')[0]));
+    }
+    if (orderAgeSelected === 'old') 
+    {    
+        filteredDrivers.sort((a, b) => a.dob.split('-')[0].localeCompare(b.dob.split('-')[0]));
     }
 
     const driversFiltered = Math.ceil(filteredDrivers.length / driversOnPage); // Drivers x pag  

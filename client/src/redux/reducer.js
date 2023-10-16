@@ -2,7 +2,7 @@
 //----------------------------------------------
 // Trae 'action-types'
 import { GET_DRIVERS, GET_DRIVER_BY_NAME, CLEAR_SEARCH_RESULTS, GET_DRIVER_DETAIL, 
-    GET_TEAMS, POST_DRIVER, FILTER_BY_TEAM, FILTER_BY_ORIGIN, SORT, FILTER_BY_YEAR } from './action-types';
+    GET_TEAMS, POST_DRIVER, FILTER_BY_TEAM, FILTER_BY_ORIGIN, SORT, FILTER_BY_AGE } from './action-types';
 //----------------------------------------------
 // Define estado inicial (global)
 const initialState = 
@@ -16,8 +16,8 @@ const initialState =
     filterOrigin: [],
     originSelected: '',
     sortedSelected: '',
-    filterByYear: [],
-    yearSelected: '',
+    orderByAge: [],
+    orderAgeSelected: '',
 };
 //---------------------------------------------- 
 // Creación del reducer
@@ -103,25 +103,14 @@ const reducer = (state = initialState, action) =>
                 sortedSelected: action.payload
             }
         //----------------------
-        case FILTER_BY_YEAR: 
-        let filterYear = [];
+        case FILTER_BY_AGE: 
+        let orderByAge = [];
 
-        if (action.payload === 'all')
-        {
-            filterYear = state.drivers;
-        }
-        state.drivers.map((driver) =>
-        {
-            if (driver.dob.split('-')[0] === action.payload) 
-            {
-                filterYear.push(driver);    
-            } 
-        })
-        console.log(action.payload);
+        if (action.payload === 'default') orderByAge = state.drivers;
+
         return {
             ...state,
-            filterByYear: filterYear,
-            yearSelected: action.payload
+            orderAgeSelected: action.payload
         }
         //----------------------
         // Por defecto

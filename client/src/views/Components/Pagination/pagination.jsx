@@ -3,17 +3,18 @@ import './pagination.css';
 
 const Pagination = ({ pagination, totalOfPages }) =>
 {
-    const pages = [];
+    //const pages = [];
     const [ pageSelected, setPageSelected ] = useState(1);
     const [visiblePages, setVisiblePages] = useState([]);
     //---------------
     const calculateVisiblePages = () =>
     {
         let start = pageSelected - 1;
-        let end = start + 3;
+
+        let end = start + 2;
         if (start < 1) {
           start = 1;
-          end = 4;
+          end = 3;
         }
         if (end > totalOfPages) {
           end = totalOfPages + 1;
@@ -27,7 +28,7 @@ const Pagination = ({ pagination, totalOfPages }) =>
         calculateVisiblePages();
     }, [pagination, totalOfPages]);
     //---------------
-    for (let i = 1; i <= totalOfPages; i++) pages.push(i);
+    //for (let i = 1; i <= totalOfPages; i++) pages.push(i);
     //---------------
     const handlePrevClick = () => 
     {

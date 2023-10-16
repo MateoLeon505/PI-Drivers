@@ -3,7 +3,7 @@
 // Importación modulos y librerías
 import axios from "axios";
 import { GET_DRIVERS, GET_DRIVER_BY_NAME, GET_DRIVER_DETAIL, GET_TEAMS, 
-    POST_DRIVER, FILTER_BY_TEAM, FILTER_BY_ORIGIN, SORT, FILTER_BY_YEAR } from './action-types';
+    POST_DRIVER, FILTER_BY_TEAM, FILTER_BY_ORIGIN, SORT, FILTER_BY_AGE } from './action-types';
 //----------------------------------------------
 // Actions:
 const getDrivers = () =>
@@ -75,13 +75,13 @@ const sort = (sorter) =>
     }
 }
 //-----------------
-const filterByYear = (yearToFilter) =>
+const orderAge = (sortByAge) =>
 {
     return async function (dispatch)
     {
-        dispatch({ type: FILTER_BY_YEAR, payload: yearToFilter})
+        dispatch({ type: FILTER_BY_AGE, payload: sortByAge})
     }
 }
 //----------------------------------------------
 // Exportación actions
-export { getDrivers, getDriverByName, getDriverById, getTeams, postDriver, filterByTeam, filterByOrigin, sort, filterByYear };
+export { getDrivers, getDriverByName, getDriverById, getTeams, postDriver, filterByTeam, filterByOrigin, sort, orderAge };
