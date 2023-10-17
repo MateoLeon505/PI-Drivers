@@ -2,7 +2,6 @@
 //----------------------------------------------
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 import { getDriverByName, getDrivers } from '../../../redux/actions';
 import { CLEAR_SEARCH_RESULTS } from '../../../redux/action-types';
 import './searchBar.css';
@@ -11,6 +10,7 @@ const SearchBar = () =>
 {
     const dispatch = useDispatch(); // Despacha acciones
     const [ name, setName ] = useState(''); // Estado que guarda el nombre
+    const [suggestions, setSuggestions] = useState([]);
     //---------------
     // Actualiza el estado con el nombre escrito
     const changeHandler = (event) =>
