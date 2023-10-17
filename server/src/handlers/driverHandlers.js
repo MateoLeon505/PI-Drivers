@@ -1,6 +1,5 @@
-// Handlers: Este módulo tiene la responsabilidad de manejar las solicitudes y rutas
+// Handlers: Este módulo tiene la responsabilidad de manejar las solicitudes
 //-------------------------------------
-// Importación de controllers
 const { getAllDrivers } = require('../controllers/getAllDrivers');
 const { getDriverByName } = require('../controllers/getDriverByName');
 const { getDriverById } = require('../controllers/getDriverById');
@@ -8,8 +7,6 @@ const { getTeams } = require('../controllers/getTeams');
 const { createDriver } = require('../controllers/createDriver');
 //-------------------------------------
 // GET | Traer: TODOS o por name
-
-
 const getDriversHandler = async (req, res) =>
 {
     const { name } = req.query;
@@ -23,11 +20,6 @@ const getDriversHandler = async (req, res) =>
         res.status(404).send(`Error al buscar driver: ${error.message}`);    
     }
 }
-
-
-
-
-
 //-------------------------------------
 // GET | Traer: driver por ID 
 const getDriverByIdHandler = async (req, res) =>

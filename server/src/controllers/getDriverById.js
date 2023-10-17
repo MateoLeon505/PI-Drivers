@@ -13,7 +13,7 @@ const getDriverById = async (id, source) =>
             id: apiDriverById.id,
             forename: apiDriverById.name.forename,
             surname: apiDriverById.name.surname,
-            description: apiDriverById.description,
+            description: apiDriverById.description || `This talented racing driver has showcased their prowess on the track on numerous occasions. With an impressive career in the world of motorsport, they have been a prominent figure in various competitions and have won the hearts of fans with their dedication and skills on the racetrack.`,
             image: apiDriverById.image.url|| "https://www.infobae.com/new-resizer/pSFNj731ixlR1smI8lNO00wpdis=/arc-anglerfish-arc2-prod-infobae/public/YOCWF4P2SVFE5GO2NLCVAAJZDU.jpg" ||"https://files.antena2.com/antena2/public/2021-09/000_app2002091461222_1_0.jpg?VersionId=2qQF31Nt4H6Q3.6vUjT1hd2c.zi0eFm2",
             nationality: apiDriverById.nationality,
             dob: apiDriverById.dob,

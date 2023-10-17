@@ -10,9 +10,9 @@ module.exports = (sequelize) =>
   sequelize.define('Driver', 
   {
     id: {
-      type:DataTypes.UUID,  // Identificador único | Generado automáticamente
-      defaultValue:DataTypes.UUIDV4, // Agrega un uuid aleatorio
-      primaryKey: true, // Cada valor será unico | Nungún pokemon tendrá el mismo id
+      type:DataTypes.UUID,  
+      defaultValue:DataTypes.UUIDV4,
+      primaryKey: true, 
     },
     forename: {
       type: DataTypes.STRING,
@@ -37,6 +37,6 @@ module.exports = (sequelize) =>
     dob:{
       type: DataTypes.STRING,
       allowNull: false,
-    }
+    },
   },{timestamps:false});
 }
