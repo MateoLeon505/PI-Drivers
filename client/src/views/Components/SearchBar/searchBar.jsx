@@ -10,7 +10,6 @@ const SearchBar = () =>
 {
     const dispatch = useDispatch(); // Despacha acciones
     const [ name, setName ] = useState(''); // Estado que guarda el nombre
-    const [suggestions, setSuggestions] = useState([]);
     //---------------
     // Actualiza el estado con el nombre escrito
     const changeHandler = (event) =>
