@@ -27,6 +27,7 @@
 /* Botón volver */
 .back{
     margin-left: -22px; 
+    font-family: 'icons';
     margin-top: -22px;
     display: flex;
     position: absolute;

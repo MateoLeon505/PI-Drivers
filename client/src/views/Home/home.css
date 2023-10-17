@@ -36,6 +36,33 @@
     background-color: #2A403C;
     border: 0.1rem solid #1B2A27;
 }
+@font-face 
+{
+    font-family: 'icons_socialmedia'; /* Nombre de la fuente */
+    src: url('../../fonts/font_socialMedia.ttf') format('truetype'); /* Ruta a tu archivo de fuente */
+    font-weight: normal;
+    font-style: normal;
+}
+.icons-media{
+    font-family: 'icons_socialmedia';
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+    color: #F0E5E3;
+    margin-right: 0.5rem;
+}
+.icons-media:hover{
+    font-family: 'icons_socialmedia';
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+    color: #F0E5E3;
+    margin-right: 0.5rem;
+}
+.footer{
+    background-color: #2A403C; 
+    padding: 1rem; 
+    text-align: center; 
+}
+
 @media (max-width: 768px) {
     .loading{
         display: flex;
@@ -58,6 +85,16 @@
         position: absolute; 
         top: 8rem;
         border-radius: 1rem;
+    }
+
+    .icons-media{
+        font-size: 1.5rem;
+    }
+    .footer{
+        width: 91vw;
+    }
+    .text-footer{
+        font-size: 0.9rem;
     }
 
 }

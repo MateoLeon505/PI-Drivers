@@ -21,28 +21,42 @@ const Detail = () =>
     }, [dispatch, id]);
     console.log(driverDetail);
     //---------------------------------
-    const handleBack = () =>
-    {
-        navigate('/home');
-    }
-    //---------------------------------
     return(
         <div className = 'firstContainer'>
-            <button onClick = {handleBack} className = 'back-button'>x</button>
+            
             <div className = 'detailContainer'>
-                <div className = 'title-container'>
-                    <h1 className = 'name-detail'>{driverDetail.forename} {driverDetail.surname}</h1>
-                </div>
+            <button className = 'back-button' onClick = {() => navigate('/home')}>x</button>
                 <div className = 'imgContainer'>
                     <img src = {driverDetail.image} alt = {driverDetail.forename} className = 'img'/>
                 </div>
-                <div className = 'descriptionContainer'>
-                    <span className = 'props'>Id: <span className = 'name-props'>{driverDetail.id}</span> </span>
-                    <span className = 'props'>Nationality: <span className = 'name-props'>{driverDetail.nationality}</span> </span>
-                    <span className = 'props'>DOB: <span className = 'name-props'>{driverDetail.dob}</span> </span>
-                    <span className = 'props'>Teams: <span className = 'name-props'>{driverDetail.teams}</span> </span>
-                    <span className = 'props'>Description: <span className = 'name-props'>{driverDetail.description}</span> </span>
+
+                <div className = 'props-container'>
+                <h1 className = 'name-detail'>{`${driverDetail.forename} ${driverDetail.surname}`}</h1>
+                    <div className = 'prop'>
+                        <span className = 'prop-label'>Id: </span>
+                        <span className = 'props-content'>{driverDetail.id}</span>
+                    </div>
+                    <div className = 'prop'>
+                        <span className = 'prop-label'>Nationality: </span>
+                        <span className = 'props-content'>{driverDetail.nationality}</span>
+                    </div>
+                    <div className = 'prop'>
+                        <span className = 'prop-label'>DOB: </span>
+                        <span className = 'props-content'>{driverDetail.dob}</span>
+                    </div>
+                    <div className = 'prop'>
+                        <span className = 'prop-label'>Teams: </span>
+                        <span className = 'props-content'>{driverDetail.teams}</span>
+                    </div>
                 </div>
+
+                <div className = 'descriptionContainer'>
+                    <div className = 'prop'>
+                        <span className = 'description-label'>Description: </span>
+                        <span className = 'description-content'>{driverDetail.description}</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     );

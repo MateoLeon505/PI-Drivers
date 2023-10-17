@@ -69,10 +69,6 @@ const Home = () =>
     {
         filteredDrivers.sort((a, b) => b.forename.localeCompare(a.forename));
     }
-        // if (filterByYear.length > 0) 
-    // {
-    //     filteredDrivers = filterByYear.filter((driverByYear) => filteredDrivers.some((driver) => driver.id === driverByYear.id));
-    // }
 
     if (orderAgeSelected === 'young') 
     {    
@@ -128,14 +124,24 @@ const Home = () =>
                                 filteredDrivers.length > 0 
                                 ?
                                     (                            
-                                        <div>
-                                            <h1 className = 'title-drivers'>DRIVERS</h1>
-                                            <Drivers collectionOfDrivers = {filterCollection}/>
-                                            {
-                                                filteredDrivers.length > driversOnPage && 
-                                                    <Pagination totalOfPages = {driversFiltered} pagination = {changePage} ></Pagination> 
-                                            }
-                                            
+                                        <div className = 'page-container'>
+                                            <div>
+                                                <h1 className = 'title-drivers'>DRIVERS</h1>
+                                                <Drivers collectionOfDrivers = {filterCollection}/>
+                                                {
+                                                    filteredDrivers.length > driversOnPage && 
+                                                        <Pagination totalOfPages = {driversFiltered} pagination = {changePage} ></Pagination> 
+                                                }
+                                            </div>
+
+                                            <div className ='footer'>
+                                                <span className = 'text-footer'>&copy; 2023 - Developed by Mateo León</span>
+                                                <br />
+                                                <span className = 'text-footer'>Drivers App</span>
+                                                <br />
+                                                <a className='icons-media' href="https://www.linkedin.com/in/mateo-le%C3%B3n-097b57268/">i</a>
+                                                <a className='icons-media' href="https://github.com/MateoLeon505/">V</a>
+                                            </div>
                                         </div>
                                     )
                                 :

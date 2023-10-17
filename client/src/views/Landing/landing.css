@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 95%; 
+    height: auto; 
     width: 75%;
     position: absolute;
     top: 50%; /* Centra verticalmente en relación con la parte superior de la página */

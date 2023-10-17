@@ -137,7 +137,7 @@ const Form = () =>
     return(
         <div className = 'formContainer'>
             {/* -------------------- Botón Salir -------------------- */}
-            <button onClick = {backHandler} className = 'back' >X</button>
+            <button onClick = {backHandler} className = 'back' >x</button>
             <form name = 'createDriver'>
                     {/* -------------------- TÍTULO -------------------- */}
                 <div className = 'header'>
