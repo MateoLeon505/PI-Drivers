@@ -1,7 +1,7 @@
 .driversContainer{
     display: grid; /* cuadrícula */
     grid-template-columns: repeat(auto-fill, minmax(670px, 1fr)); 
-    gap: 51%;
+    gap: 50%;
     max-width: 100%;
     margin-top: 10%;
 }

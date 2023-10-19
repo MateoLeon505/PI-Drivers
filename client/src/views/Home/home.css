@@ -61,6 +61,13 @@
     background-color: #2A403C; 
     padding: 1rem; 
     text-align: center; 
+    position: relative;
+    width: 100%;
+    bottom: 0%;
+    height: 18%;
+    width: 100%;
+    z-index: 100; /* Asegúrate de que esté encima de otros elementos */
+    box-sizing: border-box; /* Asegura que el ancho y alto incluyan el relleno y el borde */
 }
 
 @media (max-width: 768px) {

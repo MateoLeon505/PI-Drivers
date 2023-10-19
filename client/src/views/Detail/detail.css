@@ -36,8 +36,8 @@
     font-family: 'icons';
     font-size: 0.9em;
     position: absolute; /* Posición absoluta para superponerlo */
-    top: 7.2rem; /* Ajusta la posición superior según tus necesidades */
-    left: 1.9rem;
+    top: 16%;
+    left: 2%;
 }
 
 .back-button:hover{
@@ -123,8 +123,8 @@
 
     .back-button{
         font-size: 0.9em;
-        top: 5.8rem; 
-        left: -0rem;
+        color: #1B2A27;
+        left: -0.5%
     }
     .imgContainer {
         width: 100%; 
