@@ -8,6 +8,8 @@
     width: 300px;
     display: flex;
     flex-direction: column; /* Establece la dirección de los elementos hijos */
+    position: relative;
+
 }
 .card{
     background-color: #ACB2B6;
@@ -18,7 +20,7 @@
     background-size: cover; /* Escala la imagen de fondo para llenar el contenedor */
     background-position: center; /* Centra la imagen de fondo */
     overflow: hidden; /* Oculta el contenido fuera del límite del contenedor */
-    position: relative; /* Permite posicionar elementos hijos relativamente */
+    position: relative; 
 }
 .imageContainer{
     height: 100%; /* Ocupa todo el espacio vertical disponible en la tarjeta */
@@ -34,6 +36,7 @@
     font-size: 1.8rem;
     font-family: 'Raceline';
     color: #2A403C;
+    word-wrap: break-word;
 }
 
 
@@ -46,8 +49,9 @@
     margin-left: 3%;
     margin-right: 3%;
     margin-bottom: 1%;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: #F0E5E3;
+    word-wrap: break-word;
 }
 
 

@@ -100,7 +100,7 @@ const Home = () =>
     }
     //------------------------------------------
     return(
-        <div>
+        <div >
             {
                 isLoading
                 ? 
@@ -116,7 +116,7 @@ const Home = () =>
                             (
                                 <div>
                                     <button className = 'back-buttonSearch' onClick = {handleBack} >Back</button>
-                                    <Drivers collectionOfDrivers = {searchResults}/>
+                                    <Drivers collectionOfDrivers = {searchResults} />
                                 </div>
                             )
                         : 

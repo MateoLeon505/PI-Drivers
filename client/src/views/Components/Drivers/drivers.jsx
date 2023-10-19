@@ -7,8 +7,7 @@ import './drivers.css';
 const Drivers = ({ collectionOfDrivers }) =>
 {
     return(
-        <div className = 'driversContainer'>
-            <div className = 'driverWrapper'>
+            <div className = {collectionOfDrivers.length < 5 ? 'driverWrapper2' : 'driverWrapper'}>
                 {
                     collectionOfDrivers.map((driver) =>
                     (
@@ -28,7 +27,6 @@ const Drivers = ({ collectionOfDrivers }) =>
                     ))
                 }
             </div>
-        </div>
     );
 }
 //----------------------------------------------

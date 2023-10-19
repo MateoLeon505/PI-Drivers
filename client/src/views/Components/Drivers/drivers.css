@@ -1,24 +1,58 @@
-.driversContainer{
-    display: grid; /* cuadrícula */
-    grid-template-columns: repeat(auto-fill, minmax(670px, 1fr)); 
-    justify-content: center; /* Centra los elementos horizontalmente en cada fila */
-    gap: 50%;
-    max-width: 100%;
-    margin-top: 10%;
-}
 
 .driverWrapper {
-    display: flex;
+    width: 100%;
+    display:flex;
     flex-wrap: wrap; /* Envuelve los elementos en varias filas */
     justify-content: center; /* Centra los elementos horizontalmente en cada fila */
+    gap: 0.2rem;
+    margin-top: 10%;
+    margin-bottom: 8%;
+    flex: 1;
+    position:relative;
+    top: 50;
+    box-sizing: border-box; /* Asegura que el ancho y alto incluyan el relleno y el borde */
+}
+.driverWrapper2{
+    width: 95rem;
+    display:flex;
+    flex-wrap: wrap; /* Envuelve los elementos en varias filas */
+    justify-content: center; /* Centra los elementos horizontalmente en cada fila */
+    gap: 0.2rem;
+    margin-top: 10%;
+    margin-bottom: 9%;
+    flex: 1;
+    position:relative;
+    top: 50;
+    box-sizing: border-box; /* Asegura que el ancho y alto incluyan el relleno y el borde */
 }
 
 
 @media (max-width: 768px) {
-    .driversContainer{
-        grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); 
-        max-width: 50vh;
-        margin-top: 10rem;
+    .driverWrapper{
+        width: 100%;
+        display:flex;
+        flex-wrap: wrap; /* Envuelve los elementos en varias filas */
+        justify-content: center; /* Centra los elementos horizontalmente en cada fila */
+        gap: 0.2rem;
+        margin-top: 50%;
+        margin-bottom: 8%;
+        flex: 1;
+        position:relative;
+        top: 50;
+        box-sizing: border-box; /* Asegura que el ancho y alto incluyan el relleno y el borde */
+    }
+    .driverWrapper2{
+        width: 21.2rem;
+        display:flex;
+        flex-wrap: wrap; /* Envuelve los elementos en varias filas */
+        justify-content: center; /* Centra los elementos horizontalmente en cada fila */
+        gap: 0.2rem;
+        margin-top: 50%;
+        margin-bottom: 65%;
+        flex: 1;
+        position:relative;
+        top: 50;
+        box-sizing: border-box; /* Asegura que el ancho y alto incluyan el relleno y el borde */
     }
 
 }

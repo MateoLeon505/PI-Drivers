@@ -10,17 +10,17 @@ const Pagination = ({ pagination, totalOfPages }) =>
     const calculateVisiblePages = () =>
     {
         let start = pageSelected - 1;
-
         let end = start + 2;
+      
         if (start < 1) {
           start = 1;
-          end = 3;
+          end = Math.min(3, totalOfPages); // Limita 'end' al número total de páginas
         }
         if (end > totalOfPages) {
-          end = totalOfPages + 1;
-          start = end - 3;
+          end = totalOfPages;
+          start = Math.max(1, end - 2); // Limita 'start' al número 1 o más
         }
-        setVisiblePages(Array.from({ length: 3 }, (_, i) => start + i));
+        setVisiblePages(Array.from({ length: end - start + 1 }, (_, i) => start + i));
     }
     //-------
     useEffect(() =>
