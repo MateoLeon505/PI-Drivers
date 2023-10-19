@@ -11,11 +11,7 @@ const SearchBar = () =>
     const dispatch = useDispatch(); // Despacha acciones
     const [ name, setName ] = useState(''); // Estado que guarda el nombre
     //---------------
-    // Actualiza el estado con el nombre escrito
-    const changeHandler = (event) =>
-    {
-        setName(event.target.value); 
-    }
+
     //---------------
     const searchDriver = (event) =>
     {
